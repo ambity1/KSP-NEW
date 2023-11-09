@@ -1,0 +1,24 @@
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/vars/colors';
+
+.copyright {
+	padding-top: 5.625em;
+	padding-bottom: 2.5em;
+	background-color: colors.$black;
+
+	@include breakpoints.tablet_small {
+		display: none;
+	}
+
+	&ContentWrapper {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	@include breakpoints.desktop {
+		padding-bottom: 0;
+	}
+	a:hover {
+		opacity: 0.8;
+	}
+}
