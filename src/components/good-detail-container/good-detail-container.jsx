@@ -1,13 +1,15 @@
 import useMatchMedia from '@hooks/use-match-media.jsx'
 import { memo } from 'react'
+import { useParams } from 'react-router-dom'
 
 import OtherGoodsSlider from '@components/other-goods-slider/index.js'
 
 import GeneralDetail from './general-detail'
 import Tabs from './tabs'
 
-const GoodDetail = () => {
+function GoodDetailContainer() {
 	const { isDesktop } = useMatchMedia()
+	const { id } = useParams()
 
 	return (
 		<>
@@ -18,4 +20,4 @@ const GoodDetail = () => {
 	)
 }
 
-export default memo(GoodDetail)
+export default memo(GoodDetailContainer)

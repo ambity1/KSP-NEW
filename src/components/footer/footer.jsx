@@ -6,11 +6,8 @@ import Copyright from './copyright'
 import cl from './footer.module.scss'
 import Navigation from './navigation'
 
-function Footer() {
-	const footerContentWrapperClassNames = cn([
-		cl.footerContentWrapper,
-		'container'
-	])
+const Footer = () => {
+	const footerContentWrapperClassNames = cn([cl.footerContentWrapper, 'container'])
 	return (
 		<>
 			<footer className={cl.footer}>
