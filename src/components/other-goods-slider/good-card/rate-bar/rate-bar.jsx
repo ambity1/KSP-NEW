@@ -1,4 +1,4 @@
-import useMatchMedia from '@hooks/use-match-media.jsx'
+import useMatchMedia from '@hooks/use-match-media.js'
 import PropTypes from 'prop-types'
 import { memo } from 'react'
 
@@ -15,15 +15,10 @@ const RateBar = ({ rate, hideScore = true }) => {
 				{Array(isMobile ? 1 : 5)
 					.fill(true)
 					.map((_, index) => (
-						<li
-							key={index}
-							className={starIsActive(index) ? cl.active : cl.common}
-						/>
+						<li key={index} className={starIsActive(index) ? cl.active : cl.common} />
 					))}
 			</ul>
-			{!hideScore && (
-				<span className={cl.score}>{rate.split('.').join(',')}</span>
-			)}
+			{!hideScore && <span className={cl.score}>{rate.split('.').join(',')}</span>}
 		</div>
 	)
 }

@@ -5,7 +5,7 @@ import cl from './cart-button.module.scss'
 
 const CartButton = () => {
 	return (
-		<div className={cl.cartButtonWrapper}>
+		<div className={cl.wrapper}>
 			<Link className={cl.cartButton} to="/">
 				<span className={cl.counterWrapper}>
 					<span className={cl.counter}>5</span>

@@ -1,1 +1,1 @@
-export { default } from './good-detail.jsx'
+export { default } from './good-detail-container.jsx'

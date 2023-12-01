@@ -1,5 +1,5 @@
 import search from '@assets/icons/search.svg'
-import useMatchMedia from '@hooks/use-match-media.jsx'
+import useMatchMedia from '@hooks/use-match-media.js'
 import { memo } from 'react'
 
 import Button from '@ui/button'

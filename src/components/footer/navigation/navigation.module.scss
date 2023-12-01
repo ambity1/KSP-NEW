@@ -3,31 +3,30 @@
 @use '@assets/styles/mixins/fontsFamilies';
 
 .list {
-	display: flex;
-	flex-direction: column;
-	gap: 0.625em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625em;
 
-	.title {
-		@include fontsStyles.TextLG;
-		@include fontsFamilies.FontFamilyInterBold;
+  .title {
+    @include fontsStyles.TextLG;
+    @include fontsFamilies.FontFamilyInterBold;
 
-		@include breakpoints.desktop {
-			@include fontsStyles.TextMD;
-		}
-		@include breakpoints.tablet_small {
-			@include fontsStyles.TextXS;
-		}
-	}
+    @include breakpoints.desktop {
+      @include fontsStyles.TextMD;
+    }
+    @include breakpoints.tablet_small {
+      @include fontsStyles.TextXS;
+    }
+  }
 
-	.item {
-		@include fontsStyles.TextMD;
+  .item {
+    @include fontsStyles.TextMD;
+    @include breakpoints.desktop {
+      @include fontsStyles.TextXS;
+    }
+  }
 
-		@include breakpoints.desktop {
-			@include fontsStyles.TextXS;
-		}
-	}
-
-	a.item:hover {
-		opacity: 0.8;
-	}
+  a.item:hover {
+    opacity: 0.8;
+  }
 }

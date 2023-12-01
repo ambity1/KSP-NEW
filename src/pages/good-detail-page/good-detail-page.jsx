@@ -1,12 +1,12 @@
 import MainLayout from '@layouts/main'
 import { memo } from 'react'
 
-import GoodDetail from '@components/good-detail'
+import GoodDetailContainer from '@components/good-detail-container'
 
-const GoodDetailPage = () => {
+function GoodDetailPage() {
 	return (
 		<MainLayout>
-			<GoodDetail />
+			<GoodDetailContainer />
 		</MainLayout>
 	)
 }

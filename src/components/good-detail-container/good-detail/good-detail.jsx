@@ -4,16 +4,15 @@ import { memo } from 'react'
 import Button from '@ui/button'
 import Counter from '@ui/counter'
 
-import cl from './general-detail.module.scss'
+import cl from './good-detail.module.scss'
 
-function GeneralDetail() {
+function GoodDetail() {
 	return (
 		<div className={cl.wrapper}>
 			<img className={cl.image} src={goodImageSrc} alt="" />
 			<div className={cl.contentWrapper}>
 				<h1 className={cl.title}>
-					Кронштейн фары противотуманной левой для Hyundai Sonata VI 2010-2014
-					БУ состояние удовлетворительное
+					Кронштейн фары противотуманной левой для Hyundai Sonata VI 2010-2014 БУ состояние удовлетворительное
 				</h1>
 				<span className={cl.price}>743 ₽</span>
 				<div className={cl.extraInfoWrapper}>
@@ -24,11 +23,7 @@ function GeneralDetail() {
 				<div className={cl.actionsWrapper}>
 					<Counter />
 					<Button additionalStyles={['mobileWide']}>В корзину</Button>
-					<Button
-						additionalStyles={['mobileWide']}
-						colorStyle="outlined"
-						className={cl.favouritesAction}
-					>
+					<Button additionalStyles={['mobileWide']} colorStyle="outlined" className={cl.favouritesAction}>
 						<span>В избранное</span>
 					</Button>
 				</div>
@@ -40,4 +35,4 @@ function GeneralDetail() {
 	)
 }
 
-export default memo(GeneralDetail)
+export default memo(GoodDetail)

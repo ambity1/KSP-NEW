@@ -2,23 +2,24 @@
 @use '@assets/styles/vars/colors';
 
 .copyright {
-	padding-top: 5.625em;
-	padding-bottom: 2.5em;
-	background-color: colors.$black;
+  padding-top: 5.625em;
+  padding-bottom: 2.5em;
+  background-color: colors.$black;
 
-	@include breakpoints.tablet_small {
-		display: none;
-	}
+  @include breakpoints.desktop {
+    padding-bottom: 0;
+  }
 
-	&ContentWrapper {
-		display: flex;
-		justify-content: space-between;
-	}
+  @include breakpoints.tablet_small {
+    display: none;
+  }
 
-	@include breakpoints.desktop {
-		padding-bottom: 0;
-	}
-	a:hover {
-		opacity: 0.8;
-	}
+  a:hover {
+    opacity: 0.8;
+  }
+
+  &ContentWrapper {
+    display: flex;
+    justify-content: space-between;
+  }
 }

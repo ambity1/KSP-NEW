@@ -1,20 +1,36 @@
-import useMatchMedia from '@hooks/use-match-media.jsx'
-import { memo } from 'react'
-import { useParams } from 'react-router-dom'
+import useMatchMedia from '@hooks/use-match-media.js'
+import { memo, useMemo } from 'react'
 
-import OtherGoodsSlider from '@components/other-goods-slider/index.js'
+import Tabs from '@ui/tabs'
 
-import GeneralDetail from './general-detail'
-import Tabs from './tabs'
+import Parameters from '@components/good-detail-container/parameters'
+import OtherGoodsSlider from '@components/other-goods-slider'
+
+import GoodDetail from './good-detail'
 
 function GoodDetailContainer() {
 	const { isDesktop } = useMatchMedia()
-	const { id } = useParams()
+
+	const tabs = useMemo(
+		() => [
+			{
+				id: 'parameters',
+				label: 'Характеристики',
+				component: <Parameters />
+			},
+			{
+				id: 'reviews',
+				label: 'Отзывы о поставщике',
+				component: <>Отзывов пока нет</>
+			}
+		],
+		[]
+	)
 
 	return (
 		<>
-			<GeneralDetail />
-			{isDesktop && <Tabs />}
+			<GoodDetail />
+			{isDesktop && <Tabs tabs={tabs} />}
 			<OtherGoodsSlider />
 		</>
 	)
