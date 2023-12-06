@@ -8,6 +8,6 @@
     width: 52%;
   }
   @include breakpoints.tablet_small {
-    display: none;
+    width: 100%;
   }
 }

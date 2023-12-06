@@ -8,6 +8,9 @@
   flex-direction: column;
   gap: 0.875em; //14px
   flex-grow: 1;
+  @include breakpoints.tablet_small {
+    width: 100%;
+  }
 
   .addressesList {
     display: flex;

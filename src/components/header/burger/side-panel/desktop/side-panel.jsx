@@ -34,7 +34,7 @@ const BurgerSidePanel = ({ onClose }) => {
 					},
 					{
 						id: 4,
-						href: '/',
+						href: '/contacts/:id',
 						text: 'Контакты'
 					}
 				]
@@ -60,7 +60,7 @@ const BurgerSidePanel = ({ onClose }) => {
 					},
 					{
 						id: 3,
-						href: '/',
+						href: '/about/:id',
 						text: 'О компании'
 					},
 					{
