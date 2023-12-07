@@ -86,7 +86,7 @@ export const navigationsList = [
 		links: [
 			{
 				id: 0,
-				href: '/about/:id',
+				href: '/',
 				text: 'О компании'
 			},
 			{

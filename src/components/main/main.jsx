@@ -1,8 +1,8 @@
 import { memo } from 'react'
 
-import CarBands from '@components/car-brands'
 import AboutCompany from '@components/main/about-company'
 import AssociatedGoods from '@components/main/associated-goods'
+import CarBands from '@components/main/car-brands'
 import ContactsContainer from '@components/main/contacts-container'
 import HeroScreen from '@components/main/hero-screen'
 

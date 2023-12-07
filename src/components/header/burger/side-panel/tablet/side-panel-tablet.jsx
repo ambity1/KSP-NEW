@@ -16,8 +16,8 @@ const BurgerSidePanelTablet = ({ onClose }) => {
 				<div className={cl.linksWrapper}>
 					<Link to="/">Подбор запчастей по VIN</Link>
 					<Link to="/">Подбор запчастей по марке авто</Link>
-					<Link to="/about/:id">О компании</Link>
-					<Link to="/contacts/:id">Контакты</Link>
+					<Link to="/">О компании</Link>
+					<span>Контакты</span>
 				</div>
 				<Contacts
 					wrapperClassName={cl.wrapper}
