@@ -22,7 +22,7 @@ const InputSearch = () => {
 				placeholder="Наименование, номер запчасти или VIN. Например: 123123123123"
 			/>
 			{isDesktop && (
-				<Button sizeStyle="sizeS" className={cl.button} type="submit">
+				<Button sizeStyle="sizeS" className={cl.button} type="button">
 					Найти
 				</Button>
 			)}

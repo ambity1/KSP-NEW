@@ -12,12 +12,12 @@ const BurgerSidePanelTablet = ({ onClose }) => {
 	return (
 		<>
 			<div className={sidePanelWrapperClassNames}>
-				<button className={cl.btnClose} onClick={onClose} />
+				<button aria-label="Закрыть" className={cl.btnClose} onClick={onClose} />
 				<div className={cl.linksWrapper}>
 					<Link to="/">Подбор запчастей по VIN</Link>
 					<Link to="/">Подбор запчастей по марке авто</Link>
-					<Link to="/">О компании</Link>
-					<span>Контакты</span>
+					<Link to="/about/:id">О компании</Link>
+					<Link to="/contacts/:id">Контакты</Link>
 				</div>
 				<Contacts
 					wrapperClassName={cl.wrapper}
