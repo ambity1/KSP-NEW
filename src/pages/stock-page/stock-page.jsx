@@ -1,14 +1,14 @@
 import MainLayout from '@layouts/main/main-layout.jsx'
 import React from 'react'
 
-import Return from '@components/return/index.js'
+import Stock from '@components/stock/index.js'
 
-const ReturnPage = () => {
+const StockPage = () => {
 	return (
 		<MainLayout>
-			<Return />
+			<Stock />
 		</MainLayout>
 	)
 }
 
-export default ReturnPage
+export default StockPage

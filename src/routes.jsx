@@ -3,6 +3,7 @@ import GoodDetailPage from '@pages/good-detail-page'
 import Main from '@pages/main-page'
 import PaymentPage from '@pages/payment-page/index.js'
 import ReturnPage from '@pages/return-page/index.js'
+import StockPage from '@pages/stock-page/stock-page.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 function Routes() {
@@ -26,6 +27,10 @@ function Routes() {
 		{
 			path: `/return/:id`,
 			element: <ReturnPage />
+		},
+		{
+			path: `/stock`,
+			element: <StockPage />
 		}
 	])
 

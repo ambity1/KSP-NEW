@@ -1,0 +1,132 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/mixins/breakpoints';
+
+.wrapper {
+  padding: 0 -10px 0 -10px;
+}
+
+.wrapperHeader {
+  @include fontsStyles.DisplayXL;
+  @include fontsFamilies.FontFamilyInterBold;
+  padding: 0.67em 0 0.67em 0; // 40px 0 40px 0
+
+  @include breakpoints.tablet_small {
+    @include fontsStyles.DisplayMD;
+    padding: 1.43em 0 1.43em 0; // 40px 0 40px 0
+  }
+}
+
+.content {
+  display: grid;
+  row-gap: 3.125em; // 50px
+  padding-bottom: 9.375em; // 150px
+
+  @include breakpoints.tablet_small {
+    gap: 2.5em; // 40px
+    padding-bottom: 6.25em; // 100px
+  }
+}
+
+.contentBlock {
+  display: flex;
+  gap: 1.875em; // 30px
+
+  @include breakpoints.tablet_small {
+    display: grid;
+    gap: 1.25em; // 20px
+  }
+
+  @include breakpoints.mobile_middle {
+    display: grid;
+    gap: 0.625em; // 10px
+  }
+}
+
+.contentImage {
+  width: 58.6%;
+  background-color: #606060;
+  border-radius: 0.25em; // 4px
+
+  @include breakpoints.tablet_small {
+    width: 100%;
+    height: 25em; // 400px просто чтобы была видна верстка пока нет картинки
+  }
+
+  @include breakpoints.mobile_middle {
+    width: 100%;
+    height: 11.875em; // 190px просто чтобы была видна верстка пока нет картинки
+  }
+}
+
+.contentCard {
+  width: 41.3%;
+  padding: 3.75em 4.375em 3.75em 4.375em; // 60px 70px 60px 70px
+  background-color: colors.$dark;
+  border-radius: 0.25em; // 4px
+
+  @include breakpoints.desktop_small {
+    padding: 2.5em 1.875em 2.5em 1.875em; // 40px, 30px, 40px, 30px
+  }
+
+  @include breakpoints.tablet_small {
+    width: 100%;
+    padding: 1.875em; // 30px
+  }
+
+  @include breakpoints.mobile_middle {
+    width: 100%;
+    padding: 1.25em; // 20px
+  }
+}
+
+.contentTitle {
+  @include fontsStyles.DisplayMD;
+  @include fontsFamilies.FontFamilyInterBold;
+  padding-bottom: 1.07em; // 30px
+
+  @include breakpoints.tablet_small {
+    padding-bottom: 0.715em; // 20px
+  }
+
+  @include breakpoints.mobile_middle {
+    padding-bottom: 0.888em; // 16px
+    @include fontsStyles.TextLG;
+  }
+}
+
+.contentText {
+  @include fontsStyles.TextLG;
+  @include fontsFamilies.FontFamilyInterRegular;
+  padding-bottom: 1.67em; // 30px
+
+  @include breakpoints.tablet_small {
+    padding-bottom: 1.111em; // 20px
+  }
+
+  @include breakpoints.mobile_middle {
+    padding-bottom: 1em; // 16px
+    @include fontsStyles.TextMD;
+  }
+}
+
+.buttonLink {
+  &::after {
+    content: url("@assets/icons/move-right.svg");
+    width: 1.375em; // 22px
+    height: 1.375em; // 22px
+  }
+  display: flex;
+  max-width: 14.1875em; // 227px
+  align-items: center;
+  color: colors.$black;
+  gap: 0.625em; // 10px
+  @include fontsStyles.TextMD;
+  @include fontsFamilies.FontFamilyInterBold;
+
+  @include breakpoints.mobile_middle {
+    padding: 0.875em; // 14px
+    @include fontsStyles.TextXS;
+  }
+}
