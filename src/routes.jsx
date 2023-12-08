@@ -1,10 +1,7 @@
 import AboutCompanyPage from '@pages/about-company-page'
 import ContactsPage from '@pages/contacts-page'
-import DeliveryPage from '@pages/delivery-page'
 import GoodDetailPage from '@pages/good-detail-page'
 import Main from '@pages/main-page'
-import PaymentPage from '@pages/payment-page'
-import ReturnPage from '@pages/return-page'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 function Routes() {
@@ -24,19 +21,11 @@ function Routes() {
 		{
 			path: `/about/:id`,
 			element: <AboutCompanyPage />
-		},
-		{
-			path: `/delivery/:id`,
-			element: <DeliveryPage />
-		},
-		{
-			path: `/payment/:id`,
-			element: <PaymentPage />
-		},
-		{
-			path: `/return/:id`,
-			element: <ReturnPage />
 		}
+		// {
+		// 	path: `/information/:id`,
+		// 	element: <DeliveryPage />
+		// }
 	])
 
 	return <RouterProvider router={router} />
