@@ -1,3 +1,40 @@
-.wrapper {
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/mixins/breakpoints';
 
+.wrapper {
+  padding: 2.5em 0 8.75em 0; // 40px 0 140px 0
+}
+
+.wrapperHeader {
+  padding-bottom: 1.25em; // 40px
+  @include fontsStyles.DisplayLG;
+  @include fontsFamilies.FontFamilyInterBold;
+
+  @include breakpoints.desktop_extra_small {
+    @include fontsStyles.DisplayMD;
+  }
+}
+
+.wrapperContainer {
+  display: flex;
+  gap: 10em; // 160px
+  width: 65%;
+
+  @include breakpoints.desktop {
+    gap: 1.875em; // 30px
+    width: 80%;
+  }
+
+  @include breakpoints.desktop_extra_small {
+    gap: 1.875em; // 30px
+    width: 95%;
+  }
+
+  @include breakpoints.mobile {
+    display: grid;
+    width: 100%;
+    gap: 1.25em; // 20px
+  }
 }
