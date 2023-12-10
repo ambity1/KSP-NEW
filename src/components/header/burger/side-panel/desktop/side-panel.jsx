@@ -34,7 +34,7 @@ const BurgerSidePanel = ({ onClose }) => {
 					},
 					{
 						id: 4,
-						href: '/',
+						href: '/contacts/:id',
 						text: 'Контакты'
 					}
 				]
@@ -60,7 +60,7 @@ const BurgerSidePanel = ({ onClose }) => {
 					},
 					{
 						id: 3,
-						href: '/',
+						href: '/about/:id',
 						text: 'О компании'
 					},
 					{
@@ -104,14 +104,14 @@ const BurgerSidePanel = ({ onClose }) => {
 		<div className={sidePanelWrapperClassNames}>
 			<header className={cl.headerWrapper}>
 				<Link className={cl.logo} to="/" />
-				<button className={cl.btnClose} onClick={onClose} />
+				<button aria-label="Закрыть" className={cl.btnClose} onClick={onClose} />
 			</header>
 			<div className={cl.navigationWrapper}>
 				{navigationsList.map(({ id, links }) => (
 					<nav key={id}>
 						<ul className={cl.navigationListWrapper}>
-							{links.map(({ id, text, href }) => (
-								<li key={id}>
+							{links.map(({ id: linkId, text, href }) => (
+								<li key={linkId}>
 									<Link className={cl.navigationItem} to={href}>
 										{text}
 									</Link>

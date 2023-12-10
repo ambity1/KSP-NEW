@@ -1,0 +1,98 @@
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+.wrapper {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  @include breakpoints.tablet {
+    gap: 40px;
+  }
+  @include breakpoints.tablet_small {
+    gap: 25px;
+  }
+
+  .title {
+    @include breakpoints.tablet {
+      @include fontsStyles.DisplayMD;
+    }
+  }
+
+  .contentWrapper {
+    display: flex;
+    gap: 116px;
+    @include breakpoints.desktop {
+      gap: 20px;
+    }
+    @include breakpoints.tablet {
+      flex-direction: column;
+      gap: 50px;
+    }
+  }
+
+  .content {
+    @include fontsStyles.TextLG;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @include breakpoints.tablet_small {
+      @include fontsStyles.TextMD;
+    }
+  }
+
+  .reviewsWrapper {
+    padding-top: 30px;
+    display: flex;
+    gap: 50px;
+    @include breakpoints.tablet {
+      justify-content: space-between;
+    }
+    @include breakpoints.mobile {
+      padding-top: 0;
+      gap: 20px;
+      flex-direction: column;
+    }
+  }
+
+  .reviews {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .reviewsTitle {
+    @include fontsFamilies.FontFamilyInterBold;
+    @include fontsStyles.DisplayLG;
+  }
+
+  .logo {
+    &::before {
+      content: url("@assets/images/about-logo.svg");
+    }
+
+    @include breakpoints.desktop {
+      &::before {
+        content: url("@assets/images/about-logo-x1000.svg");
+      }
+    }
+    @include breakpoints.tablet {
+      align-self: center;
+      &::before {
+        content: url("@assets/images/about-logo-x768.svg");
+      }
+    }
+    @include breakpoints.tablet_small {
+      &::before {
+        content: url("@assets/images/about-logo-x1000.svg");
+      }
+    }
+    @include breakpoints.mobile {
+      &::before {
+        content: url("@assets/images/about-logo-x320.svg");
+      }
+    }
+
+  }
+
+}

@@ -1,5 +1,6 @@
 @use '@assets/styles/mixins/breakpoints';
 
+
 .wrapper {
 
   width: 72%;
@@ -8,6 +9,6 @@
     width: 52%;
   }
   @include breakpoints.tablet_small {
-    display: none;
+    width: 100%;
   }
 }
