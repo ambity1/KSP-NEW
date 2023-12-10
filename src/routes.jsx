@@ -1,5 +1,6 @@
 import AboutCompanyPage from '@pages/about-company-page'
 import ContactsPage from '@pages/contacts-page'
+import ExtraInformationPage from '@pages/extra-information-page/extra-information-page.jsx'
 import GoodDetailPage from '@pages/good-detail-page'
 import Main from '@pages/main-page'
 import PaymentPage from '@pages/payment-page/index.js'
@@ -18,10 +19,11 @@ function Routes() {
 			element: <GoodDetailPage />
 		},
 		{
-			path: `/contacts/:id`,
+			path: `/contacts`,
 			element: <ContactsPage />
 		},
 		{
+
 			path: `/payment/:id`,
 			element: <PaymentPage />
 		},
@@ -34,13 +36,13 @@ function Routes() {
 			element: <StockPage />
 		},
 		{
-			path: `/about/:id`,
+			path: `/about`,
 			element: <AboutCompanyPage />
+		},
+		{
+			path: `/information/:id`,
+			element: <ExtraInformationPage />
 		}
-		// {
-		// 	path: `/information/:id`,
-		// 	element: <DeliveryPage />
-		// }
 	])
 
 	return <RouterProvider router={router} />
