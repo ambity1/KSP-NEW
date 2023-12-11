@@ -65,23 +65,6 @@ export const navigationsList = [
 
 	{
 		id: 2,
-		header: 'Поставщикам',
-		links: [
-			{
-				id: 0,
-				href: '/',
-				text: 'Стать поставщиком'
-			},
-			{
-				id: 1,
-				href: '/',
-				text: 'Условия'
-			}
-		]
-	},
-
-	{
-		id: 3,
 		header: 'Компания',
 		links: [
 			{
@@ -103,6 +86,22 @@ export const navigationsList = [
 				id: 3,
 				href: '/',
 				text: 'Акции'
+			}
+		]
+	},
+	{
+		id: 3,
+		header: 'Поставщикам',
+		links: [
+			{
+				id: 0,
+				href: '/',
+				text: 'Стать поставщиком'
+			},
+			{
+				id: 1,
+				href: '/',
+				text: 'Условия'
 			}
 		]
 	},

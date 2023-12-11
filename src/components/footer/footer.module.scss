@@ -13,7 +13,7 @@
   @include breakpoints.tablet_small {
     padding-bottom: 60px;
   }
-  
+
   .logo {
     &::before {
       content: url('@assets/images/logo-second.svg');
@@ -75,6 +75,38 @@
 				'four'
 				'five'
 				'six';
+    }
+  }
+
+  .copyright {
+    display: flex;
+    padding-top: 5.625em;
+    padding-bottom: 2.5em;
+
+    @include breakpoints.desktop {
+      padding-bottom: 30px;
+    }
+    @include breakpoints.tablet_small {
+      padding-top: 20px;
+    }
+
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    &ContentWrapper {
+      display: flex;
+      justify-content: space-between;
+      @include breakpoints.tablet_small {
+        @include fontsStyles.TextXS;
+        gap: 10px;
+        flex-direction: column;
+      }
+
+      .copyrightLink {
+        color: colors.$border;
+      }
     }
   }
 }

@@ -6,6 +6,7 @@
   padding-top: 10em; //160px
 
   display: flex;
+
   gap: 3.125em; //50px
   align-items: center;
   @include breakpoints.desktop {
@@ -56,7 +57,7 @@
     .textWrapper {
       display: flex;
       flex-direction: column;
-      gap: 1.875em;
+      gap: 20px;
       @include fontsStyles.TextLG;
       @include breakpoints.tablet {
         @include fontsStyles.TextXS;
