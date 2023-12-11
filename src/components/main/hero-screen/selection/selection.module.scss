@@ -6,8 +6,7 @@
 .wrapper {
   padding: 40px;
 
-  background-color:colors.$dark
-;
+  background-color: colors.$dark;
   border-radius: 4px;
 
 
@@ -25,12 +24,6 @@
   }
 
 
-  .helpSelection {
-    @include breakpoints.desktop_base {
-      display: none;
-    }
-  }
-
   .title {
     @include fontsStyles.DisplayMD;
     @include breakpoints.mobile_middle {
@@ -44,6 +37,8 @@
     margin-top: 0;
     margin-bottom: 0;
     border-bottom: none;
+    padding-top: 0;
+    padding-bottom: 0;
     @include breakpoints.tablet {
       justify-content: space-between;
     }

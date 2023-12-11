@@ -8,7 +8,7 @@ const Stock = () => {
 	return (
 		<div className={cl.wrapper}>
 			<h1 className={cl.wrapperHeader}>Акции</h1>
-			<div className={cl.wrapperContent}>
+			<div>
 				<div className={cl.content}>
 					<div className={cl.contentBlock}>
 						<div className={cl.contentImage}>Баннер с акцией</div>

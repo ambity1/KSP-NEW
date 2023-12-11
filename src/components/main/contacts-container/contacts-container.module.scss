@@ -3,21 +3,21 @@
 
 
 .wrapper {
-  margin: 10em 0 10em;
+  padding: 10em 0 10em;
 
   display: flex;
   flex-direction: column;
   gap: 2.5em;
   @include breakpoints.desktop {
-    margin: 8.75em 0 8.75em;
+    padding: 8.75em 0 8.75em;
   }
   @include breakpoints.tablet {
-    margin: 6.25em 0 6.25em; //100px
+    padding: 6.25em 0 6.25em; //100px
     gap: 1.875em; //30px
 
   }
   @include breakpoints.mobile {
-    margin: 3.75em 0 3.75em; //60px
+    padding: 3.75em 0 3.75em; //60px
     gap: 1.25em; //20px
   }
 
