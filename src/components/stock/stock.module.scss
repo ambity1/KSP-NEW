@@ -18,10 +18,14 @@
   }
 }
 
-.content {
+.wrapperContent {
   display: grid;
   row-gap: 3.125em; // 50px
   padding-bottom: 9.375em; // 150px
+
+  @include breakpoints.desktop_small {
+    row-gap: 2.5em; // 40px;
+  }
 
   @include breakpoints.tablet_small {
     gap: 2.5em; // 40px
@@ -32,6 +36,10 @@
 .contentBlock {
   display: flex;
   gap: 1.875em; // 30px
+
+  @include breakpoints.desktop_small {
+    gap: 1.25em; // 20px
+  }
 
   @include breakpoints.tablet_small {
     display: grid;
