@@ -37,9 +37,6 @@
   align-items: center;
   gap: 0.75em; //12px
 
-  &::before {
-    content: url('@assets/icons/phone.svg');
-  }
 
   @include breakpoints.desktop_base {
     display: none;
