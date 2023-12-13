@@ -32,6 +32,9 @@
     display: flex;
     gap: 30px;
     justify-content: space-between;
+    @include breakpoints.desktop_small {
+      gap: 20px;
+    }
     @include breakpoints.tablet_small {
       flex-direction: column;
     }
@@ -141,12 +144,14 @@
 
         align-items: center;
         padding-top: 25px;
+
         &::before {
           content: url("@assets/icons/arrow.svg");
           display: flex;
           max-width: 50px;
           max-height: 50px;
         }
+
         @include breakpoints.desktop_medium {
           grid-column-start: 1;
           grid-row-start: 2;

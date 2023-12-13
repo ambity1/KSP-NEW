@@ -25,3 +25,7 @@
 @mixin TextXS {
   font-size: 0.875em; // 14px - h6 / AdditionalText
 }
+
+@mixin Text2XS {
+  font-size: 0.75em; // 12px
+}

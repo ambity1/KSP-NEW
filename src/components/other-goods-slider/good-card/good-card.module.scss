@@ -27,6 +27,10 @@
       @include fontsStyles.TextXS;
       @include fontsFamilies.FontFamilyInterRegular;
     }
+    @include breakpoints.mobile_middle {
+      @include fontsStyles.Text2XS;
+
+    }
   }
 
   .cost {

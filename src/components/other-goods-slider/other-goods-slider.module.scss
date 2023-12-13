@@ -24,11 +24,11 @@
       position: absolute;
       z-index: 1;
       transform: translateY(-50%);
-      top: 43%;
+      top: 50%;
       background: transparent;
 
       @include breakpoints.desktop {
-        top: 40%;
+        top: 45%;
       }
 
       @include breakpoints.mobile {
@@ -41,6 +41,9 @@
 
         &::before {
           content: url('@assets/icons/slider-arrow-left.svg');
+          display: flex;
+          width: 40px;
+          height: 40px;
         }
 
         @include breakpoints.desktop_huge {
@@ -57,6 +60,9 @@
 
         &::before {
           content: url('@assets/icons/slider-arrow-right.svg');
+          display: flex;
+          width: 40px;
+          height: 40px;
         }
 
         @include breakpoints.desktop_huge {

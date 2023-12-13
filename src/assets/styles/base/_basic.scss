@@ -83,4 +83,8 @@ select {
   @include breakpointsMixins.desktop_extra_small {
     max-width: initial;
   }
+
+  @include breakpointsMixins.mobile {
+    padding: 0 10px;
+  }
 }

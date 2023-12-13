@@ -4,24 +4,25 @@
 @use '@assets/styles/mixins/fontsFamilies';
 
 .parametersList {
-	width: 410px;
+  padding-top: 40px;
+  width: 410px;
 
-	display: flex;
-	flex-direction: column;
-	gap: 0.625em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625em;
 
-	.parameterItem {
-		display: flex;
-		justify-content: space-between;
-		gap: 0.25em;
+  .parameterItem {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.25em;
 
-		.key {
-			color: colors.$border;
-		}
+    .key {
+      color: colors.$border;
+    }
 
-		.separator {
-			flex-grow: 1;
-			border-bottom: 2px dotted colors.$border;
-		}
-	}
+    .separator {
+      flex-grow: 1;
+      border-bottom: 2px dotted colors.$border;
+    }
+  }
 }

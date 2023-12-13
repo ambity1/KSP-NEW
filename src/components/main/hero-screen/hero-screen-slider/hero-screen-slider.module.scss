@@ -9,6 +9,9 @@
   @include breakpoints.desktop_large {
     width: 63%;
   }
+  @include breakpoints.desktop_medium {
+    width: 61%;
+  }
   @include breakpoints.tablet {
     width: 100%;
   }

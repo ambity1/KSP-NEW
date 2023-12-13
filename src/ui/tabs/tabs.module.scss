@@ -4,12 +4,11 @@
 @use '@assets/styles/mixins/fontsFamilies';
 
 .tabs {
-  padding-top: 3.75em; //60px
-  padding-bottom: 2.5em;
 
   display: flex;
   text-align: center;
   border-bottom: 2px solid colors.$white;
+  cursor: pointer;
 
   .tab {
     padding: 0.625em 1.25em 0.625em;
@@ -17,6 +16,7 @@
 
     background-color: transparent;
     color: colors.$white;
+    border-bottom: 1px solid colors.$white;
 
     &.active {
       color: colors.$main;

@@ -7,6 +7,7 @@ import Parameters from '@components/good-detail-container/parameters'
 import OtherGoodsSlider from '@components/other-goods-slider'
 
 import GoodDetail from './good-detail'
+import cl from './good-detail-container.module.scss'
 
 function GoodDetailContainer() {
 	const { isDesktop } = useMatchMedia()
@@ -21,7 +22,7 @@ function GoodDetailContainer() {
 			{
 				id: 'reviews',
 				label: 'Отзывы о поставщике',
-				component: <>Отзывов пока нет</>
+				component: <span className={cl.content}>Отзывов пока нет</span>
 			}
 		],
 		[]
@@ -30,7 +31,7 @@ function GoodDetailContainer() {
 	return (
 		<>
 			<GoodDetail />
-			{isDesktop && <Tabs tabs={tabs} />}
+			<div className={cl.tabsWrapper}>{isDesktop && <Tabs tabs={tabs} />}</div>
 			<OtherGoodsSlider />
 		</>
 	)

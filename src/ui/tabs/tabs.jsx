@@ -3,12 +3,13 @@ import { memo, useMemo, useState } from 'react'
 
 import cl from './tabs.module.scss'
 
-const Tabs = ({ tabs, tabsWrapperClassName, tabActiveClassName, tabClassName }) => {
+const Tabs = ({ tabs, tabsWrapperClassName, tabActiveClassName, tabClassName, onTabChange }) => {
 	const [selectedTabId, setSelectedTabId] = useState(tabs[0].id)
 	const selectedComponent = useMemo(() => tabs.find(({ id }) => id === selectedTabId).component, [tabs, selectedTabId])
 
 	const selectHandler = (id) => {
 		setSelectedTabId(id)
+		onTabChange(id)
 	}
 
 	return (

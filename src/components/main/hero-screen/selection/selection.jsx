@@ -12,6 +12,7 @@ import cl from './selection.module.scss'
 
 const Selection = () => {
 	const [isOpen, setIsOpen] = useState(false)
+	const [activeTab, setActiveTab] = useState('vin')
 
 	const togglePanel = () => {
 		setIsOpen(!isOpen)
@@ -34,15 +35,27 @@ const Selection = () => {
 		],
 		[]
 	)
+	const handleTabChange = (tabId) => {
+		setActiveTab(tabId)
+	}
+
 	return (
 		<div className={cl.wrapper}>
 			<h2 className={cl.title}>Подбор запчастей</h2>
-			<Tabs tabs={tabs} tabsWrapperClassName={cl.tabs} tabClassName={cl.tab} tabActiveClassName={cl.active} />
+			<Tabs
+				tabs={tabs}
+				tabsWrapperClassName={cl.tabs}
+				tabClassName={cl.tab}
+				tabActiveClassName={cl.active}
+				onTabChange={handleTabChange}
+			/>
 			<div className={cl.linkWrapper}>
 				<ButtonLink sizeStyle="sizeL">Перейти</ButtonLink>
-				<Button sizeStyle="sizeL" colorStyle="outlined" onClick={togglePanel}>
-					Помощь с подбором
-				</Button>
+				{activeTab === 'vin' && (
+					<Button sizeStyle="sizeL" colorStyle="outlined" onClick={togglePanel}>
+						Помощь с подбором
+					</Button>
+				)}
 				{isOpen ? <HelpWithSelection onClose={closePanel} /> : null}
 			</div>
 		</div>

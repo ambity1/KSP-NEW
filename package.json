@@ -13,6 +13,8 @@
 		"extends": "react-app"
 	},
 	"dependencies": {
+		"@consta/icons": "^0.5.2",
+		"@consta/uikit": "^4.17.0",
 		"@pbe/react-yandex-maps": "^1.2.5",
 		"classnames": "^2.3.2",
 		"prop-types": "^15.8.1",
@@ -22,7 +24,6 @@
 		"swiper": "^11.0.4"
 	},
 	"devDependencies": {
-		"@consta/uikit": "^5.0.0-beta.2",
 		"@trivago/prettier-plugin-sort-imports": "^4.1.1",
 		"@types/node": "18.16.0",
 		"@types/react": "^18.2.15",
