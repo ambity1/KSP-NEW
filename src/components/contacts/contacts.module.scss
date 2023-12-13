@@ -6,7 +6,8 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.875em; //14px
+  //gap: 0.875em; //14px
+  gap: 0.722em; // 13px
   flex-grow: 1;
   @include breakpoints.tablet_small {
     width: 100%;
@@ -15,17 +16,20 @@
   .addressesList {
     display: flex;
     flex-direction: column;
-    gap: 0.875em;
+    //gap: 0.875em; //14px
+    gap: 0.722em; // 13px
+
     @include fontsStyles.TextLG;
     @include breakpoints.tablet_small {
       @include fontsStyles.TextMD;
     }
 
     .addressItem {
-      padding: 1.25em 1.875em; //20px 30px
+      padding: 1.11em 1.67em; //20px 30px
       display: flex;
       flex-direction: column;
-      gap: .625em;
+      //gap: .625em; // 10px было
+      gap: .0625em;
       width: 100%;
       background-color: colors.$dark;
       border-radius: .25em;
@@ -33,18 +37,19 @@
       .address {
         @include fontsFamilies.FontFamilyInterBold;
         @include breakpoints.tablet_small {
-          @include fontsStyles.TextMD;
+          @include fontsStyles.TextLG;
         }
       }
     }
   }
 
   .messengersWrapper {
-    padding: 1.25em 1.875em; //20px 30px
+    //padding: 1.25em 1.875em; //20px 30px
+    padding: 1.11em 1.67em; //20px 30px
 
     display: flex;
     flex-direction: column;
-    gap: 1.25em;
+    gap: 1em;
 
     width: 100%;
     background-color: colors.$dark;
@@ -64,18 +69,24 @@
       &.whatsapp {
         &::before {
           content: url("@assets/icons/whatsapp.svg");
+          width: 1.67em; // 30px
+          height: 1.67em; // 30px
         }
       }
 
       &.telegram {
         &::before {
           content: url("@assets/icons/telegram.svg");
+          width: 1.67em; // 30px
+          height: 1.67em; // 30px
         }
       }
 
       &.instagram {
         &::before {
           content: url("@assets/icons/instagram.svg");
+          width: 1.67em; // 30px
+          height: 1.67em; // 30px
         }
       }
     }

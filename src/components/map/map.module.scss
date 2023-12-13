@@ -4,7 +4,8 @@
 .wrapper {
 
   width: 72%;
-  height: 513px;
+  max-height: 513px;
+  border-radius: 0.25em; // 4px
 
   @include breakpoints.desktop_small {
     width: 52%;

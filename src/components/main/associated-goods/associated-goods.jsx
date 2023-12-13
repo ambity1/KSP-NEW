@@ -38,10 +38,10 @@ const AssociatedGoods = () => {
 					<li className={cl.goodItemWrapper} key={id}>
 						<Link className={cl.goodItem} to={href}>
 							<h3 className={cl.itemTitle}>{title}</h3>
-							<div className={cl.content}>
-								<span className={cl.arrow} />
-								<img className={cl.img} alt="" src={img} />
-							</div>
+							{/* <div className={cl.content}> */}
+							<span className={cl.arrow} />
+							<img className={cl.img} alt="" src={img} />
+							{/* </div> */}
 						</Link>
 					</li>
 				))}
