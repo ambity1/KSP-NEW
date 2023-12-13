@@ -40,7 +40,7 @@ const Selection = () => {
 			<Tabs tabs={tabs} tabsWrapperClassName={cl.tabs} tabClassName={cl.tab} tabActiveClassName={cl.active} />
 			<div className={cl.linkWrapper}>
 				<ButtonLink sizeStyle="sizeL">Перейти</ButtonLink>
-				<Button className={cl.helpSelection} sizeStyle="sizeL" colorStyle="outlined" onClick={togglePanel}>
+				<Button sizeStyle="sizeL" colorStyle="outlined" onClick={togglePanel}>
 					Помощь с подбором
 				</Button>
 				{isOpen ? <HelpWithSelection onClose={closePanel} /> : null}

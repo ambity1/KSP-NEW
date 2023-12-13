@@ -1,3 +1,4 @@
+import phone from '@assets/icons/phone.svg'
 import { memo } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -12,7 +13,8 @@ function Header() {
 			<Link className={cl.logo} to="/" />
 			<InputSearch />
 			<Link className={cl.phone} to="tel:+7 (915) 123-45-67">
-				+7 (915) 123-45-67
+				<img src={phone} alt="" />
+				<span>+7 (915) 123-45-67</span>
 			</Link>
 			<CartButton />
 			<Burger />

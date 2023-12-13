@@ -4,20 +4,20 @@
 
 
 .wrapper {
-  margin-top: 10em; //160px
+  padding-top: 10em; //160px
 
   display: flex;
   flex-direction: column;
   gap: 2.5em; //40px
 
   @include breakpoints.desktop {
-    margin-top: 8.75em; //140px
+    padding-top: 8.75em; //140px
   }
   @include breakpoints.tablet {
-    margin-top: 6.25em; //100px
+    padding-top: 6.25em; //100px
   }
   @include breakpoints.mobile {
-    margin-top: 3.75em; //60px
+    padding-top: 3.75em; //60px
   }
 
   .title {
