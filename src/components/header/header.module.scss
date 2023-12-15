@@ -1,19 +1,35 @@
 @use '@assets/styles/mixins/fontsFamilies';
 @use '@assets/styles/mixins/fontsStyles';
 @use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/vars/colors';
+
 
 .header {
-  //position: sticky;
+  position: sticky;
+  top: 0;
+  background-color: colors.$background;
+  z-index: 50;
   padding-top: 1.875em;
+  padding-bottom: 25px;
 
-  align-items: center;
-
-  display: flex;
-  gap: 1.875em; //30px
 
   @include breakpoints.desktop_base {
     gap: 1.25em;
   }
+
+  &ContentWrapper {
+    align-items: center;
+
+    display: flex;
+    gap: 1.875em; //30px
+
+    @include breakpoints.mobile_small {
+      gap: 0;
+      justify-content: space-between;
+    }
+
+  }
+
 }
 
 .logo {

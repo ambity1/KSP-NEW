@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { Link } from 'react-router-dom'
 
-import { navigationsList } from '../navigation-config.js'
+import { navigationsList } from './navigation-config.js'
 import cl from './navigation.module.scss'
 
 const Navigation = () => {

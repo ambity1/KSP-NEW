@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import { memo, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -24,8 +25,10 @@ const CarBands = () => {
 		],
 		[]
 	)
+	const carBandsContentWrapperClassNames = cn([cl.wrapper, 'container'])
+
 	return (
-		<div className={cl.wrapper}>
+		<div className={carBandsContentWrapperClassNames}>
 			<h2 className={cl.title}>Марки автомобилей</h2>
 			<ul className={cl.brandsList}>
 				{brandsList.map(({ href, className, id }) => (

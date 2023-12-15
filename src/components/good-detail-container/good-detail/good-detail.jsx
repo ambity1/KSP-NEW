@@ -1,4 +1,5 @@
 import goodImageSrc from '@assets/images/good1.jpg'
+import cn from 'classnames'
 import { memo } from 'react'
 
 import Button from '@ui/button'
@@ -6,9 +7,11 @@ import Counter from '@ui/counter'
 
 import cl from './good-detail.module.scss'
 
-function GoodDetail() {
+const GoodDetail = () => {
+	const goodDetailWrapperClassNames = cn([cl.wrapper, 'container'])
+
 	return (
-		<div className={cl.wrapper}>
+		<div className={goodDetailWrapperClassNames}>
 			<img className={cl.image} src={goodImageSrc} alt="" />
 			<div className={cl.contentWrapper}>
 				<h1 className={cl.title}>

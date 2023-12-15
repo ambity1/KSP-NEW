@@ -1,4 +1,5 @@
 import { Theme, presetGpnDark } from '@consta/uikit/Theme'
+import useScrollTop from '@hooks/use-scroll-top.js'
 import { memo } from 'react'
 
 import Footer from '@components/footer'
@@ -6,14 +7,13 @@ import Header from '@components/header'
 
 import BreadCrumbs from '../components/bread-сrumbs'
 
-function MainLayout({ children, hideBreadCrumbs }) {
+const MainLayout = ({ children, hideBreadCrumbs }) => {
+	useScrollTop()
 	return (
 		<Theme preset={presetGpnDark}>
-			<div className="container">
-				<Header />
-				{!hideBreadCrumbs && <BreadCrumbs />}
-				{children}
-			</div>
+			<Header />
+			{!hideBreadCrumbs && <BreadCrumbs />}
+			{children}
 			<Footer />
 		</Theme>
 	)

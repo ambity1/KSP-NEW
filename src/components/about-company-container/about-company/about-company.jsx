@@ -1,8 +1,12 @@
+import cn from 'classnames'
+
 import cl from './about-company.module.scss'
 
 const AboutCompany = () => {
+	const aboutCompanyContentWrapperClassNames = cn([cl.wrapper, 'container'])
+
 	return (
-		<div className={cl.wrapper}>
+		<div className={aboutCompanyContentWrapperClassNames}>
 			<h1 className={cl.title}>О компании</h1>
 			<div className={cl.contentWrapper}>
 				<div className={cl.content}>

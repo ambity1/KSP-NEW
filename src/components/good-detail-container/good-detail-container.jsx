@@ -1,4 +1,5 @@
 import useMatchMedia from '@hooks/use-match-media.js'
+import cn from 'classnames'
 import { memo, useMemo } from 'react'
 
 import Tabs from '@ui/tabs'
@@ -27,11 +28,12 @@ function GoodDetailContainer() {
 		],
 		[]
 	)
+	const tabsContentWrapperClassNames = cn([cl.tabsWrapper, 'container'])
 
 	return (
 		<>
 			<GoodDetail />
-			<div className={cl.tabsWrapper}>{isDesktop && <Tabs tabs={tabs} />}</div>
+			<div className={tabsContentWrapperClassNames}>{isDesktop && <Tabs tabs={tabs} />}</div>
 			<OtherGoodsSlider />
 		</>
 	)

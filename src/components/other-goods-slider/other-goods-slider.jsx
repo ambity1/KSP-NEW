@@ -27,14 +27,16 @@ const OtherGoodsSlider = () => {
 			case isTablet:
 				return 3
 			case isTabletSmall:
-				return 2
+				return 2.2
 			default:
-				return 2
+				return 2.2
 		}
 	}, [isDesktop, isTablet, isTabletSmall])
 
+	const otherGoodsSliderWrapperClassNames = cn([cl.otherGoodsWrapper, 'container'])
+
 	return (
-		<div className={cl.otherGoodsWrapper}>
+		<div className={otherGoodsSliderWrapperClassNames}>
 			<h2 className={cl.title}>Другие товары в этой категории</h2>
 			<div className={cl.otherGoodsSwiper}>
 				<button onClick={prevSwipeHandler} className={cn([cl.swiperArrow, cl.swiperArrowLeft])} />

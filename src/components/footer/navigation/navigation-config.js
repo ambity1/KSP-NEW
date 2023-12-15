@@ -42,17 +42,17 @@ export const navigationsList = [
 			},
 			{
 				id: 1,
-				href: '/',
+				href: '/information/delivery',
 				text: 'Доставка'
 			},
 			{
 				id: 2,
-				href: '/',
+				href: '/information/refund',
 				text: 'Возврат'
 			},
 			{
 				id: 3,
-				href: '/',
+				href: '/information/payment',
 				text: 'Оплата'
 			},
 			{
@@ -69,7 +69,7 @@ export const navigationsList = [
 		links: [
 			{
 				id: 0,
-				href: '/about/:id',
+				href: '/about',
 				text: 'О компании'
 			},
 			{
@@ -84,7 +84,7 @@ export const navigationsList = [
 			},
 			{
 				id: 3,
-				href: '/',
+				href: '/stock',
 				text: 'Акции'
 			}
 		]

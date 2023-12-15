@@ -45,7 +45,6 @@ const ByVin = () => {
 					placeholder="Выберите значение"
 					items={itemsVin}
 					size="m"
-					// label="Select"
 					// caption="Пример"
 					// labelPosition="top"
 					form="default"

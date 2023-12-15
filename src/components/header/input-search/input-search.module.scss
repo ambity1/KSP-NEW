@@ -12,7 +12,7 @@
 .input {
   flex-grow: 1;
 
-  color: colors.$gray;
+  color: colors.$white;
   padding: 0.75em 1.25em;
   background: transparent;
   border: 1px solid colors.$gray;
@@ -29,4 +29,7 @@
 
 .modalButton {
   margin-left: auto;
+  @include breakpoints.mobile_small {
+    margin-left: 0;
+  }
 }

@@ -29,12 +29,12 @@ const BurgerSidePanel = ({ onClose }) => {
 					},
 					{
 						id: 3,
-						href: '/',
+						href: '/stock',
 						text: 'Акции'
 					},
 					{
 						id: 4,
-						href: '/contacts/:id',
+						href: '/contacts',
 						text: 'Контакты'
 					}
 				]
@@ -45,22 +45,22 @@ const BurgerSidePanel = ({ onClose }) => {
 				links: [
 					{
 						id: 0,
-						href: '/',
+						href: '/information/delivery',
 						text: 'Доставка'
 					},
 					{
 						id: 1,
-						href: '/',
+						href: '/information/payment',
 						text: 'Оплата'
 					},
 					{
 						id: 2,
-						href: '/',
+						href: '/information/refund',
 						text: 'Возврат'
 					},
 					{
 						id: 3,
-						href: '/about/:id',
+						href: '/about',
 						text: 'О компании'
 					},
 					{
@@ -101,37 +101,39 @@ const BurgerSidePanel = ({ onClose }) => {
 	const sidePanelWrapperClassNames = cn([cl.sidePanelWrapper, 'container'])
 
 	return (
-		<div className={sidePanelWrapperClassNames}>
-			<header className={cl.headerWrapper}>
-				<Link className={cl.logo} to="/" />
-				<button aria-label="Закрыть" className={cl.btnClose} onClick={onClose} />
-			</header>
-			<div className={cl.navigationWrapper}>
-				{navigationsList.map(({ id, links }) => (
-					<nav key={id}>
-						<ul className={cl.navigationListWrapper}>
-							{links.map(({ id: linkId, text, href }) => (
-								<li key={linkId}>
-									<Link className={cl.navigationItem} to={href}>
-										{text}
-									</Link>
-								</li>
-							))}
-						</ul>
-					</nav>
-				))}
-			</div>
-			<footer>
-				<ul className={cl.footerListWrapper}>
-					{contactsList.map(({ id, className, href, text }) => (
-						<li key={id}>
-							<Link className={cn([cl.messengerItem, className])} to={href}>
-								{text}
-							</Link>
-						</li>
+		<div className={cl.sidePanel}>
+			<div className={sidePanelWrapperClassNames}>
+				<header className={cl.headerWrapper}>
+					<Link className={cl.logo} to="/" />
+					<button aria-label="Закрыть" className={cl.btnClose} onClick={onClose} />
+				</header>
+				<div className={cl.navigationWrapper}>
+					{navigationsList.map(({ id, links }) => (
+						<nav key={id}>
+							<ul className={cl.navigationListWrapper}>
+								{links.map(({ id: linkId, text, href }) => (
+									<li key={linkId}>
+										<Link onClick={onClose} className={cl.navigationItem} to={href}>
+											{text}
+										</Link>
+									</li>
+								))}
+							</ul>
+						</nav>
 					))}
-				</ul>
-			</footer>
+				</div>
+				<footer>
+					<ul className={cl.footerListWrapper}>
+						{contactsList.map(({ id, className, href, text }) => (
+							<li key={id}>
+								<Link className={cn([cl.messengerItem, className])} to={href}>
+									{text}
+								</Link>
+							</li>
+						))}
+					</ul>
+				</footer>
+			</div>
 		</div>
 	)
 }

@@ -1,12 +1,15 @@
+import cn from 'classnames'
 import { memo } from 'react'
 
 import Button from '@ui/button'
 
 import cl from './about-company.module.scss'
 
-function AboutCompany() {
+const AboutCompany = () => {
+	const aboutCompanyContentWrapperClassNames = cn([cl.aboutCompanyWrapper, 'container'])
+
 	return (
-		<div className={cl.aboutCompanyWrapper}>
+		<div className={aboutCompanyContentWrapperClassNames}>
 			<div className={cl.img} />
 			<div className={cl.contentWrapper}>
 				<h2 className={cl.title}>О компании</h2>

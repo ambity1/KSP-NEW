@@ -1,11 +1,12 @@
+import cn from 'classnames'
 import React, { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 
-import Delivery from './delivery/index.js'
+import Delivery from './delivery'
 import cl from './extra-information-container.module.scss'
-import Payment from './payment/index.js'
-import Refund from './refund/index.js'
-import TabLinks from './tab-links/index.js'
+import Payment from './payment'
+import Refund from './refund'
+import TabLinks from './tab-links'
 
 const ExtraInformationContainer = () => {
 	const { id: currentTabId } = useParams()
@@ -36,9 +37,10 @@ const ExtraInformationContainer = () => {
 		[]
 	)
 	const currentTab = useMemo(() => tabs.find(({ id }) => id === currentTabId), [currentTabId, tabs])
+	const extraInformationWrapperClassNames = cn([cl.wrapper, 'container'])
 
 	return (
-		<div className={cl.wrapper}>
+		<div className={extraInformationWrapperClassNames}>
 			<h1 className={cl.wrapperHeader}>{currentTab.title}</h1>
 			<div className={cl.wrapperContainer}>
 				{currentTab.component}
