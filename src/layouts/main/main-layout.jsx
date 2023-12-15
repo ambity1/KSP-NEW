@@ -1,4 +1,4 @@
-import { Theme, presetGpnDefault } from '@consta/uikit/Theme'
+import { Theme, presetGpnDark } from '@consta/uikit/Theme'
 import { memo } from 'react'
 
 import Footer from '@components/footer'
@@ -8,7 +8,7 @@ import BreadCrumbs from '../components/bread-сrumbs'
 
 function MainLayout({ children, hideBreadCrumbs }) {
 	return (
-		<Theme preset={presetGpnDefault}>
+		<Theme preset={presetGpnDark}>
 			<div className="container">
 				<Header />
 				{!hideBreadCrumbs && <BreadCrumbs />}

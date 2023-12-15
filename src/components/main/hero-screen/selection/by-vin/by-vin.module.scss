@@ -1,11 +1,12 @@
 @use '@assets/styles/mixins/breakpoints';
 @use '@assets/styles/mixins/fontsStyles';
 @use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/vars/colors';
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
 
   .title {
     @include fontsStyles.TextLG;
@@ -14,4 +15,19 @@
       @include fontsFamilies.FontFamilyInterBold;
     }
   }
+}
+
+.selectorBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.selector {
+  //padding: 0;
+  //margin: 0;
+  //background-color: colors.$dark;
+  //color: colors.$dark;
+  //border-radius: 10px;
+  //border: 1px solid colors.$gray;
 }
