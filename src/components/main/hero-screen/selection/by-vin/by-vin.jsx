@@ -19,7 +19,7 @@ const ByVin = () => {
 			id: 3
 		}
 	]
-	const [vin, setVin] = useState(itemsVin)
+	const [vin, setVin] = useState(null)
 
 	const itemsParts = [
 		{
@@ -35,14 +35,14 @@ const ByVin = () => {
 			id: 3
 		}
 	]
-	const [parts, setParts] = useState(itemsParts)
+	const [parts, setParts] = useState(null)
 
 	return (
 		<div className={cl.wrapper}>
 			<div className={cl.selectorBlock}>
 				<span className={cl.title}>VIN номер</span>
 				<Select
-					placeholder="Выберите значение"
+					placeholder="Например: 123123123123"
 					items={itemsVin}
 					size="m"
 					// label="Select"
@@ -58,7 +58,7 @@ const ByVin = () => {
 			<div className={cl.selectorBlock}>
 				<span className={cl.title}>Название запчасти</span>
 				<Select
-					placeholder="Выберите значение"
+					placeholder="Например: крыло"
 					items={itemsParts}
 					size="m"
 					// label="Select"

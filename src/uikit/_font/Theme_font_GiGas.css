@@ -1,0 +1,5 @@
+.Theme_color_GiGas {
+  --font-primary: 'Inter', sans-serif;
+  --font-mono: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: var(--font-primary);
+}
