@@ -1,9 +1,9 @@
-import search from '@assets/icons/search.svg'
 import useMatchMedia from '@hooks/use-match-media.js'
 import { memo } from 'react'
 
 import Button from '@ui/button'
 
+import search from '../../../../assets/icons/search.svg'
 import cl from './input-search.module.scss'
 
 const InputSearch = () => {

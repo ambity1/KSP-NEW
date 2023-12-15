@@ -1,7 +1,6 @@
-import car from '@assets/images/car.jpg'
-
 import ButtonLink from '@ui/button/link'
 
+import car from '../../../../../../assets/images/car.jpg'
 import cl from './card.module.scss'
 
 const Card = () => {

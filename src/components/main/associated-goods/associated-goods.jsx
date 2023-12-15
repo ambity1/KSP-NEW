@@ -1,10 +1,10 @@
-import accessories from '@assets/images/accessories.png'
-import autochemistry from '@assets/images/auto-chemistry.png'
-import autoelectrics from '@assets/images/auto-electrics.png'
 import cn from 'classnames'
 import React, { memo, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 
+import accessories from '../../../../assets/images/accessories.png'
+import autochemistry from '../../../../assets/images/auto-chemistry.png'
+import autoelectrics from '../../../../assets/images/auto-electrics.png'
 import cl from './associated-goods.module.scss'
 
 const AssociatedGoods = () => {

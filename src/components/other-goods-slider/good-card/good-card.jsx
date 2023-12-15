@@ -1,8 +1,8 @@
-import goodDetail from '@assets/images/good1.jpg'
 import { memo } from 'react'
 
 import RateBar from '@components/other-goods-slider/good-card/rate-bar'
 
+import goodDetail from '../../../../assets/images/good1.jpg'
 import cl from './good-card.module.scss'
 
 const GoodCard = () => {
@@ -10,8 +10,7 @@ const GoodCard = () => {
 		<div className={cl.wrapper}>
 			<img className={cl.image} src={goodDetail} alt="" />
 			<h3 className={cl.title}>
-				Кронштейн фары противотуманной левой для Hyundai Sonata VI 2010-2014 БУ
-				состояние удовлетворительное
+				Кронштейн фары противотуманной левой для Hyundai Sonata VI 2010-2014 БУ состояние удовлетворительное
 			</h3>
 			<RateBar rate="4.5" hideScore={false} />
 			<span className={cl.cost}>590 руб.</span>

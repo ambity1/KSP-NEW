@@ -1,10 +1,10 @@
-import goodImageSrc from '@assets/images/good1.jpg'
 import cn from 'classnames'
 import { memo } from 'react'
 
 import Button from '@ui/button'
 import Counter from '@ui/counter'
 
+import goodImageSrc from '../../../../assets/images/good1.jpg'
 import cl from './good-detail.module.scss'
 
 const GoodDetail = () => {

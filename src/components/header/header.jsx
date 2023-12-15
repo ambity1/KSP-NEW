@@ -1,8 +1,8 @@
-import phone from '@assets/icons/phone.svg'
 import cn from 'classnames'
 import { memo } from 'react'
 import { Link } from 'react-router-dom'
 
+import phone from '../../../assets/icons/phone.svg'
 import Burger from './burger'
 import CartButton from './cart-button'
 import cl from './header.module.scss'
