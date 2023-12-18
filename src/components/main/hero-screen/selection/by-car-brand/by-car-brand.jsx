@@ -18,7 +18,7 @@ const ByCarBrand = () => {
 			id: 3
 		}
 	]
-	const [brand, setBrand] = useState(itemsBrand)
+	const [brand, setBrand] = useState(null)
 
 	const itemsModel = [
 		{
@@ -34,7 +34,7 @@ const ByCarBrand = () => {
 			id: 3
 		}
 	]
-	const [model, setModel] = useState(itemsModel)
+	const [model, setModel] = useState(null)
 
 	const itemsYear = [
 		{
@@ -50,14 +50,14 @@ const ByCarBrand = () => {
 			id: 3
 		}
 	]
-	const [year, setYear] = useState(itemsYear)
+	const [year, setYear] = useState(null)
 
 	return (
 		<div className={cl.wrapper}>
 			<div className={cl.selectorBlock}>
 				<span className={cl.title}>Марка авто</span>
 				<Select
-					placeholder="Выберите значение"
+					placeholder="Например: KIA"
 					items={itemsBrand}
 					size="m"
 					// label="Select"
@@ -72,7 +72,7 @@ const ByCarBrand = () => {
 			<div className={cl.selectorBlock}>
 				<span className={cl.title}>Модель</span>
 				<Select
-					placeholder="Выберите значение"
+					placeholder="Например: RIO"
 					items={itemsModel}
 					size="m"
 					// label="Select"
@@ -87,7 +87,7 @@ const ByCarBrand = () => {
 			<div className={cl.selectorBlock}>
 				<span className={cl.title}>Год</span>
 				<Select
-					placeholder="Выберите значение"
+					placeholder="Например: 2005"
 					items={itemsYear}
 					size="m"
 					// label="Select"
