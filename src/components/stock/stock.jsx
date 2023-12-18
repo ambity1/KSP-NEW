@@ -1,12 +1,15 @@
+import cn from 'classnames'
 import React from 'react'
 
-import ButtonLink from '@ui/button/link/index.js'
+import ButtonLink from '@ui/button/link'
 
 import cl from './stock.module.scss'
 
 const Stock = () => {
+	const StockWrapperClassNames = cn([cl.wrapper, 'container'])
+
 	return (
-		<div className={cl.wrapper}>
+		<div className={StockWrapperClassNames}>
 			<h1 className={cl.wrapperHeader}>Акции</h1>
 			<div className={cl.wrapperContent}>
 				<div className={cl.contentBlock}>

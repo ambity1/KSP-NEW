@@ -23,6 +23,8 @@
 
   .img {
     &::before {
+      display: block;
+      height: 411px;
       content: url("@assets/images/about.png");
       @include breakpoints.desktop {
         content: url("@assets/images/logo-second.svg");

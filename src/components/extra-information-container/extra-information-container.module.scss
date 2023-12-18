@@ -4,7 +4,8 @@
 @use '@assets/styles/mixins/breakpoints';
 
 .wrapper {
-  padding: 2.5em 0 8.75em 0; // 40px 0 140px 0
+  padding-top: 2.5em; // 40px
+  padding-bottom: 8.75em; //140px
 }
 
 .wrapperHeader {

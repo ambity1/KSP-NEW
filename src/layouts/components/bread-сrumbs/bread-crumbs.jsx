@@ -1,9 +1,10 @@
+import cn from 'classnames'
 import { memo } from 'react'
 import { Link } from 'react-router-dom'
 
 import cl from './bread-crumbs.module.scss'
 
-function BreadCrumbs() {
+const BreadCrumbs = () => {
 	const crumbsList = [
 		{
 			id: 0,
@@ -31,9 +32,10 @@ function BreadCrumbs() {
 			text: 'Кронштейн фары противотуманной левой для Hyundai Sonata VI 2010-2014 БУ состояние удовлетворительное'
 		}
 	]
+	const breadCrumbsContentWrapperClassNames = cn([cl.breadcrumbs, 'container'])
 
 	return (
-		<ul className={cl.breadcrumbs}>
+		<ul className={breadCrumbsContentWrapperClassNames}>
 			{crumbsList.map(({ id, href, text }) => (
 				<li key={id} className={cl.breadcrumbItem}>
 					<Link to={href}>{text}</Link>

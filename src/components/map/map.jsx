@@ -1,7 +1,7 @@
-import placemarkSrc from '@assets/icons/placemark.svg'
 import { Placemark, Map as YMap, YMaps } from '@pbe/react-yandex-maps'
 import { memo, useMemo } from 'react'
 
+import placemarkSrc from '../../../assets/icons/placemark.svg'
 import cl from './map.module.scss'
 
 const mapState = { center: [51.142093, 71.455834], zoom: 12 }

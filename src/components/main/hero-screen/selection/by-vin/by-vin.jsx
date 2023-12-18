@@ -45,7 +45,6 @@ const ByVin = () => {
 					placeholder="Например: 123123123123"
 					items={itemsVin}
 					size="m"
-					// label="Select"
 					// caption="Пример"
 					// labelPosition="top"
 					form="default"
