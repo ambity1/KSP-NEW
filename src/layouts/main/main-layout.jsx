@@ -1,5 +1,3 @@
-import { Theme, presetGpnDark } from '@consta/uikit/Theme'
-import { bgColors } from '@consta/uikit/__internal__/src/uiKit/components/ThemePreview/helpers.js'
 import useScrollTop from '@hooks/use-scroll-top.js'
 import { memo } from 'react'
 
