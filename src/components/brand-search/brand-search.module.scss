@@ -1,0 +1,25 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+
+.wrapper {
+
+  .brandSearchTitle {
+
+  }
+
+  .brandSearchInfo {
+
+  }
+
+  .brandSearchTable {
+
+    &Header {
+      display: flex;
+    }
+
+    &Lines {
+      display: flex;
+    }
+  }
+}

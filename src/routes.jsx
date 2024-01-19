@@ -1,4 +1,5 @@
 import AboutCompanyPage from '@pages/about-company-page'
+import BrandSearchPage from '@pages/brand-search-page/index.js'
 import ContactsPage from '@pages/contacts-page'
 import ExtraInformationPage from '@pages/extra-information-page/extra-information-page.jsx'
 import GoodDetailPage from '@pages/good-detail-page'
@@ -31,6 +32,10 @@ function Routes() {
 		{
 			path: `/information/:id`,
 			element: <ExtraInformationPage />
+		},
+		{
+			path: `/brand_search`,
+			element: <BrandSearchPage />
 		}
 	])
 
