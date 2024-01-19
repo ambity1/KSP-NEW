@@ -11,13 +11,13 @@ import BreadCrumbs from '../components/bread-сrumbs'
 const MainLayout = ({ children, hideBreadCrumbs }) => {
 	useScrollTop()
 	return (
-		<Theme preset={presetGpnDark}>
+		<>
 			<Header />
 			{!hideBreadCrumbs && <BreadCrumbs />}
 			{children}
 
 			<Footer />
-		</Theme>
+		</>
 	)
 }
 

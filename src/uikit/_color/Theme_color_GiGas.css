@@ -52,14 +52,14 @@
   // Цвета контролов /////////// */
 
   /* Default */
-  --color-control-bg-default: #272727; /* Цвет фона контрола */
+  --color-control-bg-default: rgb(39,39,39); /* Цвет фона контрола */
   --color-control-typo-default: #ffffff; /* Цвет основного текста контрола */
   --color-control-typo-placeholder: #818181; /* Цвет плейсхолдера контрола */
   --color-control-bg-border-default: #818181; /* Цвет фона бордеров котрола */
 
   --color-control-bg-border-default-hover: #818181; /* Цвет фона бордеров контрола по ховеру */
 
-  /*--color-control-bg-border-focus: #818181; !* Цвет аутлайна контролов при фокусе *! !* TODO заменить на правило целиком *!*/
+  --color-control-bg-border-focus: #818181; /* Цвет аутлайна контролов при фокусе */ /* TODO заменить на правило целиком */
   --color-control-bg-focus: rgba(0, 120, 210, 0.3); /* Цвет тени в состонии фокуса */
   --color-control-bg-active: rgba(0, 65, 102, 0.2); /* Цвет тени в состонии нажатия  */
 
