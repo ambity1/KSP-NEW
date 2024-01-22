@@ -1,4 +1,3 @@
-import basketPage from '@pages/basket-page/index.js'
 import cn from 'classnames'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -10,25 +9,22 @@ import cl from '@components/basket/basket.module.scss'
 const Basket = () => {
 	const basketList = [
 		{
-			img: 'фото',
+			img: '/assets/images/basket/bracket.jpg',
 			name: 'Кронштейн фары противотуманной левой для Hyundai Sonata VI 2010-2014 БУ состояние удовлетворительное',
+			vin: '14848284',
+			manufacturer: 'Hyundai-Kia',
 			delivery: '6 дней',
 			count: 'counter',
 			price: '750 ₽'
 		},
 		{
-			img: '',
-			name: '',
-			delivery: '',
-			count: '',
-			price: ''
-		},
-		{
-			img: '',
-			name: '',
-			delivery: '',
-			count: '',
-			price: ''
+			img: '/assets/images/basket/headlight.jpg',
+			name: 'Фара правая для Hyundai Sonata VI 2010-2014 новая',
+			vin: '87448284',
+			manufacturer: 'Hyundai-Kia',
+			delivery: '6 дней',
+			count: 'counter',
+			price: '750 ₽'
 		}
 	]
 
@@ -44,16 +40,18 @@ const Basket = () => {
 						<div>Количество</div>
 						<div>Сумма</div>
 					</div>
-					{basketList.map(({ img, name, delivery, count, price }) => (
-						<Link to="/#">
-							<div className={cl.basketContentTableLines}>
-								<div>{img}</div>
+					{basketList.map(({ img, name, vin, manufacturer, delivery, count, price }) => (
+						<div className={cl.basketContentTableLines}>
+							<img className={cl.productsImage} src={img} alt="" />
+							<div className={cl.nameLines}>
 								<div>{name}</div>
-								<div>{delivery}</div>
-								<div>{count}</div>
-								<div>{price}</div>
+								<div className={cl.additionalNames}>VIN: {vin}</div>
+								<div className={cl.additionalNames}>Производитель: {manufacturer}</div>
 							</div>
-						</Link>
+							<div>{delivery}</div>
+							<div>{count}</div>
+							<div className={cl.price}>{price}</div>
+						</div>
 					))}
 				</div>
 				<div className={cl.basketContentCard}>
@@ -64,7 +62,7 @@ const Basket = () => {
 					</div>
 					<div className={cl.basketContentCardTotalPrice}>
 						<div>Итого:</div>
-						<div>95 400 ₽</div>
+						<div className={cl.priceNumber}>95 400 ₽</div>
 					</div>
 					<ButtonLink>Оформить заказ</ButtonLink>
 				</div>
