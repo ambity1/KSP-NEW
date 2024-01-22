@@ -4,7 +4,7 @@
 @use '@assets/styles/mixins/fontsFamilies';
 
 .wrapper {
-
+  padding-bottom: 140px;
 
   .basketHeader {
     @include fontsFamilies.FontFamilyInterBold;
@@ -17,12 +17,15 @@
     justify-content: space-between;
 
     &Table {
-      width: 75%;
+      width: 70%;
 
       &Header {
         display: grid;
         grid-template-columns: 0.5fr 3.5fr 1fr 1fr 1fr;
         gap: 40px;
+        padding: 10px 0 20px 0;
+        @include fontsFamilies.FontFamilyInterBold;
+        @include fontsStyles.TextMD;
       }
 
       &Lines {
@@ -30,10 +33,35 @@
         grid-template-columns: 0.5fr 3.5fr 1fr 1fr 1fr;
         gap: 40px;
         border-bottom: 1px solid colors.$gray;
+        padding: 20px 0;
+        @include fontsFamilies.FontFamilyInterRegular;
+        @include fontsStyles.TextMD;
+
+        .productsImage {
+          border-radius: 4px;
+        }
+
+        .price {
+          @include fontsFamilies.FontFamilyInterBold;
+          @include fontsStyles.TextMD;
+        }
+
+        .nameLines {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          .additionalNames {
+            color: colors.$border;
+            @include fontsStyles.TextXS;
+          }
+        }
       }
     }
 
     &Card {
+      height: 100%;
+      width: 23%;
       background-color: colors.$dark;
       border-radius: 8px;
       padding: 30px;
@@ -53,6 +81,11 @@
       &TotalPrice {
         display: flex;
         justify-content: space-between;
+
+        .priceNumber {
+          @include fontsFamilies.FontFamilyInterBold;
+          @include fontsStyles.TextMD;
+        }
       }
     }
   }
