@@ -1,9 +1,10 @@
 import cn from 'classnames'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import cl from './brand-search.module.scss'
 
-const BrandSearch = ({ wrapperClassName }) => {
+const BrandSearch = () => {
 	const brandList = [
 		{
 			modification: '2.00',
@@ -45,14 +46,16 @@ const BrandSearch = ({ wrapperClassName }) => {
 					<div>Мощность</div>
 				</div>
 				{brandList.map(({ modification, year, engineType, engineCode, volume, power }) => (
-					<div className={cl.brandSearchTableLines}>
-						<div>{modification}</div>
-						<div>{year}</div>
-						<div>{engineType}</div>
-						<div>{engineCode}</div>
-						<div>{volume}</div>
-						<div>{power}</div>
-					</div>
+					<Link to="/#">
+						<div className={cl.brandSearchTableLines}>
+							<div>{modification}</div>
+							<div>{year}</div>
+							<div>{engineType}</div>
+							<div>{engineCode}</div>
+							<div>{volume}</div>
+							<div>{power}</div>
+						</div>
+					</Link>
 				))}
 			</div>
 		</div>

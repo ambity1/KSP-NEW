@@ -1,4 +1,5 @@
 import AboutCompanyPage from '@pages/about-company-page'
+import BasketPage from '@pages/basket-page/index.js'
 import BrandSearchPage from '@pages/brand-search-page/index.js'
 import ContactsPage from '@pages/contacts-page'
 import ExtraInformationPage from '@pages/extra-information-page/extra-information-page.jsx'
@@ -36,6 +37,10 @@ function Routes() {
 		{
 			path: `/brand_search`,
 			element: <BrandSearchPage />
+		},
+		{
+			path: `/basket`,
+			element: <BasketPage />
 		}
 	])
 
