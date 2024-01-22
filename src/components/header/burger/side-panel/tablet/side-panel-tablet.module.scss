@@ -21,7 +21,7 @@
   height: 100vh;
   background-color: colors.$white;
   opacity: 0.6;
-  z-index: 2;
+  z-index: 100;
 
 }
 
@@ -30,7 +30,7 @@
   top: 0;
   bottom: 0;
   right: 0;
-  z-index: 20;
+  z-index: 200;
   position: absolute;
   width: 100vw;
   height: 100vh;

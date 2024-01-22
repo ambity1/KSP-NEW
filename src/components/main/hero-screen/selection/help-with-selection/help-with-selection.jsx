@@ -1,6 +1,10 @@
 import useDisableScroll from '@hooks/use-disable-scroll.js'
 import cn from 'classnames'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+
+import getRawPhoneFromParsedPhone from '@helpers/getRawPhoneFromParsedPhone.js'
+import parseRawPhone from '@helpers/parseRawPhone.js'
 
 import Button from '@ui/button'
 
@@ -8,6 +12,16 @@ import cl from './help-with-selection.module.scss'
 
 const HelpWithSelection = ({ onClose }) => {
 	useDisableScroll()
+	const [viewPhone, setViewPhone] = useState('')
+	const [phone, setPhone] = useState('')
+
+	const changePhoneHandler = (event) => {
+		const rawPhone = getRawPhoneFromParsedPhone(event.target.value, viewPhone)
+		const newViewPhone = parseRawPhone(rawPhone)
+
+		setViewPhone(newViewPhone)
+		setPhone(rawPhone)
+	}
 	return (
 		<>
 			<div className={cl.overlay} />
@@ -29,7 +43,18 @@ const HelpWithSelection = ({ onClose }) => {
 					<div className={cl.contactsWrapper}>
 						<span className={cl.text}>Или оставьте нам свои контакты и мы вам перезвоним</span>
 						<form className={cl.inputWrapper}>
-							<input className={cl.input} type="number" placeholder="Телефон" />
+							{/* <input className={cl.input} type="number" placeholder="Телефон" /> */}
+							<input
+								className={cl.input}
+								onChange={changePhoneHandler}
+								value={viewPhone}
+								type="text"
+								size="16"
+								placeholder="Телефон"
+								required
+								// disabled={isDisabled}
+							/>
+							<input name="phone" type="hidden" tabIndex={-1} readOnly value={phone} />
 							<Button sizeStyle="sizeS">Отправить</Button>
 						</form>
 						<span className={cl.confidential}>
