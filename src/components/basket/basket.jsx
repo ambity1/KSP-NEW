@@ -1,6 +1,7 @@
+import bracket from '@assets/images/basket/bracket.jpg'
+import headlight from '@assets/images/basket/headlight.jpg'
 import cn from 'classnames'
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import ButtonLink from '@ui/button/link/index.js'
 
@@ -9,7 +10,7 @@ import cl from '@components/basket/basket.module.scss'
 const Basket = () => {
 	const basketList = [
 		{
-			img: '/assets/images/basket/bracket.jpg',
+			img: bracket,
 			name: 'Кронштейн фары противотуманной левой для Hyundai Sonata VI 2010-2014 БУ состояние удовлетворительное',
 			vin: '14848284',
 			manufacturer: 'Hyundai-Kia',
@@ -18,7 +19,7 @@ const Basket = () => {
 			price: '750 ₽'
 		},
 		{
-			img: '/assets/images/basket/headlight.jpg',
+			img: headlight,
 			name: 'Фара правая для Hyundai Sonata VI 2010-2014 новая',
 			vin: '87448284',
 			manufacturer: 'Hyundai-Kia',
