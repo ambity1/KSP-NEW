@@ -1,5 +1,6 @@
 @use '@assets/styles/mixins/fontsStyles';
 @use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/vars/colors';
 
 
 .aboutCompanyWrapper {
@@ -64,6 +65,10 @@
       @include breakpoints.tablet {
         @include fontsStyles.TextXS;
       }
+    }
+
+    .btn {
+      color: colors.$black;
     }
   }
 }

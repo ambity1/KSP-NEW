@@ -14,18 +14,13 @@ const Contacts = ({
 		() => [
 			{
 				id: 0,
-				text: 'ул. Первая, 15, Актобе',
-				phone: '+7 (915) 123-45-67'
+				text: 'ТД «Car City» (9 бутик)',
+				phone: '+7 (707) 164-00-24'
 			},
 			{
 				id: 1,
-				text: 'ул. Вторая, 15, Актобе',
-				phone: '+7 (915) 123-45-67'
-			},
-			{
-				id: 2,
-				text: 'ул. Третья, 15, Актобе',
-				phone: '+7 (915) 123-45-67'
+				text: 'Рынок «Kol Auto» (24 и 59 бутик)',
+				phone: '+7 (707) 164-00-24'
 			}
 		],
 		[]
@@ -46,7 +41,7 @@ const Contacts = ({
 			},
 			{
 				id: 2,
-				href: '/',
+				href: 'https://www.instagram.com/korean_parts_024?igsh=Mzg2ajQxbDlsMDY=',
 				text: 'Instagram',
 				className: cl.instagram
 			}

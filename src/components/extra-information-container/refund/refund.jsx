@@ -61,12 +61,12 @@ const Refund = () => {
 					телефону, электронной почте. Мы всегда готовы помочь и решить вашу проблему.
 				</p>
 				<br />
-				<Link className={cl.contentText} to="tel:+ 7 (915) 123-45-67">
-					+ 7 (915) 123-45-67
+				<Link className={cl.contentText} to="tel:+7 (707) 164-00-24">
+					+7 (707) 164-00-24
 				</Link>
 				<br />
-				<Link className={cl.contentText} to="mail: example@mail.ru">
-					example@mail.ru
+				<Link className={cl.contentText} to="mail:koreanparts-kz@yandex.kz">
+					koreanparts-kz@yandex.kz
 				</Link>
 			</div>
 		</div>

@@ -28,7 +28,9 @@ const AboutCompany = () => {
 						то&nbsp;мы&nbsp;будем рады видеть вас&nbsp;в&nbsp;числе наших клиентов.
 					</p>
 				</div>
-				<Button sizeStyle="sizeS">Подробнее</Button>
+				<Button className={cl.btn} sizeStyle="sizeS">
+					Подробнее
+				</Button>
 			</div>
 		</div>
 	)

@@ -16,9 +16,9 @@ const Header = () => {
 			<div className={headerContentWrapperClassNames}>
 				<Link className={cl.logo} to="/" />
 				<InputSearch />
-				<Link className={cl.phone} to="tel:+7 (915) 123-45-67">
+				<Link className={cl.phone} to="tel:+7 (707) 164-00-24">
 					<img src={phone} alt="" />
-					<span>+7 (915) 123-45-67</span>
+					<span>+7 (707) 164-00-24</span>
 				</Link>
 				<CartButton />
 				<Burger />

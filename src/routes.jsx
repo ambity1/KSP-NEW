@@ -5,6 +5,7 @@ import ContactsPage from '@pages/contacts-page'
 import ExtraInformationPage from '@pages/extra-information-page/extra-information-page.jsx'
 import GoodDetailPage from '@pages/good-detail-page'
 import Main from '@pages/main-page'
+import PrivacyPolicyPage from '@pages/privacy-policy-page/index.js'
 import StockPage from '@pages/stock-page/stock-page.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
@@ -41,6 +42,10 @@ function Routes() {
 		{
 			path: `/basket`,
 			element: <BasketPage />
+		},
+		{
+			path: `/privacy-policy`,
+			element: <PrivacyPolicyPage />
 		}
 	])
 

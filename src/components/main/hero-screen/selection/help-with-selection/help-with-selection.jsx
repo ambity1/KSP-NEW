@@ -61,8 +61,8 @@ const HelpWithSelection = ({ onClose }) => {
 						</form>
 						<span className={cl.confidential}>
 							Нажимая на кнопку, вы соглашаетесь с{' '}
-							<Link to="/" className={cl.underline}>
-								Политикой конфиденциальности
+							<Link to="/privacy-policy" className={cl.underline}>
+								Политикой конфиденциальности
 							</Link>
 						</span>
 					</div>

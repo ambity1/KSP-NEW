@@ -113,16 +113,16 @@ export const navigationsList = [
 			{
 				id: 0,
 				href: 'tel:+7 (915) 123-45-67',
-				text: '+7 (915) 123-45-67'
+				text: '+7 (707) 164-00-24'
 			},
 			{
 				id: 1,
-				href: 'mail:example@mail.ru',
-				text: 'example@mail.ru'
+				href: 'mail:koreanparts-kz@yandex.kz',
+				text: 'koreanparts-kz@yandex.kz'
 			},
 			{
 				id: 2,
-				text: 'Казахстан, г. Астана, ул. Первая, д. 15'
+				text: 'Казахстан, г. Актобе, ул.Проспект Санкибай батыра, 171д'
 			}
 		]
 	}

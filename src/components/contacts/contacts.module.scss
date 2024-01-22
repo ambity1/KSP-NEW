@@ -60,6 +60,9 @@
     @include breakpoints.tablet_small {
       @include fontsStyles.TextMD;
     }
+    @include breakpoints.tablet {
+
+    }
 
     .messengerItem {
       display: flex;

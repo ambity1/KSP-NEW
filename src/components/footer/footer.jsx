@@ -17,10 +17,10 @@ const Footer = () => {
 				</div>
 				<div className={cl.copyright}>
 					<div className={copyrightContentWrapperClassNames}>
-						<Link className={cl.copyrightLink} to="/">
+						<Link className={cl.copyrightLink} to="/privacy-policy">
 							Политика конфиденциальности
 						</Link>
-						<Link className={cl.copyrightLink} to="/">
+						<Link className={cl.copyrightLink} to="https://ambity.ru">
 							Разработка сайта - Амбити
 						</Link>
 					</div>
