@@ -52,7 +52,7 @@
   // Цвета контролов /////////// */
 
   /* Default */
-  --color-control-bg-default: #272727; /* Цвет фона контрола */
+  --color-control-bg-default: rgb(39,39,39); /* Цвет фона контрола */
   --color-control-typo-default: #ffffff; /* Цвет основного текста контрола */
   --color-control-typo-placeholder: #818181; /* Цвет плейсхолдера контрола */
   --color-control-bg-border-default: #818181; /* Цвет фона бордеров котрола */
