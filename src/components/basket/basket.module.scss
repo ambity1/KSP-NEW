@@ -1,0 +1,59 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+.wrapper {
+
+
+  .basketHeader {
+    @include fontsFamilies.FontFamilyInterBold;
+    @include fontsStyles.DisplayXL;
+    padding: 40px 0;
+  }
+
+  .basketContent {
+    display: flex;
+    justify-content: space-between;
+
+    &Table {
+      width: 75%;
+
+      &Header {
+        display: grid;
+        grid-template-columns: 0.5fr 3.5fr 1fr 1fr 1fr;
+        gap: 40px;
+      }
+
+      &Lines {
+        display: grid;
+        grid-template-columns: 0.5fr 3.5fr 1fr 1fr 1fr;
+        gap: 40px;
+        border-bottom: 1px solid colors.$gray;
+      }
+    }
+
+    &Card {
+      background-color: colors.$dark;
+      border-radius: 8px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      &Title {
+
+      }
+
+      &Count {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &TotalPrice {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

@@ -24,18 +24,17 @@
   }
 
   .brandSearchTable {
-    //width: 70%;
     max-width: 1093px;
 
     &Header {
       display: grid;
       grid-template-columns: 1fr 1.3fr 1fr 1fr 0.7fr 1fr;
-      //gap: 54px;
       @include fontsFamilies.FontFamilyInterBold;
       @include fontsStyles.TextMD;
       background-color: colors.$white;
       color: colors.$black;
       padding: 20px 10px;
+
       @include breakpoints.tablet {
         @include fontsStyles.TextXS;
       }
@@ -54,7 +53,6 @@
       background-color: colors.$main;
       color: colors.$black;
       cursor: pointer;
-      //border-top: 1px solid black;
     }
   }
 }
