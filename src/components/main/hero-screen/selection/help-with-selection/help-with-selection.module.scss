@@ -26,8 +26,12 @@
   display: flex;
   flex-direction: column;
 
+
   padding: 20px;
   background-color: colors.$dark;
+  @include breakpoints.tablet {
+    padding: 10px
+  }
 
 
   .btnClose {
@@ -36,7 +40,7 @@
     background-color: colors.$dark;
 
     &::before {
-      content: url('@assets/icons/closebtn.svg');
+      content: url('@assets/icons/mini-close.svg');
     }
   }
 
@@ -45,6 +49,13 @@
     gap: 40px;
     display: flex;
     flex-direction: column;
+    @include breakpoints.desktop_extra_small {
+      padding: 20px 60px 60px 60px;
+    }
+    @include breakpoints.tablet {
+      padding: 10px;
+      gap: 20px;
+    }
 
     .contentContainer {
       display: flex;
@@ -55,16 +66,26 @@
 
     .title {
       @include fontsStyles.DisplayMD;
+      @include breakpoints.tablet {
+        @include fontsStyles.TextLG
+      }
     }
 
     .text {
       @include fontsStyles.TextLG;
+      @include breakpoints.tablet {
+        @include fontsStyles.TextMD
+      }
     }
 
     .linkWrapper {
       display: flex;
       justify-content: space-between;
       gap: 10px;
+      @include breakpoints.tablet {
+        flex-direction: column;
+        gap: 10px;
+      }
 
       .link {
         padding: 8px 14px;
@@ -76,6 +97,11 @@
 
         @include fontsStyles.TextMD;
         @include fontsFamilies.FontFamilyInterBold;
+        @include breakpoints.tablet {
+          @include fontsStyles.TextXS;
+          padding: 10px;
+        }
+
       }
 
       .whatsapp {
@@ -100,6 +126,10 @@
     .inputWrapper {
       display: flex;
       gap: 8px;
+      @include breakpoints.tablet {
+        flex-direction: column;
+        gap: 10px;
+      }
 
       .input {
         flex-grow: 1;
@@ -109,7 +139,14 @@
         background: transparent;
         border: 1px solid colors.$border;
         border-radius: 4px;
+        @include fontsStyles.TextMD;
 
+      }
+
+      .button {
+        @include breakpoints.tablet {
+          @include fontsStyles.TextXS;
+        }
       }
     }
 

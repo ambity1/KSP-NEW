@@ -55,7 +55,9 @@ const HelpWithSelection = ({ onClose }) => {
 								// disabled={isDisabled}
 							/>
 							<input name="phone" type="hidden" tabIndex={-1} readOnly value={phone} />
-							<Button sizeStyle="sizeS">Отправить</Button>
+							<Button className={cl.button} sizeStyle="sizeS">
+								Отправить
+							</Button>
 						</form>
 						<span className={cl.confidential}>
 							Нажимая на кнопку, вы соглашаетесь с{' '}
