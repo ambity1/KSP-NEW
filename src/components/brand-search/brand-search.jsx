@@ -1,8 +1,9 @@
+import cn from 'classnames'
 import React from 'react'
 
 import cl from './brand-search.module.scss'
 
-const BrandSearch = () => {
+const BrandSearch = ({ wrapperClassName }) => {
 	const brandList = [
 		{
 			modification: '2.00',
@@ -21,17 +22,17 @@ const BrandSearch = () => {
 			power: '187 кВт / 137 л.с.'
 		},
 		{
-			modification: '2.00',
-			year: '2004 - 2006',
+			modification: '2.7',
+			year: '2004 - наст. время',
 			engineType: 'Бензиновый',
-			engineCode: 'G4JP-EG',
-			volume: '2 л',
-			power: '179 кВт / 131 л.с.'
+			engineCode: 'G6BA',
+			volume: '2,7 л',
+			power: '234 кВт / 172 л.с.'
 		}
 	]
 
 	return (
-		<div className={cl.wrapper}>
+		<div className={cn([cl.wrapper, 'container'])}>
 			<div className={cl.brandSearchTitle}>Запчасти на Sonata Тагаз</div>
 			<div className={cl.brandSearchInfo}>Выберите двигатель автомобиля</div>
 			<div className={cl.brandSearchTable}>
