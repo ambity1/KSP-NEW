@@ -13,18 +13,29 @@
     @include fontsFamilies.FontFamilyInterBold;
     @include fontsStyles.DisplayXL;
 
-    @include breakpoints.tablet {
+    @include breakpoints.desktop_extra_small {
       @include fontsStyles.DisplayLG;
     }
+
+    @include breakpoints.tablet_small {
+      @include fontsStyles.DisplayMD;
+    }
+
   }
 
   .brandSearchInfo {
     @include fontsFamilies.FontFamilyInterRegular;
     @include fontsStyles.TextLG;
+
   }
 
   .brandSearchTable {
-    max-width: 1093px;
+    //max-width: 1093px;
+    width: 70%;
+
+    @include breakpoints.desktop_base {
+      width: 100%;
+    }
 
     &Header {
       display: grid;
@@ -38,6 +49,16 @@
       @include breakpoints.tablet {
         @include fontsStyles.TextXS;
       }
+
+      @include breakpoints.tablet_small {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .removeHeader {
+        @include breakpoints.tablet_small {
+          display: none;
+        }
+      }
     }
 
     &Lines {
@@ -47,12 +68,54 @@
       @include fontsStyles.TextMD;
       padding: 20px 10px;
       border-bottom: 1px solid colors.$gray;
-    }
 
-    &Lines:hover {
-      background-color: colors.$main;
-      color: colors.$black;
-      cursor: pointer;
+      @include breakpoints.tablet_small {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .modification {
+
+        @include breakpoints.tablet_small {
+          @include fontsFamilies.FontFamilyInterBold;
+        }
+      }
+
+      .secondLine {
+        display: contents;
+
+        @include breakpoints.tablet_small {
+          display: flex;
+          gap: 15px;
+          row-gap: 5px;
+          color: colors.$border;
+          flex-wrap: wrap;
+        }
+
+        .year {
+
+        }
+
+        .engineType {
+        }
+
+        .engineCode {
+        }
+
+        .volume {
+        }
+
+        .power {
+        }
+      }
+
+
+      &Lines:hover {
+        background-color: colors.$main;
+        color: colors.$black;
+        cursor: pointer;
+      }
     }
   }
 }
