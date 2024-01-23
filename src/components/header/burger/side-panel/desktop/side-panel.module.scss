@@ -12,19 +12,20 @@
   }
 }
 
-//@keyframes burgerUp {
-//  0% {
-//    opacity: 1;
-//    transform: translateY(-100%);
-//  }
-//  100% {
-//    opacity: 0;
-//    transform: translateY(100%);
-//  }
-//}
+@keyframes burgerUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
 
 .sidePanel {
-  padding: 25px;
+  padding-top: 25px;
   top: 0;
   left: 0;
   right: 0;
@@ -35,6 +36,10 @@
   background-color: colors.$background;
 
   animation: burgerDown .4s linear;
+
+  &Closed {
+    animation: burgerUp .4s linear forwards;
+  }
 }
 
 .sidePanelWrapper {
@@ -43,6 +48,15 @@
   .headerWrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    gap: 1.875em; //30px
+
+    @include breakpoints.mobile_small {
+      gap: 0;
+      justify-content: space-between;
+    }
+
 
     .logo {
       &::before {
@@ -57,13 +71,27 @@
         content: url('@assets/icons/closebtn.svg');
       }
     }
+
+    .phone {
+      @include fontsFamilies.FontFamilyInterBold;
+      @include fontsStyles.TextLG;
+      display: flex;
+      align-items: center;
+      gap: 0.75em; //12px
+
+
+      @include breakpoints.desktop_base {
+        display: none;
+      }
+    }
   }
 
   .navigationWrapper {
     padding: 120px 0 170px 0;
     display: flex;
     align-items: center;
-    gap: 250px;
+    gap: 130px;
+    overflow-y: hidden;
 
     .navigationListWrapper {
       display: flex;

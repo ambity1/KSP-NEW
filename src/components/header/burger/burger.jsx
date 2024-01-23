@@ -8,6 +8,7 @@ import cl from './burger.module.scss'
 
 const Burger = () => {
 	const [isOpen, setIsOpen] = useState(false)
+
 	const { isDesktop } = useMatchMedia()
 
 	const togglePanel = () => {

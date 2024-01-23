@@ -1,11 +1,17 @@
+import phone from '@assets/icons/phone.svg'
 import useDisableScroll from '@hooks/use-disable-scroll.js'
 import cn from 'classnames'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+
+import CartButton from '@components/header/cart-button/cart-button.jsx'
+import InputSearch from '@components/header/input-search/input-search.jsx'
 
 import cl from './side-panel.module.scss'
 
 const BurgerSidePanel = ({ onClose }) => {
+	const [isWasClosed, setIsWasClosed] = useState(false)
+
 	useDisableScroll()
 
 	const navigationsList = useMemo(
@@ -99,14 +105,24 @@ const BurgerSidePanel = ({ onClose }) => {
 		[]
 	)
 
-	const sidePanelWrapperClassNames = cn([cl.sidePanelWrapper, 'container'])
+	const closeHandler = () => {
+		setIsWasClosed(true)
+		setTimeout(() => onClose(), 500)
+	}
+	const sidePanelWrapperClassNames = cn([cl.sidePanelWrapper, 'container', { [cl.sidePanelClosed]: isWasClosed }])
 
 	return (
 		<div className={cl.sidePanel}>
 			<div className={sidePanelWrapperClassNames}>
 				<header className={cl.headerWrapper}>
 					<Link className={cl.logo} to="/" />
-					<button aria-label="Закрыть" className={cl.btnClose} onClick={onClose} />
+					<InputSearch />
+					<Link className={cl.phone} to="tel:+7 (707) 164-00-24">
+						<img src={phone} alt="" />
+						<span>+7 (707) 164-00-24</span>
+					</Link>
+					<CartButton />
+					<button aria-label="Закрыть" className={cl.btnClose} onClick={closeHandler} />
 				</header>
 				<div className={cl.navigationWrapper}>
 					{navigationsList.map(({ id, links }) => (

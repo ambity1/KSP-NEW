@@ -1,4 +1,6 @@
 import useDisableScroll from '@hooks/use-disable-scroll.js'
+import cn from 'classnames'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import Contacts from '@components/contacts'
@@ -6,11 +8,16 @@ import Contacts from '@components/contacts'
 import cl from './side-panel-tablet.module.scss'
 
 const BurgerSidePanelTablet = ({ onClose }) => {
+	const [isWasClosed, setIsWasClosed] = useState(false)
 	useDisableScroll()
+	const closeHandler = () => {
+		setIsWasClosed(true)
+		setTimeout(() => onClose(), 500)
+	}
 	return (
 		<>
-			<div className={cl.sidePanelWrapper}>
-				<button aria-label="Закрыть" className={cl.btnClose} onClick={onClose} />
+			<div className={cn([cl.sidePanelWrapper, { [cl.sidePanelWrapperClosed]: isWasClosed }])}>
+				<button aria-label="Закрыть" className={cl.btnClose} onClick={closeHandler} />
 				<div className={cl.linksWrapper}>
 					<Link to="/">Подбор запчастей по VIN</Link>
 					<Link to="/">Подбор запчастей по марке авто</Link>
