@@ -1,9 +1,11 @@
+import basket from '@assets/icons/basket.svg'
 import bracket from '@assets/images/basket/bracket.jpg'
 import headlight from '@assets/images/basket/headlight.jpg'
 import cn from 'classnames'
 import React from 'react'
 
 import ButtonLink from '@ui/button/link/index.js'
+import Counter from '@ui/counter/index.js'
 
 import cl from '@components/basket/basket.module.scss'
 
@@ -45,13 +47,22 @@ const Basket = () => {
 						<div className={cl.basketContentTableLines}>
 							<img className={cl.productsImage} src={img} alt="" />
 							<div className={cl.nameLines}>
-								<div>{name}</div>
-								<div className={cl.additionalNames}>VIN: {vin}</div>
-								<div className={cl.additionalNames}>Производитель: {manufacturer}</div>
+								<div className={cl.productName}>{name}</div>
+								<div className={cl.productVin}>VIN: {vin}</div>
+								<div className={cl.productManufacturer}>Производитель: {manufacturer}</div>
 							</div>
-							<div>{delivery}</div>
-							<div>{count}</div>
-							<div className={cl.price}>{price}</div>
+							<div className={cl.delivery}>
+								<div className={cl.deliveryText}>Срок поставки:{` `}</div>
+								<div className={cl.deliveryDays}>{delivery}</div>
+							</div>
+							{/* <div>{count}</div> */}
+							<div className={cl.counter}>
+								<Counter />
+							</div>
+							<div className={cl.price}>
+								<div className={cl.priceCount}>{price}</div>
+								<img className={cl.priceBasket} src={basket} alt="" />
+							</div>
 						</div>
 					))}
 				</div>
@@ -65,7 +76,9 @@ const Basket = () => {
 						<div>Итого:</div>
 						<div className={cl.priceNumber}>95 400 ₽</div>
 					</div>
-					<ButtonLink>Оформить заказ</ButtonLink>
+					<div className={cl.buttonLink}>
+						<ButtonLink>Оформить заказ</ButtonLink>
+					</div>
 				</div>
 			</div>
 		</div>

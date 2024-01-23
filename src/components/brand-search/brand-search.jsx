@@ -39,21 +39,23 @@ const BrandSearch = () => {
 			<div className={cl.brandSearchTable}>
 				<div className={cl.brandSearchTableHeader}>
 					<div>Модификация</div>
-					<div>Год выпуска</div>
-					<div>Тип двигателя</div>
-					<div>Код двигателя</div>
-					<div>Объем</div>
-					<div>Мощность</div>
+					<div className={cl.removeHeader}>Год выпуска</div>
+					<div className={cl.removeHeader}>Тип двигателя</div>
+					<div className={cl.removeHeader}>Код двигателя</div>
+					<div className={cl.removeHeader}>Объем</div>
+					<div className={cl.removeHeader}>Мощность</div>
 				</div>
 				{brandList.map(({ modification, year, engineType, engineCode, volume, power }) => (
 					<Link to="/#">
 						<div className={cl.brandSearchTableLines}>
-							<div>{modification}</div>
-							<div>{year}</div>
-							<div>{engineType}</div>
-							<div>{engineCode}</div>
-							<div>{volume}</div>
-							<div>{power}</div>
+							<div className={cl.modification}>{modification}</div>
+							<div className={cl.secondLine}>
+								<div className={cl.year}>{year}</div>
+								<div className={cl.engineType}>{engineType}</div>
+								<div className={cl.engineCode}>{engineCode}</div>
+								<div className={cl.volume}>{volume}</div>
+								<div className={cl.power}>{power}</div>
+							</div>
 						</div>
 					</Link>
 				))}

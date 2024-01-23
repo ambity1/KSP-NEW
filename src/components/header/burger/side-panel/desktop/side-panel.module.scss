@@ -60,10 +60,10 @@
   }
 
   .navigationWrapper {
-    padding: 130px 130px 90px 130px;
+    padding: 120px 0 170px 0;
     display: flex;
     align-items: center;
-    gap: 160px;
+    gap: 250px;
 
     .navigationListWrapper {
       display: flex;
@@ -71,7 +71,7 @@
       flex-direction: column;
 
       .navigationItem {
-        @include fontsStyles.DisplayMD;
+        @include fontsStyles.DisplayLG;
         @include fontsFamilies.FontFamilyInterBold;
 
         &:hover {
@@ -91,7 +91,7 @@
       align-items: center;
       gap: 20px;
       @include fontsFamilies.FontFamilyInterBold;
-      @include fontsStyles.TextLG;
+      @include fontsStyles.DisplayLG;
 
       &.whatsapp {
         &::before {
