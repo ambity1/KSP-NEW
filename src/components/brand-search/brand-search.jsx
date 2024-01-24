@@ -46,7 +46,7 @@ const BrandSearch = () => {
 					<div className={cl.removeHeader}>Мощность</div>
 				</div>
 				{brandList.map(({ modification, year, engineType, engineCode, volume, power }) => (
-					<Link to="/#">
+					<Link to="/good/1">
 						<div className={cl.brandSearchTableLines}>
 							<div className={cl.modification}>{modification}</div>
 							<div className={cl.secondLine}>

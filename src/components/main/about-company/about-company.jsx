@@ -2,6 +2,7 @@ import cn from 'classnames'
 import { memo } from 'react'
 
 import Button from '@ui/button'
+import ButtonLink from '@ui/button/link/index.js'
 
 import cl from './about-company.module.scss'
 
@@ -28,9 +29,9 @@ const AboutCompany = () => {
 						то&nbsp;мы&nbsp;будем рады видеть вас&nbsp;в&nbsp;числе наших клиентов.
 					</p>
 				</div>
-				<Button className={cl.btn} sizeStyle="sizeS">
+				<ButtonLink to="/about" className={cl.btn} sizeStyle="sizeS">
 					Подробнее
-				</Button>
+				</ButtonLink>
 			</div>
 		</div>
 	)

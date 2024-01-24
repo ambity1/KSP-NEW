@@ -50,7 +50,9 @@ const Selection = () => {
 				onTabChange={handleTabChange}
 			/>
 			<div className={cl.linkWrapper}>
-				<ButtonLink sizeStyle="sizeL">Перейти</ButtonLink>
+				<ButtonLink to="/brand-search" sizeStyle="sizeL">
+					Перейти
+				</ButtonLink>
 				{activeTab === 'vin' && (
 					<Button sizeStyle="sizeL" colorStyle="outlined" onClick={togglePanel}>
 						Помощь с подбором
