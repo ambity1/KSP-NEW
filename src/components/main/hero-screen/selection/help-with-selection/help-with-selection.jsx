@@ -17,15 +17,7 @@ const HelpWithSelection = ({ onClose }) => {
 	const [viewPhone, setViewPhone] = useState('')
 	const [phone, setPhone] = useState('')
 
-	// const dispatch = useDispatch()
-
 	useDisableScroll()
-	//
-	// const closeHandler = () => {
-	// 	setIsWasClosed(true)
-	//
-	// 	setTimeout(() => dispatch(setSignUpIsOpen(false)), 200)
-	// }
 
 	const submitForm = (e) => {
 		e.preventDefault()
