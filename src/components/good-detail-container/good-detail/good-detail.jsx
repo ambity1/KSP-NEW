@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { memo } from 'react'
+import { memo, useState } from 'react'
 
 import Button from '@ui/button'
 import Counter from '@ui/counter'
@@ -9,6 +9,8 @@ import cl from './good-detail.module.scss'
 
 const GoodDetail = () => {
 	const goodDetailWrapperClassNames = cn([cl.wrapper, 'container'])
+
+	const [inBasket, setInBasket] = useState(false)
 
 	return (
 		<div className={goodDetailWrapperClassNames}>
@@ -24,8 +26,13 @@ const GoodDetail = () => {
 					<span className={cl.rate}>Рейтинг: 4,5 </span>
 				</div>
 				<div className={cl.actionsWrapper}>
-					<Counter />
-					<Button additionalStyles={['mobileWide']}>В корзину</Button>
+					{inBasket === true ? (
+						<Counter />
+					) : (
+						<div onClick={() => setInBasket(!inBasket)}>
+							<Button additionalStyles={['mobileWide']}>В корзину</Button>
+						</div>
+					)}
 					<Button additionalStyles={['mobileWide']} colorStyle="outlined" className={cl.favouritesAction}>
 						<span>В избранное</span>
 					</Button>

@@ -36,7 +36,7 @@ function Routes() {
 			element: <ExtraInformationPage />
 		},
 		{
-			path: `/brand_search`,
+			path: `/brand-search`,
 			element: <BrandSearchPage />
 		},
 		{

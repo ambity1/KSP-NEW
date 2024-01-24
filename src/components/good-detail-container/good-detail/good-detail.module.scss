@@ -85,8 +85,7 @@
 
 				gap: 0.625em; //10px
 
-				&::before,
-				&::after {
+				&::before {
 					content: url('@assets/icons/heart.svg');
 					line-height: 0;
 				}

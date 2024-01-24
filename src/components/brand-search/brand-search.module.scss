@@ -109,13 +109,12 @@
         .power {
         }
       }
+    }
 
-
-      &Lines:hover {
-        background-color: colors.$main;
-        color: colors.$black;
-        cursor: pointer;
-      }
+    &Lines:hover {
+      background-color: colors.$main;
+      color: colors.$black;
+      cursor: pointer;
     }
   }
 }
