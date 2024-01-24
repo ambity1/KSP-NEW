@@ -11,13 +11,13 @@ import Button from '@ui/button'
 import cl from './help-with-selection.module.scss'
 
 const HelpWithSelection = ({ onClose }) => {
+	useDisableScroll()
+
 	const [isOk, setIsOk] = useState('default')
 	// const [isWasClosed, setIsWasClosed] = useState(false)
-	// const [isDisabled, setIsDisabled] = useState(false)
+	const [isDisabled, setIsDisabled] = useState(false)
 	const [viewPhone, setViewPhone] = useState('')
 	const [phone, setPhone] = useState('')
-
-	useDisableScroll()
 
 	const submitForm = (e) => {
 		e.preventDefault()
@@ -38,7 +38,7 @@ const HelpWithSelection = ({ onClose }) => {
 				.split(/[-_()^\s*$]+/)
 				.join('').length === 12
 		) {
-			fetch('/api/handler_request', { method: 'post', body: fd })
+			fetch('https://kspback.ambity.ru/api/handler_request', { method: 'post', body: fd })
 				.then((resp) => resp.json())
 				.then((res) => {
 					if (res.status === 'ok') {
@@ -65,8 +65,8 @@ const HelpWithSelection = ({ onClose }) => {
 	}
 	return (
 		<>
-			<div className={cl.overlay} />
-			{/*<div className={cl.wrapper}>*/}
+			<div className={cl.overlay} onClick={onClose} />
+			{/* <div className={cl.wrapper}> */}
 			<div>
 				{isOk === 'successfully' ? (
 					<div className={cl.wrapper}>
@@ -106,25 +106,24 @@ const HelpWithSelection = ({ onClose }) => {
 										size="16"
 										placeholder="Телефон"
 										required
-										// disabled={isDisabled}
+										disabled={isDisabled}
 									/>
 									<input name="phone" type="hidden" tabIndex={-1} readOnly value={phone} />
-									<div onClick={() => setIsOk('successfully')}>
-										<Button className={cl.button} sizeStyle="sizeS">
+									<div className={cl.btnWrapper}>
+										<Button type="submit" className={cl.button} sizeStyle="sizeS">
 											Отправить
 										</Button>
 									</div>
 								</form>
 								<span className={cl.confidential}>
-							Нажимая на кнопку, вы соглашаетесь с{' '}
+									Нажимая на кнопку, вы соглашаетесь с{' '}
 									<Link to="/privacy-policy" className={cl.underline}>
-								Политикой конфиденциальности
-							</Link>
-						</span>
+										Политикой конфиденциальности
+									</Link>
+								</span>
 							</div>
 						</div>
 					</div>
-
 				) : (
 					<div className={cl.wrapper}>
 						<button className={cl.btnClose} onClick={onClose} />
@@ -137,7 +136,7 @@ const HelpWithSelection = ({ onClose }) => {
 					</div>
 				)}
 			</div>
-			{/*</div>*/}
+			{/* </div> */}
 		</>
 	)
 }

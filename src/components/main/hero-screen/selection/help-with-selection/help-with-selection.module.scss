@@ -10,7 +10,7 @@
   right: 0;
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-color: colors.$white;
   opacity: 0.6;
   z-index: 100;
@@ -143,7 +143,13 @@
 
       }
 
+      .btnWrapper {
+        display: contents;
+      }
+
+
       .button {
+        color: colors.$black;
         @include breakpoints.tablet {
           @include fontsStyles.TextXS;
         }

@@ -31,7 +31,7 @@ const BurgerSidePanelTablet = ({ onClose }) => {
 					messengersWrapperClassName={cl.messengersWrapper}
 				/>
 			</div>
-			<div className={cl.overlay} />
+			<div className={cl.overlay} onClick={closeHandler} />
 		</>
 	)
 }
