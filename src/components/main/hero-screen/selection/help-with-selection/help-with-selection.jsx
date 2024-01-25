@@ -72,9 +72,9 @@ const HelpWithSelection = ({ onClose }) => {
 					<div className={cl.wrapper}>
 						<button className={cl.btnClose} onClick={onClose} />
 						<div className={cl.contentWrapper}>
-							<h2 className={cl.title}>Спасибо!</h2>
+							<h2 className={cl.title}>Заявка успешно отправлена!</h2>
 							<div className={cl.contentContainer}>
-								<span className={cl.text}>Скоро мы с вами свяжемся.</span>
+								<span className={cl.text}>Мы перезвоним вам в ближайшее время</span>
 							</div>
 						</div>
 					</div>

@@ -19,7 +19,7 @@ const Contacts = ({
 			},
 			{
 				id: 1,
-				text: 'Рынок «Kol Auto» (24 и 59 бутик)',
+				text: 'Рынок «Kol Auto» (24 и 59 бутик)',
 				phone: '+7 (707) 164-00-24'
 			}
 		],
