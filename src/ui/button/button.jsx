@@ -26,7 +26,7 @@ const Button = ({
 }
 
 Button.propTypes = {
-	colorStyle: PropTypes.oneOf(['primary', 'outlined']),
+	colorStyle: PropTypes.oneOf(['primary', 'outlined', 'secondary']),
 	sizeStyle: PropTypes.oneOf(['sizeS', 'sizeM', 'sizeL']),
 	additionalStyles: (props, propName, componentName) => {
 		const additionalStyles = props[propName]

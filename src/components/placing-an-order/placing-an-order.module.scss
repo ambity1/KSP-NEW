@@ -55,7 +55,7 @@
 
         .input {
           flex-grow: 1;
-          color: colors.$white;
+          color: colors.$gray;
           padding: 0.75em 1.25em;
           background: transparent;
           border: 1px solid colors.$gray;
@@ -66,6 +66,18 @@
       .btnGroup {
         display: flex;
         gap: 20px;
+        @include breakpoints.mobile_middle {
+          flex-direction: column;
+          @include fontsStyles.TextXS;
+        }
+
+        .button {
+          &:hover {
+            background-color: transparent;
+            border: 1px solid colors.$main;
+          }
+        }
+
       }
     }
   }
