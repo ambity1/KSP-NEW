@@ -1,0 +1,72 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+.wrapper {
+  padding: 40px 20px 140px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .title {
+    @include fontsFamilies.FontFamilyInterBold;
+    @include fontsStyles.DisplayLG;
+  }
+
+  .blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .blockCard {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background-color: colors.$white;
+      color: colors.$black;
+      padding: 30px;
+      border-radius: 4px;
+      //width: 37%;
+      max-width: 620px;
+
+      .cardTitle {
+        @include fontsFamilies.FontFamilyInterBold;
+        @include fontsStyles.TextLG;
+      }
+
+      .infoGroup {
+        @include fontsFamilies.FontFamilyInterRegular;
+        @include fontsStyles.TextMD;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .textGroup {
+          display: flex;
+          gap: 5px;
+          @include fontsFamilies.FontFamilyInterRegular;
+          @include fontsStyles.TextMD;
+
+          .textTitle {
+            @include fontsFamilies.FontFamilyInterBold;
+          }
+        }
+
+        .input {
+          flex-grow: 1;
+          color: colors.$white;
+          padding: 0.75em 1.25em;
+          background: transparent;
+          border: 1px solid colors.$gray;
+          border-radius: 4px;
+        }
+      }
+
+      .btnGroup {
+        display: flex;
+        gap: 20px;
+      }
+    }
+  }
+}

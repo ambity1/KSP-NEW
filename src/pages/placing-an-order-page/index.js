@@ -1,0 +1,1 @@
+export { default } from './placing-an-order-page.jsx'

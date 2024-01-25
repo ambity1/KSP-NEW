@@ -8,6 +8,7 @@ import Main from '@pages/main-page'
 import PrivacyPolicyPage from '@pages/privacy-policy-page/index.js'
 import StockPage from '@pages/stock-page/stock-page.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import PlacingAnOrderPage from "@pages/placing-an-order-page/index.js";
 
 function Routes() {
 	const router = createBrowserRouter([
@@ -46,6 +47,10 @@ function Routes() {
 		{
 			path: `/privacy-policy`,
 			element: <PrivacyPolicyPage />
+		},
+		{
+			path: `/placing-an-order`,
+			element: <PlacingAnOrderPage />
 		}
 	])
 
