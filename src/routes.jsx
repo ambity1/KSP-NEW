@@ -9,6 +9,7 @@ import PrivacyPolicyPage from '@pages/privacy-policy-page/index.js'
 import StockPage from '@pages/stock-page/stock-page.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import PlacingAnOrderPage from "@pages/placing-an-order-page/index.js";
+import ModelCategoriesPage from "@pages/model-categories-page/index.js";
 
 function Routes() {
 	const router = createBrowserRouter([
@@ -51,6 +52,10 @@ function Routes() {
 		{
 			path: `/placing-an-order`,
 			element: <PlacingAnOrderPage />
+		},
+		{
+			path: `/model-categories`,
+			element: <ModelCategoriesPage />
 		}
 	])
 

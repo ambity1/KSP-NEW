@@ -1,0 +1,114 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+.wrapper {
+  padding: 40px 20px 140px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include breakpoints.tablet {
+    padding: 40px 20px 100px 20px;
+  }
+
+  @include breakpoints.mobile {
+    padding: 30px 10px 60px 10px;
+  }
+
+  .title {
+    @include fontsFamilies.FontFamilyInterBold;
+    @include fontsStyles.DisplayLG;
+
+    @include breakpoints.mobile {
+      @include fontsStyles.DisplayMD;
+    }
+  }
+
+  .categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    row-gap: 40px;
+
+    @include breakpoints.desktop_base {
+      grid-template-columns:1fr 1fr 1fr;
+      gap: 20px;
+      row-gap: 20px;
+    }
+
+    @include breakpoints.tablet {
+      grid-template-columns: 1fr;
+      //gap: 20px;
+      //row-gap: 20px;
+    }
+
+    @include breakpoints.mobile {
+      gap: 10px;
+    }
+
+    .categoryCard {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      border-radius: 4px;
+      background-color: colors.$white;
+      color: colors.$black;
+      gap: 20px;
+      //box-sizing: border-box;
+
+      @include breakpoints.tablet {
+        padding: 5px 20px;
+      }
+
+      @include breakpoints.mobile {
+        padding: 5px 10px;
+      }
+
+      &Title {
+        @include fontsFamilies.FontFamilyInterBold;
+        @include fontsStyles.TextLG;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        @include breakpoints.mobile {
+          @include fontsStyles.TextXS;
+        }
+
+        ::after {
+          @include breakpoints.tablet {
+            content: url("/assets/icons/arrow-down.svg");
+            position: absolute;
+            right: 40px;
+          }
+
+          @include breakpoints.mobile {
+            right: 20px;
+          }
+        }
+      }
+    }
+
+    .spareParts {
+      @include breakpoints.tablet {
+        display: none;
+      }
+
+      &Name {
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoints.tablet {
+          display: none;
+        }
+      }
+
+      &Continuation {
+        color: colors.$main;
+
+      }
+    }
+  }
+}
