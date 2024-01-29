@@ -2,6 +2,7 @@ import cn from 'classnames'
 
 import Button from '@ui/button/index.js'
 
+import Filters from '@components/goods-of-category/filters'
 import GoodCard from '@components/other-goods-slider/good-card/good-card.jsx'
 
 import cl from './goods-of-category.module.scss'
@@ -21,8 +22,8 @@ const GoodsOfCategory = () => {
 								<li className={cl.menuListItem}>Кузов наружные элементы</li>
 							</ul>
 						</div>
+						<Filters />
 					</div>
-					<div>Filters</div>
 				</div>
 				<div className={cl.goodsWrapper}>
 					<GoodCard />
