@@ -32,6 +32,26 @@ const PlacingAnOrder = () => {
 		setViewPhone(newViewPhone)
 		setPhone(rawPhone)
 	}
+
+	const basketList = [
+		{
+			name: 'Кронштейн фары противотуманной левой для Hyundai Sonata VI 2010-2014 БУ состояние удовлетворительное',
+			vin: '14848284',
+			manufacturer: 'Hyundai-Kia',
+			delivery: '6 дней',
+			count: '1',
+			price: '750 ₽'
+		},
+		{
+			name: 'Фара правая для Hyundai Sonata VI 2010-2014 новая',
+			vin: '87448284',
+			manufacturer: 'Hyundai-Kia',
+			delivery: '6 дней',
+			count: '2',
+			price: '750 ₽'
+		}
+	]
+
 	return (
 		<div className={cn([cl.wrapper, 'container'])}>
 			<h1 className={cl.title}>Оформление заказа</h1>
@@ -111,21 +131,31 @@ const PlacingAnOrder = () => {
 				</div>
 				<div className={cl.blockCard}>
 					<span className={cl.cardTitle}>Ваш заказ</span>
-					<span>(список запчастей)</span>
+					{basketList.map(({ name, vin, manufacturer, delivery, count, price }) => (
+						<div className={cl.orderProducts}>
+							<div className={cl.nameLines}>
+								<div className={cl.productName}>{name}</div>
+								<div className={cl.productVin}>VIN: {vin}</div>
+								<div className={cl.productManufacturer}>Производитель: {manufacturer}</div>
+							</div>
+							<span className={cl.counter}>{count} шт.</span>
+							<div className={cl.price}>
+								<div className={cl.priceCount}>{price}</div>
+							</div>
+						</div>
+					))}
 					<div className={cl.infoGroup}>
-						<div className={cl.textGroup}>
+						<div className={cl.textOrderGroup}>
 							<span className={cl.textTitle}>Самовывоз:</span>
 							<span>0 ₽</span>
 						</div>
-						<div className={cl.textGroup}>
+						<div className={cl.textOrderGroup}>
 							<span className={cl.textTitle}>Итого:</span>
 							<span className={cl.textTitle}>4200 ₽</span>
 						</div>
 					</div>
 				</div>
-				<div>
-					<Button sizeStyle="sizeS">Подтвердить заказ</Button>
-				</div>
+					<Button className={cl.btnOrderSubmit} sizeStyle="sizeS">Подтвердить заказ</Button>
 			</div>
 		</div>
 	)

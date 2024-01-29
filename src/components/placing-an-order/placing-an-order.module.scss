@@ -19,6 +19,15 @@
     flex-direction: column;
     gap: 20px;
 
+    .btnOrderSubmit {
+      align-self: start;
+
+      @include breakpoints.mobile {
+        width: 100%;
+        align-self: start;
+      }
+    }
+
     .blockCard {
       display: flex;
       flex-direction: column;
@@ -53,6 +62,18 @@
           }
         }
 
+        .textOrderGroup {
+          display: flex;
+          justify-content: space-between;
+          gap: 5px;
+          @include fontsFamilies.FontFamilyInterRegular;
+          @include fontsStyles.TextMD;
+
+          .textTitle {
+            @include fontsFamilies.FontFamilyInterBold;
+          }
+        }
+
         .input {
           flex-grow: 1;
           color: colors.$gray;
@@ -60,6 +81,113 @@
           background: transparent;
           border: 1px solid colors.$gray;
           border-radius: 4px;
+        }
+      }
+
+      .orderProducts {
+        display: grid;
+        grid-template-columns: 3fr 1fr auto;
+        gap: 10px;
+        border-bottom: 1px solid colors.$gray;
+        padding-bottom: 10px;
+        @include fontsFamilies.FontFamilyInterRegular;
+        @include fontsStyles.TextMD;
+
+        @include breakpoints.tablet_small {
+        }
+
+        @include breakpoints.mobile {
+          grid-template-columns: 1fr auto;
+        }
+
+        .price {
+          @include fontsFamilies.FontFamilyInterBold;
+          @include fontsStyles.TextMD;
+          grid-column-start: 3;
+          grid-column-end: 4;
+          grid-row-start: 1;
+          grid-row-end: 2;
+
+          @include breakpoints.tablet_small {
+
+          }
+
+          @include breakpoints.mobile {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 3;
+          }
+
+          .priceCount {
+
+            @include breakpoints.mobile {
+              @include fontsStyles.TextXS;
+            }
+          }
+        }
+
+        .nameLines {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          @include breakpoints.tablet_small {
+          }
+
+          @include breakpoints.mobile {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 2;
+          }
+
+          .productName {
+
+            @include breakpoints.tablet_small {
+              @include fontsStyles.TextXS;
+            }
+          }
+
+          .productVin {
+            color: colors.$gray;
+            @include fontsStyles.TextXS;
+
+            @include breakpoints.tablet_small {
+
+            }
+
+          }
+
+          .productManufacturer {
+            display: grid;
+            color: colors.$gray;
+            @include fontsStyles.TextXS;
+
+            @include breakpoints.tablet_small {
+
+            }
+
+          }
+        }
+
+        .counter {
+          grid-column-start: 2;
+          grid-column-end: 3;
+          grid-row-start: 1;
+          grid-row-end: 2;
+
+          @include breakpoints.tablet_small {
+
+          }
+
+          @include breakpoints.mobile {
+            @include fontsStyles.TextXS;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 3;
+          }
         }
       }
 
