@@ -31,9 +31,9 @@ const GoodsOfCategory = () => {
 			<div className={cl.wrapper}>
 				<div className={cl.drs}>
 					<div className={cl.catalogBlock}>
-						<span onClick={() => setIsOpen(!isOpen)}>
-							<Button>КАТАЛОГ ЗАПЧАСТЕЙ</Button>
-						</span>
+						<div className={cl.catalogBtn} onClick={() => setIsOpen(!isOpen)}>
+							<Button className={cl.btn}>КАТАЛОГ ЗАПЧАСТЕЙ</Button>
+						</div>
 						<div className={`${cl.menu}${isOpen ? 'active' : ''}`}>
 							<div className={cl.menuList}>
 								<div className={cl.partsGroup}>
@@ -59,15 +59,18 @@ const GoodsOfCategory = () => {
 					</div>
 					<Filters />
 				</div>
-				<div className={cl.goodsWrapper}>
-					<div>
-						<GoodCard />
-					</div>
-					<div>
-						<GoodCard />
-					</div>
-					<div>
-						<GoodCard />
+				<div className={cl.contetnWrapper}>
+					<span className={cl.dropDownBtn}>Цена по возрастанию</span>
+					<div className={cl.goodsWrapper}>
+						<div>
+							<GoodCard />
+						</div>
+						<div>
+							<GoodCard />
+						</div>
+						<div>
+							<GoodCard />
+						</div>
 					</div>
 				</div>
 			</div>

@@ -21,6 +21,21 @@
       flex-direction: column;
       gap: 20px;
 
+      .catalogBtn {
+        display: flex;
+        flex-direction: column;
+
+        .btn {
+          display: flex;
+          text-align: start;
+          justify-content: space-between;
+
+          &::after {
+            content: url('@assets/icons/filters/arrowRight.svg');
+          }
+        }
+      }
+
       .menu {
         background-color: colors.$white;
         opacity: 0;
@@ -79,6 +94,10 @@
         visibility: visible;
       }
     }
+
+    //.dropDownBtn {
+    //
+    //}
   }
 
   .goodsWrapper {
