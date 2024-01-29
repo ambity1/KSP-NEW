@@ -4,12 +4,13 @@ import BrandSearchPage from '@pages/brand-search-page/index.js'
 import ContactsPage from '@pages/contacts-page'
 import ExtraInformationPage from '@pages/extra-information-page/extra-information-page.jsx'
 import GoodDetailPage from '@pages/good-detail-page'
+import GoodsOfCategoryPage from '@pages/goods-of-category-page/index.js'
 import Main from '@pages/main-page'
+import ModelCategoriesPage from '@pages/model-categories-page/index.js'
+import PlacingAnOrderPage from '@pages/placing-an-order-page/index.js'
 import PrivacyPolicyPage from '@pages/privacy-policy-page/index.js'
 import StockPage from '@pages/stock-page/stock-page.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import PlacingAnOrderPage from "@pages/placing-an-order-page/index.js";
-import ModelCategoriesPage from "@pages/model-categories-page/index.js";
 
 function Routes() {
 	const router = createBrowserRouter([
@@ -56,6 +57,10 @@ function Routes() {
 		{
 			path: `/model-categories`,
 			element: <ModelCategoriesPage />
+		},
+		{
+			path: `/goods-of-category`,
+			element: <GoodsOfCategoryPage />
 		}
 	])
 

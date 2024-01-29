@@ -1,0 +1,21 @@
+@use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/vars/colors';
+
+.goodsOfCategoryWrapper {
+  .title {
+    @include fontsStyles.DisplayLG;
+  }
+
+  .wrapper {
+    display: flex;
+    gap: 30px;
+  }
+
+  .goodsWrapper {
+    display: flex;
+    gap: 30px;
+  }
+
+}
