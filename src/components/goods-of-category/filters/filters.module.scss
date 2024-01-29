@@ -1,0 +1,18 @@
+@use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/vars/colors';
+
+.filtersWrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: colors.$white;
+  color: colors.$black;
+  padding: 30px 30px;
+  border-radius: 4px;
+
+
+  .title {
+    @include fontsFamilies.FontFamilyInterBold;
+  }
+}
