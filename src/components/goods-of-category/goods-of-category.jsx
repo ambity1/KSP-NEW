@@ -60,9 +60,15 @@ const GoodsOfCategory = () => {
 					<Filters />
 				</div>
 				<div className={cl.goodsWrapper}>
-					<GoodCard />
-					<GoodCard />
-					<GoodCard />
+					<div>
+						<GoodCard />
+					</div>
+					<div>
+						<GoodCard />
+					</div>
+					<div>
+						<GoodCard />
+					</div>
 				</div>
 			</div>
 		</div>
