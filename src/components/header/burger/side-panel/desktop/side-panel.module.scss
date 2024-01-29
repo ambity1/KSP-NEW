@@ -106,6 +106,10 @@
           color: colors.$main;
           border-bottom: 1px solid colors.$main;
         }
+
+        @include breakpoints.desktop {
+          @include fontsStyles.DisplayMD;
+        }
       }
     }
   }

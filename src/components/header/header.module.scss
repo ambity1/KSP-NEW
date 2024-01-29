@@ -9,7 +9,7 @@
   top: 0;
   background-color: colors.$background;
   z-index: 50;
-  padding-top: 1.875em;
+  padding-top: 25px;
   padding-bottom: 25px;
 
 
@@ -51,7 +51,7 @@
   @include fontsStyles.TextLG;
   display: flex;
   align-items: center;
-  gap: 0.75em; //12px
+  gap: 12px;
 
 
   @include breakpoints.desktop_base {

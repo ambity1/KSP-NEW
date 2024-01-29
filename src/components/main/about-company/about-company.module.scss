@@ -4,22 +4,26 @@
 
 
 .aboutCompanyWrapper {
-  padding-top: 10em; //160px
+  //padding-top: 10em; //160px
+  padding: 80px 0 80px 0;
 
   display: flex;
 
   gap: 3.125em; //50px
   align-items: center;
   @include breakpoints.desktop {
-    padding-top: 8.75em; //140px
+    //padding-top: 8.75em; //140px
+    padding: 70px 0 70px 0;
     gap: 4.375em; //70px
   }
   @include breakpoints.tablet {
-    padding-top: 6.25em; //100px
+    //padding-top: 6.25em; //100px
+    padding: 50px 0 50px 0;
     gap: 1.25em; //20px
   }
   @include breakpoints.mobile {
-    padding-top: 3.75em; //60px
+    //padding-top: 3.75em; //60px
+    padding: 30px 0 30px 0;
   }
 
   .img {
@@ -60,8 +64,13 @@
     .textWrapper {
       display: flex;
       flex-direction: column;
+      padding-right: 100px;
       gap: 20px;
       @include fontsStyles.TextLG;
+
+      @include breakpoints.desktop {
+        padding-right: 0;
+      }
       @include breakpoints.tablet {
         @include fontsStyles.TextXS;
       }
