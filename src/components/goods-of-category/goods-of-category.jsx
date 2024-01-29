@@ -12,7 +12,16 @@ const GoodsOfCategory = () => {
 			<h1 className={cl.title}>Кронштейн фары противотуманной левой на Sonata Тагаз, код двигателя G4GC</h1>
 			<div className={cl.wrapper}>
 				<div>
-					<Button>католог</Button>
+					<div className={cl.catalogBlock}>
+						<Button>Каталог</Button>
+						<div className={cl.menu}>
+							<ul className={cl.menuList}>
+								<li className={cl.menuListItem}>Двигатель</li>
+								<li className={cl.menuListItem}>Кузов внутри</li>
+								<li className={cl.menuListItem}>Кузов наружные элементы</li>
+							</ul>
+						</div>
+					</div>
 					<div>Filters</div>
 				</div>
 				<div className={cl.goodsWrapper}>

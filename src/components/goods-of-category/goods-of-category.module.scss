@@ -11,6 +11,28 @@
   .wrapper {
     display: flex;
     gap: 30px;
+
+    .catalogBlock {
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 5px);
+        padding: 25px;
+        background-color: colors.$white;
+        border: 1px solid colors.$black;
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        transition: 0.3s;
+
+        &List {
+
+          &Item {
+
+          }
+        }
+      }
+    }
   }
 
   .goodsWrapper {
