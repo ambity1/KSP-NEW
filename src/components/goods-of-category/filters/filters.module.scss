@@ -10,9 +10,83 @@
   color: colors.$black;
   padding: 30px 30px;
   border-radius: 4px;
+  gap: 20px;
+  max-width: 360px;
 
 
   .title {
     @include fontsFamilies.FontFamilyInterBold;
+  }
+
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  .counterWrapper {
+    display: flex;
+    gap: 9px;
+
+    .counter {
+      padding: 10px 8px;
+      border: 1px solid colors.$border;
+      border-radius: 4px;
+      @include fontsStyles.TextMD;
+
+    }
+  }
+
+  .conditionList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .line {
+      gap: 12px;
+      display: flex;
+
+      .point {
+        content: url("/assets/icons/filters/Radiobutton.svg")
+      }
+
+      .text {
+        position: relative;
+        display: inline-block;
+      }
+    }
+
+    .active {
+      gap: 12px;
+
+      .point {
+        content: url("/assets/icons/filters/RadiobuttonActive.svg")
+      }
+
+      .text {
+        position: relative;
+        display: inline-block;
+      }
+    }
+  }
+
+  .buttonLink {
+    display: flex;
+    flex-direction: column;
+
+    .btn {
+      background-color: transparent;
+      border: none;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
 }
