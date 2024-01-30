@@ -14,16 +14,18 @@ const GoodsOfCategory = () => {
 	const partsList = [
 		{
 			name: 'Двигатель',
-			parts: ['хуйня', 'дрисня', 'еботня']
+			parts: ['вкладыши', 'втулки', 'гайки']
 		},
 		{
 			name: 'Кузов внутри',
-			parts: ['поебистика', 'хуистика', 'ебанистика']
+			parts: ['ложерон', 'усилитель', 'порог']
 		},
 		{
 			name: 'Cистема выпуска отработанных газов'
 		}
 	]
+
+	const [currentCategory, setCurrentCategory] = useState(null)
 
 	return (
 		<div className={cn([cl.goodsOfCategoryWrapper, 'container'])}>

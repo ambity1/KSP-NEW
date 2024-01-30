@@ -4,8 +4,18 @@
 @use '@assets/styles/mixins/fontsFamilies';
 
 .otherGoodsWrapper {
-  padding-top: 6.25em; //100px
-  padding-bottom: 6.25em;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @include breakpoints.tablet {
+    padding-top: 70px;
+    padding-bottom: 60px;
+  }
+
+  @include breakpoints.mobile {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 
   .title {
     @include breakpoints.tablet_small {

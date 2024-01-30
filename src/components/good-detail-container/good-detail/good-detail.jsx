@@ -30,7 +30,9 @@ const GoodDetail = () => {
 						<Counter />
 					) : (
 						<div onClick={() => setInBasket(!inBasket)}>
-							<Button additionalStyles={['mobileWide']}>В корзину</Button>
+							<Button additionalStyles={['mobileWide']} className={cl.basketBtn}>
+								В корзину
+							</Button>
 						</div>
 					)}
 					<Button additionalStyles={['mobileWide']} colorStyle="outlined" className={cl.favouritesAction}>

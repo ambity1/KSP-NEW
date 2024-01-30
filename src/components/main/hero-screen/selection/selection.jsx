@@ -54,7 +54,7 @@ const Selection = () => {
 					Перейти
 				</ButtonLink>
 				{activeTab === 'vin' && (
-					<Button sizeStyle="sizeL" colorStyle="outlined" onClick={togglePanel}>
+					<Button className={cl.modelBtn} sizeStyle="sizeL" colorStyle="outlined" onClick={togglePanel}>
 						Помощь с подбором
 					</Button>
 				)}

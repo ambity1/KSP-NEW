@@ -76,9 +76,9 @@ const Basket = () => {
 						<div>Итого:</div>
 						<div className={cl.priceNumber}>95 400 ₽</div>
 					</div>
-					<div className={cl.buttonLink}>
-						<ButtonLink to="/placing-an-order">Оформить заказ</ButtonLink>
-					</div>
+					<ButtonLink to="/placing-an-order" className={cl.buttonLink}>
+						Оформить заказ
+					</ButtonLink>
 				</div>
 			</div>
 		</div>

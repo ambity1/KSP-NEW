@@ -22,7 +22,11 @@
 
     .separator {
       flex-grow: 1;
-      border-bottom: 2px dotted colors.$border;
+      border-bottom: 1px dashed colors.$border;
+    }
+
+    .value {
+      text-align: left;
     }
   }
 }

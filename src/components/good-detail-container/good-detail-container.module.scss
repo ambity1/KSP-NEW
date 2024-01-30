@@ -1,5 +1,14 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
 .tabsWrapper {
   padding-top: 60px;
+
+  @include breakpoints.tablet {
+    display: none;
+  }
 
 
 }
