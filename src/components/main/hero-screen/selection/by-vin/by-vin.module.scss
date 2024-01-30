@@ -8,6 +8,10 @@
   flex-direction: column;
   gap: 30px;
 
+  @include breakpoints.mobile {
+    gap: 20px;
+  }
+
   .title {
     @include fontsStyles.TextLG;
     @include breakpoints.mobile_middle {
@@ -21,6 +25,10 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @include breakpoints.mobile {
+    gap: 10px;
+  }
 }
 
 .selector {

@@ -4,8 +4,21 @@
 
 .cardWrapper {
   position: relative;
-  min-height: 588.2px;
+  //min-height: 588.2px;
+  height: 589.8px;
+  //height: 100%;
 
+  @include breakpoints.desktop_small {
+    height: 519.2px;
+  }
+
+  @include breakpoints.tablet {
+    height: 450px;
+  }
+
+  @include breakpoints.mobile {
+    height: 350px;
+  }
 
   .img {
     @include helpers.contain;

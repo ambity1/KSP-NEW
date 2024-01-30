@@ -5,7 +5,7 @@
 .wrapper {
   //padding-top: 10em;
   //padding-bottom: 10em;
-  padding: 80px 0 173px 0;
+  padding: 80px 20px 173px 20px;
 
   display: flex;
   flex-direction: column;
@@ -13,19 +13,19 @@
   @include breakpoints.desktop {
     //padding-top: 8.75em;
     //padding-bottom: 8.75em
-    padding: 70px 0 140px 0;
+    padding: 70px 20px 140px 20px;
   }
   @include breakpoints.tablet {
     //padding-top: 6.25em; //100px
     //padding-bottom: 6.25em;
-    padding: 50px 0 100px 0;
+    padding: 50px 20px 100px 20px;
     gap: 1.875em; //30px
 
   }
   @include breakpoints.mobile {
     //padding-top: 3.75em; //60px
     //padding-bottom: 3.75em;
-    padding: 30px 0 60px 0;
+    padding: 30px 10px 60px 10px;
     gap: 1.25em; //20px
   }
 

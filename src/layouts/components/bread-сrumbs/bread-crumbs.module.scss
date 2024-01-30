@@ -10,6 +10,10 @@
   gap: 6px;
   color: colors.$border;
 
+  a{
+    color: colors.$border;
+  }
+
   @include breakpoints.mobile_middle {
     @include fontsStyles.TextXS;
   }
@@ -23,7 +27,7 @@
     }
 
     &:not(:last-child) a {
-      border-bottom: solid 2px colors.$border;
+      border-bottom: solid 1px colors.$border;
     }
   }
 }

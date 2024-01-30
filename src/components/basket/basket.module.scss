@@ -42,7 +42,7 @@
 
       &Header {
         display: grid;
-        grid-template-columns: 0.5fr 3.5fr 1fr 1fr 1fr;
+        grid-template-columns: 0.5fr 3.5fr 1fr 1fr 0.7fr;
         gap: 20px;
         padding: 10px 0 20px 0;
         @include fontsFamilies.FontFamilyInterBold;
@@ -55,7 +55,7 @@
 
       &Lines {
         display: grid;
-        grid-template-columns: 0.5fr 3.5fr 1fr 1fr 1fr;
+        grid-template-columns: 0.5fr 3.5fr 1fr 1fr 0.7fr;
         gap: 20px;
         border-bottom: 1px solid colors.$gray;
         padding: 20px 0;
@@ -84,13 +84,15 @@
           @include fontsFamilies.FontFamilyInterBold;
           @include fontsStyles.TextMD;
           display: flex;
-          justify-content: space-between;
+          //justify-content: space-between;
+          gap: 20px;
 
           @include breakpoints.tablet_small {
             display: contents;
           }
 
           .priceCount {
+
             @include breakpoints.tablet_small {
               align-self: center;
               justify-self: end;
@@ -105,6 +107,8 @@
             height: 10%;
             max-width: 19px;
             min-height: 21px;
+            cursor: pointer;
+
             @include breakpoints.tablet_small {
               //margin: 0 5px;
               align-self: center;
@@ -184,6 +188,8 @@
           
           .deliveryDays {
             @include fontsStyles.TextXS;
+            width: 100%;
+            text-align: center;
           }
 
         }

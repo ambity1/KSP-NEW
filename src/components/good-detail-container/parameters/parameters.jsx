@@ -49,8 +49,8 @@ const Parameters = () => {
 			{parameters.map(({ id, key, value }) => (
 				<li className={cl.parameterItem} key={id}>
 					<span className={cl.key}>{key}</span>
-					<span className={cl.separator}></span>
-					<span>{value}</span>
+					<span className={cl.separator} />
+					<span className={cl.value}>{value}</span>
 				</li>
 			))}
 		</ul>

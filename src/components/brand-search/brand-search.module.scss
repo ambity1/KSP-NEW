@@ -48,6 +48,7 @@
 
       @include breakpoints.tablet {
         @include fontsStyles.TextXS;
+        gap: 14px;
       }
 
       @include breakpoints.tablet_small {
@@ -68,6 +69,10 @@
       @include fontsStyles.TextMD;
       padding: 20px 10px;
       border-bottom: 1px solid colors.$gray;
+
+      @include breakpoints.tablet {
+        gap: 14px;
+      }
 
       @include breakpoints.tablet_small {
         display: flex;

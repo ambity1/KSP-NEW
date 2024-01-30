@@ -39,6 +39,11 @@
       //width: 37%;
       max-width: 620px;
 
+      @include breakpoints.mobile {
+        padding: 20px;
+        gap: 12px;
+      }
+
       .cardTitle {
         @include fontsFamilies.FontFamilyInterBold;
         @include fontsStyles.TextLG;
@@ -50,6 +55,10 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+
+        @include breakpoints.mobile {
+          @include fontsStyles.TextXS;
+        }
 
         .textGroup {
           display: flex;
@@ -79,8 +88,20 @@
           color: colors.$gray;
           padding: 0.75em 1.25em;
           background: transparent;
-          border: 1px solid colors.$gray;
+          border: 1px solid colors.$border;
           border-radius: 4px;
+
+        }
+
+        .input::placeholder {
+          color: colors.$gray;
+          font-weight: 600;
+          @include fontsStyles.TextMD;
+
+          @include breakpoints.mobile {
+            font-weight: 400;
+            @include fontsStyles.TextXS;
+          }
         }
       }
 
@@ -191,11 +212,12 @@
         }
       }
 
-      .btnGroup {
+      .btnGroupFirst {
         display: flex;
         gap: 20px;
-        @include breakpoints.mobile_middle {
-          flex-direction: column;
+        @include breakpoints.mobile {
+          gap: 10px;
+          //flex-direction: column;
           @include fontsStyles.TextXS;
         }
 
@@ -206,6 +228,17 @@
           }
         }
 
+      }
+
+      .btnGroupSecond {
+        display: flex;
+        gap: 20px;
+        @include breakpoints.mobile {
+          gap: 10px;
+          flex-direction: column;
+          align-self: start;
+          @include fontsStyles.TextXS;
+        }
       }
     }
   }

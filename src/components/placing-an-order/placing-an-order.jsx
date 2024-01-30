@@ -73,12 +73,12 @@ const PlacingAnOrder = () => {
 							placeholder="Телефон"
 							required
 						/>
-						<input name="phone" type="hidden" tabIndex={-1} readOnly value={phone} />
+						<input className={cl.input} name="phone" type="hidden" tabIndex={-1} readOnly value={phone} />
 					</div>
 				</div>
 				<div className={cl.blockCard}>
 					<div className={cl.cardTitle}>Способ получения</div>
-					<div className={cl.btnGroup}>
+					<div className={cl.btnGroupFirst}>
 						<Button colorStyle="secondary" sizeStyle="sizeS">
 							Самовывоз
 						</Button>
@@ -99,6 +99,7 @@ const PlacingAnOrder = () => {
 							view="default"
 							value={address}
 							onChange={({ value }) => setAddress(value)}
+							className={cl.selector}
 						/>
 					</div>
 					<div className={cl.infoGroup}>
@@ -114,7 +115,7 @@ const PlacingAnOrder = () => {
 				</div>
 				<div className={cl.blockCard}>
 					<span className={cl.cardTitle}>Способ оплаты</span>
-					<div className={cl.btnGroup}>
+					<div className={cl.btnGroupSecond}>
 						<Button colorStyle="secondary" sizeStyle="sizeS">
 							При получении
 						</Button>
@@ -155,7 +156,9 @@ const PlacingAnOrder = () => {
 						</div>
 					</div>
 				</div>
-					<Button className={cl.btnOrderSubmit} sizeStyle="sizeS">Подтвердить заказ</Button>
+				<Button className={cl.btnOrderSubmit} sizeStyle="sizeS">
+					Подтвердить заказ
+				</Button>
 			</div>
 		</div>
 	)

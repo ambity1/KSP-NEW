@@ -4,13 +4,13 @@
 @use '@assets/styles/mixins/fontsFamilies';
 
 .wrapper {
-	padding-top: 2.5em; //40px
+	padding-top: 30px;
 
 	display: flex;
 	gap: 10em; // 160px
 
 	@include breakpoints.desktop_base {
-		gap: 1.875em; //30px
+		gap: 30px; //30px
 	}
 	@include breakpoints.tablet {
 		flex-direction: column;
@@ -29,7 +29,11 @@
 	.contentWrapper {
 		display: flex;
 		flex-direction: column;
-		gap: 1.875em; //30px
+		gap: 30px; //30px
+
+		@include breakpoints.mobile {
+			gap: 20px;
+		}
 
 		.title {
 			@include fontsStyles.DisplayMD;
@@ -106,12 +110,22 @@
 					}
 				}
 			}
+
+			.basketBtn {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 		}
 		.availableAmount {
 			background-color: colors.$dark;
-			border-radius: 0.25em; //4px
-			padding: 0.5em 0 0.5em 1.875em; //8px 0 8px 30px
+			border-radius: 4px;
+			padding: 8px 30px 8px 30px;
 			width: 74%;
+
+			@include breakpoints.tablet {
+				width: 100%;
+			}
 
 			@include breakpoints.mobile {
 				@include fontsStyles.TextXS;
