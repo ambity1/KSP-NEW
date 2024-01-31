@@ -8,8 +8,13 @@ import { presetKSP } from '../../../uikit/presets/presetKSP.js'
 import cl from './filters.module.scss'
 
 const Filters = () => {
-	const [cost, setCost] = useState([0, 50])
-	const [dayCounter, setDayCounter] = useState([0, 12])
+	const [minCost, setMinCost] = useState('')
+	const [maxCost, setMaxCost] = useState('')
+
+	const [minDayCount, setMinDayCount] = useState('')
+	const [maxDayCount, setMaxDayCount] = useState('')
+
+	const [dayCounter, setDayCounter] = useState([])
 	const filterList = useMemo(
 		() => [
 			{
@@ -39,6 +44,32 @@ const Filters = () => {
 		if (id === -1) {
 		}
 	}
+
+	const minCostChangeHandler = (event) => {
+		setMinCost(event.target.value)
+	}
+
+	const maxCostChangeHandler = (event) => {
+		setMaxCost(event.target.value)
+	}
+
+	const costChangeHandler = ({ value: [minValue, maxValue] }) => {
+		setMinCost(minValue > maxValue ? maxValue : minValue)
+		setMaxCost(minValue > maxValue ? minValue : maxValue)
+	}
+
+	const minDayCountHandler = (event) => {
+		setMinDayCount(event.target.value)
+	}
+	const maxDayCountHandler = (event) => {
+		setMaxDayCount(event.target.value)
+	}
+
+	const dayCountHandler = ({ value: [minValue, maxValue] }) => {
+		setMinDayCount(minValue > maxValue ? maxValue : minValue)
+		setMaxDayCount(minValue > maxValue ? minValue : maxValue)
+	}
+
 	return (
 		<Theme preset={presetKSP}>
 			<div className={cl.filtersWrapper}>
@@ -50,22 +81,24 @@ const Filters = () => {
 							max={100}
 							step={1}
 							label="Цена"
-							onChange={({ value: rangeValue }) => setCost(rangeValue)}
-							value={cost}
+							onChange={costChangeHandler}
+							value={[minCost, maxCost]}
 							size="m"
 						/>
 						<div className={cl.counterWrapper}>
 							<input
-								// onWheel={(event) => event.preventDefault()}
 								className={cl.counter}
 								type="number"
 								placeholder="0"
+								value={minCost}
+								onChange={minCostChangeHandler}
 							/>
 							<input
-								// onWheel={(event) => event.preventDefault()}
 								className={cl.counter}
 								type="number"
-								placeholder="0"
+								placeholder="100"
+								value={maxCost}
+								onChange={maxCostChangeHandler}
 							/>
 						</div>
 					</div>
@@ -75,22 +108,24 @@ const Filters = () => {
 							max={31}
 							step={1}
 							label="Срок поставки, дней"
-							onChange={({ value: rangeDay }) => setDayCounter(rangeDay)}
-							value={dayCounter}
+							onChange={dayCountHandler}
+							value={[minDayCount, maxDayCount]}
 							size="m"
 						/>
 						<div className={cl.counterWrapper}>
 							<input
-								// onWheel={(event) => event.preventDefault()}
 								className={cl.counter}
 								type="number"
 								placeholder="от 0"
+								value={minDayCount}
+								onChange={minDayCountHandler}
 							/>
 							<input
-								// onWheel={(event) => event.preventDefault()}
 								className={cl.counter}
 								type="number"
 								placeholder=" до 12"
+								value={maxDayCount}
+								onChange={maxDayCountHandler}
 							/>
 						</div>
 					</div>
