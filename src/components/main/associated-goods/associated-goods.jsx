@@ -35,19 +35,19 @@ const AssociatedGoods = () => {
 	return (
 		<div className={associatedGoodsContentWrapperClassNames}>
 			<h2 className={cl.title}>Сопутствующие товары</h2>
-			<ul className={cl.goodsList}>
+			<div className={cl.goodsList}>
 				{associatedGoodsList.map(({ id, href, title, img }) => (
-					<li className={cl.goodItemWrapper} key={id}>
-						<Link className={cl.goodItem} to={href}>
+					<Link className={cl.goodItemWrapper} key={id} to={href}>
+						<div className={cl.goodItem}>
 							<h3 className={cl.itemTitle}>{title}</h3>
 							{/* <div className={cl.content}> */}
 							<span className={cl.arrow} />
 							<img className={cl.img} alt="" src={img} />
 							{/* </div> */}
-						</Link>
-					</li>
+						</div>
+					</Link>
 				))}
-			</ul>
+			</div>
 		</div>
 	)
 }

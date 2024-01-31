@@ -13,8 +13,8 @@
 
   .parameterItem {
     display: flex;
-    justify-content: space-between;
-    gap: 0.25em;
+    //justify-content: space-between;
+    //gap: 0.25em;
 
     .key {
       color: colors.$border;
@@ -26,7 +26,10 @@
     }
 
     .value {
+      display: flex;
+      flex-direction: column;
       text-align: left;
+      align-self: start;
     }
   }
 }

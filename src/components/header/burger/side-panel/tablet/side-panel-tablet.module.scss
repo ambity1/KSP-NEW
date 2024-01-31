@@ -67,6 +67,9 @@
 
     &::before {
       content: url('@assets/icons/closebtn.svg');
+      display: flex;
+      width: 40px;
+      height: 40px;
     }
   }
 
@@ -78,6 +81,10 @@
     @include fontsFamilies.FontFamilyInterBold;
 
     a:hover {
+      color: colors.$main;
+    }
+
+    &Yellow {
       color: colors.$main;
     }
   }

@@ -59,33 +59,44 @@
       &:hover {
         background-color: colors.$dark;
       }
-    }
 
-    .kia {
-      &::before {
-        content: url("@assets/icons/kia-logo.svg");
-        @include breakpoints.tablet {
-          content: url("@assets/icons/kia-logo-x768.svg");
-        }
+      .imgLogo {
+        height: 100%;
+        width: 100%;
+        filter: brightness(0) invert(1);
+        transition: .3s;
+      }
+
+      .imgLogo:hover {
+        filter: unset;
       }
     }
 
-    .hyundai {
-      &::before {
-        content: url("@assets/icons/hyundai-logo.svg");
-        @include breakpoints.tablet {
-          content: url("@assets/icons/hyundai-logo-x768.svg");
-        }
-      }
-    }
-
-    .chevrolet {
-      &::before {
-        content: url("@assets/icons/chevrolet-logo.svg");
-        @include breakpoints.tablet {
-          content: url("@assets/icons/chevrolet-logo-x768.svg");
-        }
-      }
-    }
+    //.kia {
+    //  &::before {
+    //    content: url("@assets/icons/kia-logo.svg");
+    //    @include breakpoints.tablet {
+    //      content: url("@assets/icons/kia-logo-x768.svg");
+    //    }
+    //  }
+    //}
+    //
+    //.hyundai {
+    //  &::before {
+    //    content: url("@assets/icons/hyundai-logo.svg");
+    //    @include breakpoints.tablet {
+    //      content: url("@assets/icons/hyundai-logo-x768.svg");
+    //    }
+    //  }
+    //}
+    //
+    //.chevrolet {
+    //  &::before {
+    //    content: url("@assets/icons/chevrolet-logo.svg");
+    //    @include breakpoints.tablet {
+    //      content: url("@assets/icons/chevrolet-logo-x768.svg");
+    //    }
+    //  }
+    //}
   }
 }

@@ -67,30 +67,11 @@
     .messengerItem {
       display: flex;
       align-items: center;
-      gap: 1.25em;
+      gap: 10px;
 
-      &.whatsapp {
-        &::before {
-          content: url("@assets/icons/whatsapp.svg");
-          width: 1.67em; // 30px
-          height: 1.67em; // 30px
-        }
-      }
-
-      &.telegram {
-        &::before {
-          content: url("@assets/icons/telegram.svg");
-          width: 1.67em; // 30px
-          height: 1.67em; // 30px
-        }
-      }
-
-      &.instagram {
-        &::before {
-          content: url("@assets/icons/instagram.svg");
-          width: 1.67em; // 30px
-          height: 1.67em; // 30px
-        }
+      .icons {
+        width: 20px;
+        height: 20px;
       }
     }
   }
