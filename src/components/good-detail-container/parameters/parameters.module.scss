@@ -13,8 +13,11 @@
 
   .parameterItem {
     display: flex;
-    //justify-content: space-between;
-    //gap: 0.25em;
+
+    .keyWrapper {
+      width: 56%;
+      display: flex;
+    }
 
     .key {
       color: colors.$border;
@@ -23,13 +26,12 @@
     .separator {
       flex-grow: 1;
       border-bottom: 1px dashed colors.$border;
+      margin: 0 4px;
     }
 
     .value {
       display: flex;
-      flex-direction: column;
-      text-align: left;
-      align-self: start;
+
     }
   }
 }

@@ -8,7 +8,8 @@ import { presetKSP } from '../../../uikit/presets/presetKSP.js'
 import cl from './filters.module.scss'
 
 const Filters = () => {
-	const [value, setValue] = useState([0, 50])
+	const [cost, setCost] = useState([0, 50])
+	const [dayCounter, setDayCounter] = useState([0, 12])
 	const filterList = useMemo(
 		() => [
 			{
@@ -49,28 +50,48 @@ const Filters = () => {
 							max={100}
 							step={1}
 							label="Цена"
-							onChange={({ value: rangeValue }) => setValue(rangeValue)}
-							value={value}
+							onChange={({ value: rangeValue }) => setCost(rangeValue)}
+							value={cost}
 							size="m"
 						/>
 						<div className={cl.counterWrapper}>
-							<input className={cl.counter} type="number" placeholder="0" />
-							<input className={cl.counter} type="number" placeholder="0" />
+							<input
+								// onWheel={(event) => event.preventDefault()}
+								className={cl.counter}
+								type="number"
+								placeholder="0"
+							/>
+							<input
+								// onWheel={(event) => event.preventDefault()}
+								className={cl.counter}
+								type="number"
+								placeholder="0"
+							/>
 						</div>
 					</div>
 					<div className={cl.content}>
 						<Slider
 							min={0}
-							max={100}
+							max={31}
 							step={1}
 							label="Срок поставки, дней"
-							onChange={({ value: rangeValue }) => setValue(rangeValue)}
-							value={value}
+							onChange={({ value: rangeDay }) => setDayCounter(rangeDay)}
+							value={dayCounter}
 							size="m"
 						/>
 						<div className={cl.counterWrapper}>
-							<input className={cl.counter} type="number" placeholder="от 0" />
-							<input className={cl.counter} type="number" placeholder=" до 12" />
+							<input
+								// onWheel={(event) => event.preventDefault()}
+								className={cl.counter}
+								type="number"
+								placeholder="от 0"
+							/>
+							<input
+								// onWheel={(event) => event.preventDefault()}
+								className={cl.counter}
+								type="number"
+								placeholder=" до 12"
+							/>
 						</div>
 					</div>
 					<div className={cl.content}>

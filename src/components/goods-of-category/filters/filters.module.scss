@@ -41,6 +41,13 @@
       border-radius: 4px;
       @include fontsStyles.TextMD;
 
+      -moz-appearance: textfield;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button, {
+        -webkit-appearance: none;
+      }
+
     }
   }
 

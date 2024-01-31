@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 import Button from '@ui/button/index.js'
 
+import DropDown from '@components/goods-of-category/drop-down/index.jsx'
 import Filters from '@components/goods-of-category/filters'
 import GoodCard from '@components/other-goods-slider/good-card/good-card.jsx'
 
@@ -61,8 +62,8 @@ const GoodsOfCategory = () => {
 					</div>
 					<Filters />
 				</div>
-				<div className={cl.contetnWrapper}>
-					<span className={cl.dropDownBtn}>Цена по возрастанию</span>
+				<div className={cl.contentWrapper}>
+					<DropDown />
 					<div className={cl.goodsWrapper}>
 						<div>
 							<GoodCard />

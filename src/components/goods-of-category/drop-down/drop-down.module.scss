@@ -1,0 +1,55 @@
+@use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/vars/colors';
+
+.link {
+  max-width: 247px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  gap: 12px;
+
+  &Title {
+    color: colors.$white;
+    @include fontsStyles.TextMD;
+
+  }
+
+  &Menu {
+    position: absolute;
+    top: -15%;
+    left: 57%;
+    min-width: 248px;
+    transform: translate(-50%, 0);
+    transition: top .3s ease, transform .3s ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+
+    .content {
+      background-color: colors.$background;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .text {
+        color: colors.$white;
+        position: relative;
+      }
+    }
+  }
+
+  &:hover {
+    .linkMenu {
+      top: 100%;
+      transform: translate(-50%, 0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
