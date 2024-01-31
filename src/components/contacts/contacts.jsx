@@ -31,19 +31,19 @@ const Contacts = ({
 				id: 0,
 				href: '/',
 				text: 'Whatsapp',
-				className: cl.whatsapp
+				icon: './assets/icons/whatsapp.svg'
 			},
 			{
 				id: 1,
 				href: '/',
 				text: 'Telegram',
-				className: cl.telegram
+				icon: './assets/icons/telegram.svg'
 			},
 			{
 				id: 2,
 				href: 'https://www.instagram.com/korean_parts_024?igsh=Mzg2ajQxbDlsMDY=',
 				text: 'Instagram',
-				className: cl.instagram
+				icon: './assets/icons/instagram.svg'
 			}
 		],
 		[]
@@ -63,9 +63,10 @@ const Contacts = ({
 				<li>
 					<h4>Мессенджеры:</h4>
 				</li>
-				{messengersList.map(({ id, href, text, className }) => (
+				{messengersList.map(({ id, href, text, icon }) => (
 					<li key={id}>
-						<Link className={cn([cl.messengerItem, className])} to={href}>
+						<Link className={cl.messengerItem} to={href}>
+							<img src={icon} alt="" className={cl.icons} />
 							{text}
 						</Link>
 					</li>

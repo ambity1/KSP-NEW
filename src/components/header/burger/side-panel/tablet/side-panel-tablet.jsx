@@ -19,8 +19,12 @@ const BurgerSidePanelTablet = ({ onClose }) => {
 			<div className={cn([cl.sidePanelWrapper, { [cl.sidePanelWrapperClosed]: isWasClosed }])}>
 				<button aria-label="Закрыть" className={cl.btnClose} onClick={closeHandler} />
 				<div className={cl.linksWrapper}>
-					<Link to="/">Подбор запчастей по VIN</Link>
-					<Link to="/">Подбор запчастей по марке авто</Link>
+					<Link to="/" className={cl.linksWrapperYellow}>
+						Подбор запчастей по VIN
+					</Link>
+					<Link to="/" className={cl.linksWrapperYellow}>
+						Подбор запчастей по марке авто
+					</Link>
 					<Link to="/about">О компании</Link>
 					<Link to="/contacts">Контакты</Link>
 				</div>

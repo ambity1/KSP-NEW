@@ -10,17 +10,17 @@ const CarBands = () => {
 			{
 				id: 0,
 				href: '/',
-				className: cl.kia
+				imgPath: './assets/icons/kia-logo.svg'
 			},
 			{
 				id: 1,
 				href: '/',
-				className: cl.hyundai
+				imgPath: './assets/icons/hyundai-logo.svg'
 			},
 			{
 				id: 2,
 				href: '/',
-				className: cl.chevrolet
+				imgPath: './assets/icons/chevrolet-logo.svg'
 			}
 		],
 		[]
@@ -30,13 +30,15 @@ const CarBands = () => {
 	return (
 		<div className={carBandsContentWrapperClassNames}>
 			<h2 className={cl.title}>Марки автомобилей</h2>
-			<ul className={cl.brandsList}>
-				{brandsList.map(({ href, className, id }) => (
-					<li className={cl.brandItem} key={id}>
-						<Link to={href} className={className} />
-					</li>
+			<div className={cl.brandsList}>
+				{brandsList.map(({ href, id, imgPath }) => (
+					<div className={cl.brandItem} key={id}>
+						<Link to={href}>
+							<img src={imgPath} alt="" className={cl.imgLogo} />
+						</Link>
+					</div>
 				))}
-			</ul>
+			</div>
 		</div>
 	)
 }

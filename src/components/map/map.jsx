@@ -31,7 +31,7 @@ const Map = () => {
 						options={{
 							iconLayout: 'default#image',
 							iconImageHref: placemarkSrc,
-							iconImageSize: [33, 41],
+							iconImageSize: [45, 58],
 							iconImageOffset: [-3, -42]
 						}}
 					/>
