@@ -1,8 +1,10 @@
 import { Slider } from '@consta/uikit/Slider'
+import { Theme } from '@consta/uikit/Theme'
 import { useMemo, useState } from 'react'
 
 import Button from '@ui/button/index.js'
 
+import { presetKSP } from '../../../uikit/presets/presetKSP.js'
 import cl from './filters.module.scss'
 
 const Filters = () => {
@@ -37,62 +39,64 @@ const Filters = () => {
 		}
 	}
 	return (
-		<div className={cl.filtersWrapper}>
-			<div className={cl.contentWrapper}>
-				<span className={cl.title}>Фильтр</span>
-				<div className={cl.content}>
-					<Slider
-						min={0}
-						max={100}
-						step={1}
-						label="Цена"
-						onChange={({ value: rangeValue }) => setValue(rangeValue)}
-						value={value}
-						size="m"
-					/>
-					<div className={cl.counterWrapper}>
-						<input className={cl.counter} type="number" placeholder="0" />
-						<input className={cl.counter} type="number" placeholder="0" />
+		<Theme preset={presetKSP}>
+			<div className={cl.filtersWrapper}>
+				<div className={cl.contentWrapper}>
+					<span className={cl.title}>Фильтр</span>
+					<div className={cl.content}>
+						<Slider
+							min={0}
+							max={100}
+							step={1}
+							label="Цена"
+							onChange={({ value: rangeValue }) => setValue(rangeValue)}
+							value={value}
+							size="m"
+						/>
+						<div className={cl.counterWrapper}>
+							<input className={cl.counter} type="number" placeholder="0" />
+							<input className={cl.counter} type="number" placeholder="0" />
+						</div>
 					</div>
-				</div>
-				<div className={cl.content}>
-					<Slider
-						min={0}
-						max={100}
-						step={1}
-						label="Срок поставки, дней"
-						onChange={({ value: rangeValue }) => setValue(rangeValue)}
-						value={value}
-						size="m"
-					/>
-					<div className={cl.counterWrapper}>
-						<input className={cl.counter} type="number" placeholder="от 0" />
-						<input className={cl.counter} type="number" placeholder=" до 12" />
+					<div className={cl.content}>
+						<Slider
+							min={0}
+							max={100}
+							step={1}
+							label="Срок поставки, дней"
+							onChange={({ value: rangeValue }) => setValue(rangeValue)}
+							value={value}
+							size="m"
+						/>
+						<div className={cl.counterWrapper}>
+							<input className={cl.counter} type="number" placeholder="от 0" />
+							<input className={cl.counter} type="number" placeholder=" до 12" />
+						</div>
 					</div>
-				</div>
-				<div className={cl.content}>
-					<span className={cl.title}>Состояние</span>
-					<ul className={cl.conditionList}>
-						{filterList.map(({ id, text }) => (
-							<div onClick={() => selectHandler(id)} key={id}>
-								<div className={`${cl.line} ${selectedId === id ? cl.active : ''}`}>
-									<div className={cl.point} />
-									<div className={cl.text}>{text}</div>
+					<div className={cl.content}>
+						<span className={cl.title}>Состояние</span>
+						<ul className={cl.conditionList}>
+							{filterList.map(({ id, text }) => (
+								<div onClick={() => selectHandler(id)} key={id}>
+									<div className={`${cl.line} ${selectedId === id ? cl.active : ''}`}>
+										<div className={cl.point} />
+										<div className={cl.text}>{text}</div>
+									</div>
 								</div>
-							</div>
-						))}
-					</ul>
+							))}
+						</ul>
+					</div>
+				</div>
+				<div>
+					<div className={cl.buttonLink}>
+						<Button>Применить</Button>
+					</div>
+					<div className={cl.buttonLink}>
+						<Button className={cl.btn}>Сбросить</Button>
+					</div>
 				</div>
 			</div>
-			<div>
-				<div className={cl.buttonLink}>
-					<Button>Применить</Button>
-				</div>
-				<div className={cl.buttonLink}>
-					<Button className={cl.btn}>Сбросить</Button>
-				</div>
-			</div>
-		</div>
+		</Theme>
 	)
 }
 
