@@ -114,16 +114,16 @@ const BurgerSidePanel = ({ onClose }) => {
 	return (
 		<div className={cl.sidePanel}>
 			<div className={sidePanelWrapperClassNames}>
-				<header className={cl.headerWrapper}>
-					<Link className={cl.logo} to="/" />
-					<InputSearch />
-					<Link className={cl.phone} to="tel:+7 (707) 164-00-24">
-						<img src={phone} alt="" />
-						<span>+7 (707) 164-00-24</span>
-					</Link>
-					<CartButton />
-					<button aria-label="Закрыть" className={cl.btnClose} onClick={closeHandler} />
-				</header>
+				{/* <header className={cl.headerWrapper}> */}
+				{/*	<Link className={cl.logo} to="/" /> */}
+				{/*	<InputSearch /> */}
+				{/*	<Link className={cl.phone} to="tel:+7 (707) 164-00-24"> */}
+				{/*		<img src={phone} alt="" /> */}
+				{/*		<span>+7 (707) 164-00-24</span> */}
+				{/*	</Link> */}
+				{/*	<CartButton /> */}
+				{/*	<button aria-label="Закрыть" className={cl.btnClose} onClick={closeHandler} /> */}
+				{/* </header> */}
 				<div className={cl.navigationWrapper}>
 					{navigationsList.map(({ id, links }) => (
 						<nav key={id}>

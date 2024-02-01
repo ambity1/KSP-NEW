@@ -25,20 +25,21 @@
 
 
 .sidePanel {
-  padding-top: 25px;
-  top: 0;
+  //padding-top: 25px;
+  //top: 111.8px;
+  top: 111.8px;
   left: 0;
   right: 0;
   position: absolute;
   width: 100vw;
   height: 100vh;
-  z-index: 10;
+  //z-index: 10;
   background-color: colors.$background;
 
-  animation: burgerDown .4s linear;
+  animation: burgerDown .3s linear;
 
   &Closed {
-    animation: burgerUp .4s linear forwards;
+    animation: burgerUp 3s linear forwards;
   }
 }
 
@@ -90,7 +91,8 @@
   }
 
   .navigationWrapper {
-    padding: 120px 0 170px 0;
+    padding: 95px 0 170px 0;
+    top: 111.8px;
     display: flex;
     align-items: center;
     gap: 250px;
