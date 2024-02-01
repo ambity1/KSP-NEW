@@ -2,3 +2,13 @@
 @use '@assets/styles/mixins/breakpoints';
 @use '@assets/styles/mixins/fontsStyles';
 @use '@assets/styles/mixins/fontsFamilies';
+
+.categories {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  @include breakpoints.mobile {
+    gap: 10px;
+  }
+}

@@ -6,12 +6,18 @@ import engineGearboxSuspension from '@assets/images/model-categories/engineGearb
 import oilsTechnicalFluids from '@assets/images/model-categories/oilsTechnicalFluids.jpg'
 import optics from '@assets/images/model-categories/optics.jpg'
 import wheelSuspension from '@assets/images/model-categories/wheelSuspension.jpg'
+import useMatchMedia from '@hooks/use-match-media.js'
 import cn from 'classnames'
 import React from 'react'
+
+import DesktopCategories from '@components/model-categories/desktop-categories/index.js'
+import TabletCategories from '@components/model-categories/tablet-categories/index.js'
 
 import cl from './model-categories.module.scss'
 
 const ModelCategories = () => {
+	const { isDesktop } = useMatchMedia()
+
 	const categoriesList = [
 		{
 			categoryImg: engine,
@@ -58,20 +64,11 @@ const ModelCategories = () => {
 	return (
 		<div className={cn([cl.wrapper, 'container'])}>
 			<h1 className={cl.title}>Запчасти на Sonata Тагаз, код двигателя G4GC</h1>
-			<div className={cl.categories}>
-				{categoriesList.map(({ categoryImg, categoryName, sparePartsCategory }) => (
-					<div className={cl.categoryCard}>
-						<div className={cl.categoryCardTitle}>
-							<img src={categoryImg} alt="" />
-							<span>{categoryName}</span>
-						</div>
-						<div className={cl.spareParts}>
-							<span className={cl.sparePartsName}>{sparePartsCategory}</span>
-							<span className={cl.sparePartsContinuation}>Все подкатегории</span>
-						</div>
-					</div>
-				))}
-			</div>
+			{isDesktop ? (
+				<DesktopCategories categoriesList={categoriesList} />
+			) : (
+				<TabletCategories categoriesList={categoriesList} />
+			)}
 		</div>
 	)
 }

@@ -7,11 +7,19 @@ const DropDown = () => {
 	const directionsList = useMemo(() => [
 		{
 			id: 0,
-			name: 'Цена по возрастанию'
+			name: 'Все'
 		},
 		{
 			id: 1,
-			name: 'Все'
+			name: 'По популярности'
+		},
+		{
+			id: 2,
+			name: 'Цена по возрастанию'
+		},
+		{
+			id: 3,
+			name: 'Цена по убыванию'
 		}
 	])
 
