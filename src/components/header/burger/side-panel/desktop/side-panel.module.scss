@@ -12,10 +12,12 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
+  z-index: 10;
   background-color: colors.$background;
   transform: translateY(0);
   transition: transform .3s ease;
   transition-delay: 0s;
+
   .sidePanelWrapper {
     opacity: 1;
     transition: opacity .3s ease;

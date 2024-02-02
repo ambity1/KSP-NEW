@@ -3,26 +3,6 @@
 @use '@assets/styles/mixins/fontsStyles';
 @use '@assets/styles/mixins/fontsFamilies';
 
-@keyframes burgerDown {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes burgerUp {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-}
-
 .overlay {
   top: 0;
   left: 0;
@@ -33,7 +13,14 @@
   background-color: colors.$white;
   opacity: 0.6;
   z-index: 100;
+  transform: translateX(0);
+  transition: transform .3s ease;
+  transition-delay: 0s;
 
+  &Closed {
+    transform: translateX(100%);
+    transition-delay: .3s;
+  }
 }
 
 .sidePanelWrapper {
@@ -45,19 +32,34 @@
   position: absolute;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
   background-color: colors.$dark;
   padding-left: 30px;
   padding-right: 20px;
+  transform: translateX(0);
+  transition: transform .3s ease;
+  transition-delay: 0s;
 
-  animation: burgerDown .4s linear;
-
-  &Closed {
-    animation: burgerUp .4s linear forwards;
+  .sidePanelWrapperContent {
+    opacity: 1;
+    transition: opacity .3s ease;
+    transition-delay: .3s;
   }
 
+  &Closed {
+    transform: translateX(100%);
+    transition-delay: .3s;
+
+    .sidePanelWrapperContent {
+      opacity: 0;
+      transition-delay: 0s;
+    }
+  }
+}
+
+.sidePanelWrapperContent {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 
   .btnClose {
     margin-top: 8px;
@@ -107,6 +109,4 @@
     padding: 0 0 0 0;
     @include fontsStyles.TextXS;
   }
-
-
 }
