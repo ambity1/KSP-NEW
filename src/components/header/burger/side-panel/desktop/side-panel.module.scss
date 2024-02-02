@@ -3,43 +3,33 @@
 @use '@assets/styles/mixins/fontsStyles';
 @use '@assets/styles/mixins/fontsFamilies';
 
-@keyframes burgerDown {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes burgerUp {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-}
-
-
 .sidePanel {
   //padding-top: 25px;
   //top: 111.8px;
   top: 111.8px;
   left: 0;
   right: 0;
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 100vh;
-  //z-index: 10;
   background-color: colors.$background;
-
-  animation: burgerDown .3s linear;
+  transform: translateY(0);
+  transition: transform .3s ease;
+  transition-delay: 0s;
+  .sidePanelWrapper {
+    opacity: 1;
+    transition: opacity .3s ease;
+    transition-delay: .3s;
+  }
 
   &Closed {
-    animation: burgerUp 3s linear forwards;
+    transform: translateY(-100%);
+    transition-delay: .3s;
+
+    .sidePanelWrapper {
+      opacity: 0;
+      transition-delay: 0s;
+    }
   }
 }
 

@@ -21,8 +21,6 @@ const Burger = () => {
 	return (
 		<div>
 			<button className={cl.burger} onClick={togglePanel} />
-			{isOpen &&
-				(isDesktop ? <BurgerSidePanel onClose={closePanel} /> : <BurgerSidePanelTablet onClose={closePanel} />)}
 		</div>
 	)
 }
