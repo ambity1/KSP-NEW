@@ -9,7 +9,7 @@ import cl from './side-panel-tablet.module.scss'
 
 const BurgerSidePanelTablet = ({ isOpen, onClose }) => {
 	// const [isWasClosed, setIsWasClosed] = useState(false)
-	useDisableScroll()
+	// useDisableScroll()
 	// const closeHandler = () => {
 	// 	setIsWasClosed(true)
 	// 	setTimeout(() => onClose(), 500)
