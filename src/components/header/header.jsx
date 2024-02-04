@@ -8,7 +8,7 @@ import CartButton from './cart-button'
 import cl from './header.module.scss'
 import InputSearch from './input-search'
 
-const Header = () => {
+const Header = ({ closeSidePanel, sidePanelIsOpen }) => {
 	const headerContentWrapperClassNames = cn([cl.headerContentWrapper, 'container'])
 
 	return (
@@ -21,7 +21,10 @@ const Header = () => {
 					<span>+7 (707) 164-00-24</span>
 				</Link>
 				<CartButton />
-				<Burger />
+				{/* <Burger /> */}
+				<div>
+					<button className={cl.burger} onClick={() => closeSidePanel(!sidePanelIsOpen)} />
+				</div>
 			</div>
 		</header>
 	)

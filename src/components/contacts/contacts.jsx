@@ -1,3 +1,6 @@
+import instagram from '@assets/icons/instagram.svg'
+import telegram from '@assets/icons/telegram.svg'
+import whatsapp from '@assets/icons/whatsapp.svg'
 import cn from 'classnames'
 import { memo, useMemo } from 'react'
 import { Link } from 'react-router-dom'
@@ -31,19 +34,19 @@ const Contacts = ({
 				id: 0,
 				href: '/',
 				text: 'Whatsapp',
-				icon: './assets/icons/whatsapp.svg'
+				icon: whatsapp
 			},
 			{
 				id: 1,
 				href: '/',
 				text: 'Telegram',
-				icon: './assets/icons/telegram.svg'
+				icon: telegram
 			},
 			{
 				id: 2,
 				href: 'https://www.instagram.com/korean_parts_024?igsh=Mzg2ajQxbDlsMDY=',
 				text: 'Instagram',
-				icon: './assets/icons/instagram.svg'
+				icon: instagram
 			}
 		],
 		[]

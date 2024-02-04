@@ -1,17 +1,15 @@
 import cn from 'classnames'
-import { useState } from 'react'
+import React from 'react'
 
-import Button from '@ui/button/index.js'
+import Button from '@ui/button/button.jsx'
 
 import DropDown from '@components/goods-of-category/drop-down/index.jsx'
-import Filters from '@components/goods-of-category/filters/index.js'
+import Filters from '@components/goods-of-vin-category/filters/index.js'
 import GoodCard from '@components/other-goods-slider/good-card/good-card.jsx'
 
-import cl from './goods-of-category.module.scss'
+import cl from './goods-of-vin-category.module.scss'
 
-const GoodsOfCategory = () => {
-	const [isOpen, setIsOpen] = useState(false)
-
+const GoodsOfVinCategory = () => {
 	const partsList = [
 		{
 			name: 'Двигатель',
@@ -26,32 +24,30 @@ const GoodsOfCategory = () => {
 		}
 	]
 
-	const [currentCategory, setCurrentCategory] = useState(null)
-
 	return (
 		<div className={cn([cl.goodsOfCategoryWrapper, 'container'])}>
 			<h1 className={cl.title}>Кронштейн фары противотуманной левой на Sonata Тагаз, код двигателя G4GC</h1>
 			<div className={cl.wrapper}>
 				<div className={cl.drs}>
 					<div className={cl.catalogBlock}>
-						<div className={cl.catalogBtn} onClick={() => setIsOpen(!isOpen)}>
+						<div className={cl.catalogBtn}>
 							<Button className={cl.btn}>КАТАЛОГ ЗАПЧАСТЕЙ</Button>
 						</div>
-						<div className={`${cl.menu}${isOpen ? 'active' : ''}`}>
+						<div className={cl.menu}>
 							<div className={cl.menuList}>
 								<div className={cl.partsGroup}>
 									{partsList.map(({ name }) => (
 										<li className={cl.partsGroupItem}>{name}</li>
 									))}
 								</div>
-								<div className={cl.partsName}>
-									{partsList.map(({ name, parts }) => (
-										<div>
-											{/* <span>{name}</span> */}
-											<li className={cl.partsNameItem}>{parts}</li>
-										</div>
-									))}
-								</div>
+								{/* <div className={cl.partsName}> */}
+								{/*	{partsList.map(({ name, parts }) => ( */}
+								{/*		<div> */}
+								{/*			/!* <span>{name}</span> *!/ */}
+								{/*			<li className={cl.partsNameItem}>{parts}</li> */}
+								{/*		</div> */}
+								{/*	))} */}
+								{/* </div> */}
 							</div>
 							{/* <ul className={cl.menuList}> */}
 							{/*	{partsList.map(({ name }) => ( */}
@@ -60,9 +56,10 @@ const GoodsOfCategory = () => {
 							{/* </ul> */}
 						</div>
 					</div>
-					<Filters />
+					{/* <Filters /> */}
 				</div>
 				<div className={cl.contentWrapper}>
+					<Filters />
 					<DropDown />
 					<div className={cl.goodsWrapper}>
 						<div>
@@ -81,4 +78,4 @@ const GoodsOfCategory = () => {
 	)
 }
 
-export default GoodsOfCategory
+export default GoodsOfVinCategory

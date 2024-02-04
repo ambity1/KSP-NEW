@@ -9,7 +9,7 @@ import InputSearch from '@components/header/input-search/input-search.jsx'
 
 import cl from './side-panel.module.scss'
 
-const BurgerSidePanel = ({ onClose }) => {
+const BurgerSidePanel = ({ isOpen, onClose }) => {
 	const [isWasClosed, setIsWasClosed] = useState(false)
 
 	useDisableScroll()
@@ -105,25 +105,25 @@ const BurgerSidePanel = ({ onClose }) => {
 		[]
 	)
 
-	const closeHandler = () => {
-		setIsWasClosed(true)
-		setTimeout(() => onClose(), 500)
-	}
+	// const closeHandler = () => {
+	// 	setIsWasClosed(true)
+	// 	setTimeout(() => onClose(), 500)
+	// }
 	const sidePanelWrapperClassNames = cn([cl.sidePanelWrapper, 'container', { [cl.sidePanelClosed]: isWasClosed }])
 
 	return (
-		<div className={cl.sidePanel}>
+		<div className={isOpen ? cl.sidePanel : cn([cl.sidePanel, cl.sidePanelClosed])}>
 			<div className={sidePanelWrapperClassNames}>
-				<header className={cl.headerWrapper}>
-					<Link className={cl.logo} to="/" />
-					<InputSearch />
-					<Link className={cl.phone} to="tel:+7 (707) 164-00-24">
-						<img src={phone} alt="" />
-						<span>+7 (707) 164-00-24</span>
-					</Link>
-					<CartButton />
-					<button aria-label="Закрыть" className={cl.btnClose} onClick={closeHandler} />
-				</header>
+				{/* <header className={cl.headerWrapper}> */}
+				{/*	<Link className={cl.logo} to="/" /> */}
+				{/*	<InputSearch /> */}
+				{/*	<Link className={cl.phone} to="tel:+7 (707) 164-00-24"> */}
+				{/*		<img src={phone} alt="" /> */}
+				{/*		<span>+7 (707) 164-00-24</span> */}
+				{/*	</Link> */}
+				{/*	<CartButton /> */}
+				{/*	<button aria-label="Закрыть" className={cl.btnClose} onClick={closeHandler} /> */}
+				{/* </header> */}
 				<div className={cl.navigationWrapper}>
 					{navigationsList.map(({ id, links }) => (
 						<nav key={id}>

@@ -1,0 +1,125 @@
+@use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/vars/colors';
+
+.goodsOfCategoryWrapper {
+  .title {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 60%;
+    @include fontsStyles.DisplayLG;
+  }
+
+  .wrapper {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 140px;
+
+    .catalogBlock {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 360px;
+
+      .catalogBtn {
+        display: flex;
+        flex-direction: column;
+
+        .btn {
+          display: flex;
+          text-align: start;
+          justify-content: space-between;
+
+          //&::after {
+          //  content: url('@assets/icons/filters/arrowRight.svg');
+          //}
+        }
+      }
+
+      .menu {
+        background-color: colors.$white;
+        //opacity: 1;
+        //transform: translate(-50%, 0);
+        //transition: top .3s ease, transform .3s ease;
+        //pointer-events: none;
+
+        &List {
+          //background-color: colors.$white;
+          color: black;
+          //min-width: 400px;
+          position: absolute;
+
+          //top: calc(70% + 5px);
+          z-index: 1;
+          display: flex;
+
+          .partsGroup {
+            @include fontsStyles.TextMD;
+            @include fontsFamilies.FontFamilyInterBold;
+            //min-width: 400px;
+            border: 1px solid colors.$border;
+            border-radius: 4px;
+            padding: 30px 0;
+            background-color: colors.$white;
+
+
+            &Item {
+              color: colors.$black;
+              padding: 8px 30px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              &::after {
+                content: url('@assets/icons/filters/arrowRight.svg');
+              }
+            }
+
+            &Item:hover {
+              background-color: rgba(colors.$main, 15%);
+            }
+          }
+
+          .partsName {
+            width: 100%;
+            border: 1px solid colors.$border;
+            border-radius: 0 4px 4px 0;
+            padding: 30px 0;
+            min-width: 710px;
+            background-color: colors.$white;
+
+            &Item {
+              color: colors.$black;
+              padding: 8px 30px;
+            }
+          }
+        }
+      }
+
+      .menu:active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .contentWrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      gap: 20px;
+    }
+
+    //.dropDownBtn {
+    //
+    //}
+  }
+
+  .goodsWrapper {
+    display: flex;
+    gap: 30px;
+  }
+
+}

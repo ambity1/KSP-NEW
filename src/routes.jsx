@@ -5,6 +5,7 @@ import ContactsPage from '@pages/contacts-page'
 import ExtraInformationPage from '@pages/extra-information-page/extra-information-page.jsx'
 import GoodDetailPage from '@pages/good-detail-page'
 import GoodsOfCategoryPage from '@pages/goods-of-category-page/index.js'
+import GoodsOfVinCategoryPage from '@pages/goods-of-vin-category-page/index.js'
 import Main from '@pages/main-page'
 import ModelCategoriesPage from '@pages/model-categories-page/index.js'
 import PlacingAnOrderPage from '@pages/placing-an-order-page/index.js'
@@ -61,6 +62,10 @@ function Routes() {
 		{
 			path: `/goods-of-category`,
 			element: <GoodsOfCategoryPage />
+		},
+		{
+			path: `/goods-of-vin-category`,
+			element: <GoodsOfVinCategoryPage />
 		}
 	])
 

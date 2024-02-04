@@ -1,3 +1,6 @@
+import chevrolet from '@assets/icons/chevrolet-logo.svg'
+import hyundai from '@assets/icons/hyundai-logo.svg'
+import kia from '@assets/icons/kia-logo.svg'
 import cn from 'classnames'
 import { memo, useMemo } from 'react'
 import { Link } from 'react-router-dom'
@@ -10,17 +13,17 @@ const CarBands = () => {
 			{
 				id: 0,
 				href: '/',
-				imgPath: './assets/icons/kia-logo.svg'
+				imgPath: kia
 			},
 			{
 				id: 1,
 				href: '/',
-				imgPath: './assets/icons/hyundai-logo.svg'
+				imgPath: hyundai
 			},
 			{
 				id: 2,
 				href: '/',
-				imgPath: './assets/icons/chevrolet-logo.svg'
+				imgPath: chevrolet
 			}
 		],
 		[]
