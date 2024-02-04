@@ -12,7 +12,7 @@ import cl from './side-panel.module.scss'
 const BurgerSidePanel = ({ isOpen, onClose }) => {
 	const [isWasClosed, setIsWasClosed] = useState(false)
 
-	useDisableScroll()
+	// useDisableScroll()
 
 	const navigationsList = useMemo(
 		() => [
