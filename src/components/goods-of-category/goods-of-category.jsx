@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Button from '@ui/button/index.js'
 
 import DropDown from '@components/goods-of-category/drop-down/index.jsx'
-import Filters from '@components/goods-of-category/filters'
+import Filters from '@components/goods-of-category/filters/index.js'
 import GoodCard from '@components/other-goods-slider/good-card/good-card.jsx'
 
 import cl from './goods-of-category.module.scss'
