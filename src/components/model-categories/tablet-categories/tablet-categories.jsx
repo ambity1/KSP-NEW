@@ -1,11 +1,15 @@
 import React from 'react'
 
+import Cards from '@components/model-categories/tablet-categories/cards/cards.jsx'
+
 import cl from './tablet-categories.module.scss'
 
-const TabletCategories = () => {
+const TabletCategories = ({ categoriesList }) => {
 	return (
-		<div>
-			<div>123</div>
+		<div className={cl.categories}>
+			{categoriesList.map(({ categoryImg, categoryName, sparePartsCategory }) => (
+				<Cards categoryImg={categoryImg} categoryName={categoryName} sparePartsCategory={sparePartsCategory} />
+			))}
 		</div>
 	)
 }
