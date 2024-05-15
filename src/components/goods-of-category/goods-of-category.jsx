@@ -21,7 +21,6 @@ const GoodsOfCategory = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [search, setSearch] = useState(null)
 	const [page, setPage] = useState(1)
-	const [totalItems, setTotalItems] = useState(178)
 	const [carPartsPagination, setCarPartsPagination] = useState([])
 	const { isMobile, isTablet, isTabletSmall, isDesktop } = useMatchMedia()
 	const items = [
@@ -55,12 +54,12 @@ const GoodsOfCategory = () => {
 		// setMaxPrice(1000000)
 	}
 
-	const { data: carParts = [], isLoading: isLoadingCarParts } = useGetCarPartsQuery({
+	const { isLoading: isLoadingCarParts } = useGetCarPartsQuery({
 		typeSort: selectedType.type,
 		sort: 'price',
 		limit: '12'
 	})
-	const { data: priceFilter = [], meta: pages = {} } = useGetPriceFilterQuery({
+	const { data: priceFilter = [] } = useGetPriceFilterQuery({
 		typeSort: selectedType.type,
 		sort: 'price',
 		limit: '12',
@@ -68,27 +67,17 @@ const GoodsOfCategory = () => {
 		to: maxPrice.toString(),
 		pageNumber: page
 	})
-
-	useEffect(() => {
-		if (pages.last_page) {
-			setTotalItems(pages.last_page)
-		}
-	}, [pages])
-
-	const loadMoreData = async () => {
-		const nextPage = page + 1
-		const { data: newCarParts = [] } = await useGetCarPartsQuery({
-			typeSort: selectedType.type,
-			sort: 'price',
-			limit: '12',
-			pageNumber: nextPage
-		})
-		// Объединяем новые карточки с уже загруженными
-		setCarPartsPagination([...carPartsPagination, ...newCarParts])
-		setPage(nextPage)
-	}
-	// console.log(selectedType.type)
-	// console.log(minPrice.toString(), maxPrice.toString())
+	// const loadMoreData = async () => {
+	// 	const nextPage = page + 1
+	// 	const { data: newCarParts = [] } = await useGetCarPartsQuery({
+	// 		typeSort: selectedType.type,
+	// 		sort: 'price',
+	// 		limit: '12',
+	// 		pageNumber: nextPage
+	// 	})
+	// 	setCarPartsPagination([...carPartsPagination, ...newCarParts.data])
+	// 	setPage(nextPage)
+	// }
 	const handleChange = (search) => setSearch(search)
 
 	// const partsList = [
@@ -104,61 +93,6 @@ const GoodsOfCategory = () => {
 	// 		name: 'Cистема выпуска отработанных газов'
 	// 	}
 	// ]
-
-	// const cards = [
-	// 	{
-	// 		id: 0,
-	// 		image: '../../../../assets/images/good1.jpg',
-	// 		description:
-	// 			'Кронштейн фары противотуманной левой для Hyundai Sonata VI 2010-2014 БУ состояние удовлетворительное',
-	// 		price: '590 руб.'
-	// 	},
-	// 	{
-	// 		id: 1,
-	// 		image: '../../../../assets/images/good1.jpg',
-	// 		description: 'Крепление фары левой Hyundai Sonata VI (YF) 2009 - 2014 2013',
-	// 		price: '1083 руб.'
-	// 	},
-	// 	{
-	// 		id: 2,
-	// 		image: '../../../../assets/images/good1.jpg',
-	// 		description: 'Кронштейн фары противотуманной левой для Hyundai Sonata VI 2010-2014 новая',
-	// 		price: '1487 руб.'
-	// 	},
-	// 	{
-	// 		id: 3,
-	// 		image: '../../../../assets/images/good1.jpg',
-	// 		description: 'Cordiant Winter Drive PW-1',
-	// 		price: '560 руб.'
-	// 	},
-	// 	{
-	// 		id: 4,
-	// 		image: '../../../../assets/images/good1.jpg',
-	// 		description:
-	// 			'Кронштейн фары противотуманной левой для Hyundai Sonata VI 2010-2014 БУ состояние удовлетворительное',
-	// 		price: '590 руб.'
-	// 	},
-	// 	{
-	// 		id: 5,
-	// 		image: '../../../../assets/images/good1.jpg',
-	// 		description: 'Крепление фары левой Hyundai Sonata VI (YF) 2009 - 2014 2013',
-	// 		price: '1083 руб.'
-	// 	},
-	// 	{
-	// 		id: 6,
-	// 		image: '../../../../assets/images/good1.jpg',
-	// 		description: 'Кронштейн фары противотуманной левой для Hyundai Sonata VI 2010-2014 новая',
-	// 		price: '1487 руб.'
-	// 	},
-	// 	{
-	// 		id: 7,
-	// 		image: '../../../../assets/images/good1.jpg',
-	// 		description: 'Cordiant Winter Drive PW-1',
-	// 		price: '560 руб.'
-	// 	}
-	// ]
-
-	// const [currentCategory, setCurrentCategory] = useState(null)
 
 	if (isOpen) {
 		document.body.style.overflow = 'hidden'
@@ -285,35 +219,43 @@ const GoodsOfCategory = () => {
 								{/* ))} */}
 							</div>
 							<div className={cl.pagination}>
-								<Button colorStyle="outlined" className={cl.button} onClick={loadMoreData}>
+								<Button
+									colorStyle="outlined"
+									className={cl.button}
+									// onClick={loadMoreData}
+								>
 									Загрузить еще
 								</Button>
-								<Theme preset={presetKSP}>
-									{(isDesktop || isTablet || isTabletSmall) && (
-										<Pagination
-											items={totalItems}
-											value={page}
-											onChange={setPage}
-											visibleCount={10}
-											// items={15}
-											// value={page}
-											// onChange={setPage}
-											// visibleCount={10}
-										/>
-									)}
-									{isMobile && (
-										<Pagination
-											items={totalItems}
-											value={page}
-											onChange={setPage}
-											visibleCount={5}
-											// items={15}
-											// value={page}
-											// onChange={setPage}
-											// visibleCount={10}
-										/>
-									)}
-								</Theme>
+								{priceFilter && priceFilter.meta && priceFilter.meta.last_page && (
+									<Theme preset={presetKSP}>
+										{(isDesktop || isTablet || isTabletSmall) && (
+											<Pagination
+												items={priceFilter.meta.last_page}
+												// items={priceFilter?.meta?.last_page}
+												value={page}
+												onChange={setPage}
+												visibleCount={10}
+												// items={15}
+												// value={page}
+												// onChange={setPage}
+												// visibleCount={10}
+											/>
+										)}
+										{isMobile && (
+											<Pagination
+												items={priceFilter.meta.last_page}
+												// items={priceFilter?.meta?.last_page}
+												value={page}
+												onChange={setPage}
+												visibleCount={5}
+												// items={15}
+												// value={page}
+												// onChange={setPage}
+												// visibleCount={10}
+											/>
+										)}
+									</Theme>
+								)}
 							</div>
 						</div>
 					</div>
