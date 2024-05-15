@@ -21,8 +21,8 @@ const GoodsOfCategory = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [search, setSearch] = useState(null)
 	const [page, setPage] = useState(1)
-	const [totalItems, setTotalItems] = useState(178) // Состояние для общего количества элементов
-	const [carPartsPagination, setCarPartsPagination] = useState([]) // Состояние для всех загруженных карточек
+	const [totalItems, setTotalItems] = useState(178)
+	const [carPartsPagination, setCarPartsPagination] = useState([])
 	const { isMobile, isTablet, isTabletSmall, isDesktop } = useMatchMedia()
 	const items = [
 		{
@@ -70,11 +70,10 @@ const GoodsOfCategory = () => {
 	})
 
 	useEffect(() => {
-		// Проверка, что priceFilter.data и priceFilter.totalItems существуют перед обновлением
 		if (pages.last_page) {
 			setTotalItems(pages.last_page)
 		}
-	}, [pages]) // Запустить useEffect при изменении priceFilter
+	}, [pages])
 
 	const loadMoreData = async () => {
 		const nextPage = page + 1
@@ -292,7 +291,7 @@ const GoodsOfCategory = () => {
 								<Theme preset={presetKSP}>
 									{(isDesktop || isTablet || isTabletSmall) && (
 										<Pagination
-											items={totalItems} // Передаем общее количество элементов в Pagination
+											items={totalItems}
 											value={page}
 											onChange={setPage}
 											visibleCount={10}
@@ -304,7 +303,7 @@ const GoodsOfCategory = () => {
 									)}
 									{isMobile && (
 										<Pagination
-											items={totalItems} // Передаем общее количество элементов в Pagination
+											items={totalItems}
 											value={page}
 											onChange={setPage}
 											visibleCount={5}

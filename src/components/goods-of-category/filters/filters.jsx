@@ -55,13 +55,10 @@ const Filters = ({ minPrice, maxPrice, setMinPrice, setMaxPrice, onApply, onRese
 	}
 
 	const handleReset = () => {
-		// Сбросить значения фильтров до базовых значений
 		setLocalMinPrice(0)
 		setLocalMaxPrice(200000)
-		// Отправить запрос с возвращением базовых значений цен
 		setMinPrice(0)
 		setMaxPrice(200000)
-		// Добавляем вызов функции запроса данных после сброса фильтров
 		onReset()
 	}
 
