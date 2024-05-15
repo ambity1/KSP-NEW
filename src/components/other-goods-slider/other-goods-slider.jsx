@@ -8,16 +8,15 @@ import GoodCard from '@components/other-goods-slider/good-card'
 
 import cl from './other-goods-slider.module.scss'
 
-
 const OtherGoodsSlider = () => {
 	const [swiper, setSwiper] = useState(null)
 	const { isDesktop, isTablet, isTabletSmall } = useMatchMedia()
 
 	const prevSwipeHandler = () => {
-		swiper?.slidePrev()
+		swiper.slidePrev()
 	}
 	const nextSwipeHandler = () => {
-		swiper?.slideNext()
+		swiper.slideNext()
 	}
 
 	const slidesPerView = useMemo(() => {

@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -31,6 +32,23 @@ const ButtonLink = ({
 			{children}
 		</Link>
 	)
+}
+
+ButtonLink.propTypes = {
+	colorStyle: PropTypes.oneOf(['primary', 'outlined', 'secondary']),
+	sizeStyle: PropTypes.oneOf(['sizeS', 'sizeM', 'sizeL']),
+	additionalStyles: (props, propName, componentName) => {
+		const additionalStyles = props[propName]
+		if (
+			additionalStyles === undefined ||
+			(Array.isArray(additionalStyles) &&
+				[...new Set(additionalStyles)].every((additionalStyle) => ['mobileWide'].includes(additionalStyle)))
+		) {
+			return
+		}
+
+		return new Error(`Invalid prop \`${propName}\` supplied to \`${componentName}\`. Validation failed.`)
+	}
 }
 
 export default ButtonLink

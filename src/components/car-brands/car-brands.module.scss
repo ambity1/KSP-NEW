@@ -1,6 +1,7 @@
 @use '@assets/styles/vars/colors';
 @use '@assets/styles/mixins/breakpoints';
 @use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
 
 
 .wrapper {
@@ -25,6 +26,9 @@
   }
 
   .title {
+    @include fontsStyles.DisplayLG;
+    @include fontsFamilies.FontFamilyInterBold;
+
     @include breakpoints.tablet {
       @include fontsStyles.DisplayMD;
     }
@@ -56,9 +60,9 @@
         margin: auto;
       }
 
-      &:hover {
-        background-color: colors.$dark;
-      }
+      //&:hover {
+      //  background-color: colors.$dark;
+      //}
 
       .imgLogo {
         height: 100%;
@@ -67,9 +71,9 @@
         transition: .3s;
       }
 
-      .imgLogo:hover {
-        filter: unset;
-      }
+      //.imgLogo:hover {
+      //  filter: unset;
+      //}
     }
 
     //.kia {

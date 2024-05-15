@@ -5,6 +5,7 @@
 
 .tabsWrapper {
   padding-top: 60px;
+  padding-bottom: 140px;
 
   @include breakpoints.tablet {
     display: none;

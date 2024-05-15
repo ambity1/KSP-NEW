@@ -1,5 +1,6 @@
 @use '@assets/styles/mixins/breakpoints';
 @use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
 
 .wrapper {
   padding-top: 40px;
@@ -15,6 +16,9 @@
   }
 
   .title {
+    @include fontsStyles.DisplayLG;
+    @include fontsFamilies.FontFamilyInterBold;
+
     @include breakpoints.tablet {
       @include fontsStyles.DisplayLG;
     }

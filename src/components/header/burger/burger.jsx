@@ -11,16 +11,17 @@ const Burger = () => {
 
 	const { isDesktop } = useMatchMedia()
 
-	const togglePanel = () => {
-		setIsOpen(!isOpen)
-	}
-	const closePanel = () => {
-		setIsOpen(false)
-	}
+	// const togglePanel = () => {
+	// 	setIsOpen(!isOpen)
+	// }
+	// const closePanel = () => {
+	// 	setIsOpen(false)
+	// }
 
 	return (
 		<div>
-			<button className={cl.burger} onClick={togglePanel} />
+			<img src="../../../assets/icons/burger.svg" alt="" onClick={togglePanel} />
+			{/* <button className={cl.burger} onClick={togglePanel} /> */}
 		</div>
 	)
 }

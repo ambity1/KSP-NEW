@@ -5,6 +5,7 @@
 
 .wrapper {
 	padding-top: 30px;
+	padding-bottom: 45px;
 
 	display: flex;
 	gap: 10em; // 160px
@@ -37,6 +38,7 @@
 
 		.title {
 			@include fontsStyles.DisplayMD;
+			@include fontsFamilies.FontFamilyInterBold;
 
 			@include breakpoints.mobile {
 				@include fontsStyles.TextLG;
@@ -131,5 +133,29 @@
 				@include fontsStyles.TextXS;
 			}
 		}
+	}
+}
+
+.description {
+	display: flex;
+	flex-direction: column;
+	row-gap: 40px;
+	padding-top: 55px;
+	padding-bottom: 140px;
+
+	.header {
+		border-bottom: 2px solid #FDC82A;
+
+		.name {
+			padding-bottom: 10px;
+			padding-left: 20px;
+			color: #FDC82A;
+			@include fontsFamilies.FontFamilyInterBold;
+			@include fontsStyles.TextLG
+		}
+	}
+
+	.information {
+
 	}
 }

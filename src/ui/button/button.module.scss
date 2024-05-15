@@ -11,21 +11,31 @@
   border: 1px solid colors.$main;
 
 
+
   &SizeS {
-    padding: 0.6875em 1.25em; //12px 20px
-    border-radius: 0.25em; //4px
+    padding: 9px 16px; //12px 20px
+    border-radius: 4px; //4px
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 140%;
   }
 
   &SizeM {
-    min-width: 11.875em; //190px
-    padding: 0.9125em 1.25em; //14.6px 20px
-    border-radius: 0.25em; //4px
+    //min-width: 190px; //190px
+    padding: 11px 20px; //14.6px 20px
+    border-radius: 4px; //4px
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 140%;
   }
 
   &SizeL {
-    padding: 0.9125em 1.25em; //14.6px 20px
-    border-radius: 0.25em; //4px
+    padding: 13px 20px; //14.6px 20px
+    border-radius: 4px; //4px
     color: colors.$black;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 140%;
 
   }
 

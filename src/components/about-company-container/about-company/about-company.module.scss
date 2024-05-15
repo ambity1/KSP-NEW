@@ -15,6 +15,9 @@
   }
 
   .title {
+    @include fontsStyles.DisplayLG;
+    @include fontsFamilies.FontFamilyInterBold;
+
     @include breakpoints.tablet {
       @include fontsStyles.DisplayMD;
     }

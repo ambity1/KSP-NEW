@@ -1,5 +1,6 @@
 import { memo } from 'react'
 
+import AutoPartsCatalog from '@components/auto-parts-catalog/auto-parts-catalog.jsx'
 import CarBands from '@components/car-brands'
 import AboutCompany from '@components/main/about-company'
 import AssociatedGoods from '@components/main/associated-goods'
@@ -10,7 +11,8 @@ const Main = () => {
 	return (
 		<>
 			<HeroScreen />
-			<AssociatedGoods />
+			<AutoPartsCatalog />
+			{/* <AssociatedGoods /> */}
 			<CarBands />
 			<AboutCompany />
 			<ContactsContainer />

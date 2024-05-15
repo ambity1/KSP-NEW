@@ -1,0 +1,75 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/breakpoints';
+
+.wrapper {
+  flex-grow: 1;
+  display: flex;
+  gap: 10px; //10px
+  //width: 880px;
+
+  //@include breakpoints.desktop_small {
+  //  width: 715px;
+  //}
+
+  //@include breakpoints.tablet {
+    //max-width: 728px;
+    //width: 100%;
+  //}
+
+  @include breakpoints.tablet_small {
+
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+
+  @include breakpoints.tablet_small {
+    &::before {
+      position: absolute;
+      top: 11.5px;
+      bottom: 11.5px;
+      left: 14px;
+      content: url("../../../../assets/icons/searchGray.svg");
+      width: 22px;
+      height: 22px;
+      opacity: 0.7;
+    }
+  }
+
+  .input {
+    width: 100%;
+    flex-grow: 1;
+    color: colors.$white;
+    padding: 0.75em 1.25em;
+    background: transparent;
+    border: 1px solid colors.$gray;
+    border-radius: 4px;
+
+    @include breakpoints.tablet_small {
+      padding: 0.75em 1.25em 0.75em 3em;
+    }
+  }
+}
+
+.button {
+  //@include fontsFamilies.FontFamilyInterBold;
+
+  padding: 11px 50px; //12px 20px
+  //border-radius: 4px;
+  //background: colors.$main;
+
+  @include breakpoints.tablet_small {
+    display: none;
+  }
+}
+
+//.modalButton {
+//  margin-left: auto;
+//  @include breakpoints.mobile_small {
+//    margin-left: 0;
+//  }
+//}

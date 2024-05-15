@@ -21,7 +21,8 @@
   &Menu {
     position: absolute;
     top: -15%;
-    left: 57%;
+    left: 41%;
+    border-radius: 4px;
     min-width: 248px;
     transform: translate(-50%, 0);
     transition: top .3s ease, transform .3s ease;
@@ -30,14 +31,14 @@
     z-index: 1;
 
     .content {
-      background-color: colors.$background;
+      background-color: colors.$white;
       padding: 10px;
       display: flex;
       flex-direction: column;
       gap: 10px;
 
       .text {
-        color: colors.$white;
+        color: colors.$background;
         position: relative;
       }
     }

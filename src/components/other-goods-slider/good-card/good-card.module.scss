@@ -4,13 +4,15 @@
 @use '@assets/styles/mixins/fontsFamilies';
 
 .wrapper {
-  padding: 1em;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  border-radius: 0.125em; //2px
-  gap: 0.3125em; //5px
+  border-radius: 4px;
+  gap: 10px;
   background-color: colors.$white;
   width: 100%;
+  //min-height: 357px;
+  height: 100%;
 
   .image {
     width: 100%;
@@ -20,31 +22,45 @@
     }
   }
 
-  .title {
+  .description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 18px;
+    height: 100%;
 
-    @include fontsStyles.TextMD;
-    color: colors.$black;
-    @include breakpoints.mobile {
-      @include fontsStyles.TextXS;
-      @include fontsFamilies.FontFamilyInterRegular;
+    .title {
+      overflow: hidden;
+      display: -webkit-box;
+      //height: 65px;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      transition: all 0.2s ease;
+
+      @include fontsStyles.TextMD;
+      color: colors.$black;
+      @include breakpoints.mobile {
+        @include fontsStyles.TextXS;
+        @include fontsFamilies.FontFamilyInterRegular;
+      }
+      @include breakpoints.mobile_middle {
+        @include fontsStyles.Text2XS;
+
+      }
     }
-    @include breakpoints.mobile_middle {
-      @include fontsStyles.Text2XS;
 
+    .cost {
+      @include fontsFamilies.FontFamilyInterBold;
+      @include fontsStyles.TextLG;
+      color: colors.$black;
+      @include breakpoints.mobile {
+        @include fontsStyles.TextXS;
+      }
     }
-  }
 
-  .cost {
-    @include fontsFamilies.FontFamilyInterBold;
-    @include fontsStyles.TextLG;
-    color: colors.$black;
-    @include breakpoints.mobile {
-      @include fontsStyles.TextXS;
-    }
-  }
-
-  .delivery {
-    @include fontsStyles.TextXS;
-    color: colors.$gray;
+    //.delivery {
+    //  @include fontsStyles.TextXS;
+    //  color: colors.$gray;
+    //}
   }
 }

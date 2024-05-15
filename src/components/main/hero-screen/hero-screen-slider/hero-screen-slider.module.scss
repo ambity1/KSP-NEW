@@ -5,16 +5,29 @@
 
 .wrapper {
   position: relative;
-  width: 67%;
-  @include breakpoints.desktop_large {
-    width: 63%;
+  width: 100%;
+  min-height: 620px;
+
+  @include breakpoints.desktop_small {
+    min-height: 520px;
   }
-  @include breakpoints.desktop_medium {
-    width: 61%;
-  }
+
   @include breakpoints.tablet {
-    width: 100%;
+    min-height: 450px;
   }
+
+  @include breakpoints.mobile {
+    min-height: 350px;
+  }
+  //@include breakpoints.desktop_large {
+  //  width: 63%;
+  //}
+  //@include breakpoints.desktop_medium {
+  //  width: 61%;
+  //}
+  //@include breakpoints.tablet {
+  //  width: 100%;
+  //}
 }
 
 .swiperArrow {

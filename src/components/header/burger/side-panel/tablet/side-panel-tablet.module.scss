@@ -3,110 +3,109 @@
 @use '@assets/styles/mixins/fontsStyles';
 @use '@assets/styles/mixins/fontsFamilies';
 
-.overlay {
-  top: 0;
-  left: 0;
-  right: 0;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background-color: colors.$white;
-  opacity: 0.6;
-  z-index: 100;
-  transform: translateX(0);
-  transition: transform .3s ease;
-  transition-delay: 0s;
-
-  &Closed {
-    transform: translateX(100%);
-    transition-delay: .3s;
-  }
-}
-
 .sidePanelWrapper {
-  max-width: 400px;
+  overflow: hidden;
+  position: fixed;
+  opacity: 1;
   top: 0;
-  bottom: 0;
   right: 0;
-  z-index: 200;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background-color: colors.$dark;
-  padding-left: 30px;
-  padding-right: 20px;
-  transform: translateX(0);
-  transition: transform .3s ease;
-  transition-delay: 0s;
+  bottom: 0;
+  left: -400px;
+  z-index: 1001;
+  transition: transform 0.3s ease;
+
+  @include breakpoints.tablet_small {
+    left: -320px;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: -100%;
+    bottom: 0;
+    z-index: -1;
+    background-color: #00000070;
+    cursor: pointer;
+  }
 
   .sidePanelWrapperContent {
-    opacity: 1;
-    transition: opacity .3s ease;
-    transition-delay: .3s;
-  }
-
-  &Closed {
-    transform: translateX(100%);
-    transition-delay: .3s;
-
-    .sidePanelWrapperContent {
-      opacity: 0;
-      transition-delay: 0s;
-    }
-  }
-}
-
-.sidePanelWrapperContent {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-
-  .btnClose {
-    margin-top: 8px;
-    display: flex;
     background-color: colors.$dark;
-    align-self: end;
-
-    &::before {
-      content: url('@assets/icons/closebtn.svg');
-      display: flex;
-      width: 40px;
-      height: 40px;
-    }
-  }
-
-  .linksWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 400px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     display: flex;
     flex-direction: column;
     gap: 25px;
-    @include fontsStyles.TextMD;
-    @include fontsFamilies.FontFamilyInterBold;
+    padding: 60px 30px;
 
-    a:hover {
-      color: colors.$main;
+    @include breakpoints.tablet_small {
+      max-width: 320px;
+      padding: 60px 20px;
     }
 
-    &Yellow {
-      color: colors.$main;
+    .btnClose {
+      width: 40px;
+      height: 40px;
+      background-color: colors.$dark;
+      position: absolute;
+      right: 20px;
+      top: 8px;
+
+      @include breakpoints.tablet_small {
+        width: 24px;
+        height: 24px;
+        right: 10px;
+        top: 10px;
+      }
     }
-  }
 
-  .wrapper {
-    gap: 20px;
-  }
+    .linksWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      @include fontsStyles.TextMD;
+      @include fontsFamilies.FontFamilyInterBold;
 
-  .addressesWrapper {
-    gap: 20px;
+      a:hover {
+        color: colors.$main;
+      }
 
-    .addressItem {
-      padding: 0;
+      &Yellow {
+        color: colors.$main;
+      }
+    }
+
+    .wrapper {
+      gap: 20px;
+    }
+
+    .addressesWrapper {
+      gap: 20px;
+
+      .addressItem {
+        padding: 0;
+        @include fontsStyles.TextXS;
+      }
+    }
+
+
+    .messengersWrapper {
+      padding: 0 0 0 0;
       @include fontsStyles.TextXS;
     }
   }
-
-
-  .messengersWrapper {
-    padding: 0 0 0 0;
-    @include fontsStyles.TextXS;
-  }
 }
+
+.active {
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  overflow: visible;
+}
+

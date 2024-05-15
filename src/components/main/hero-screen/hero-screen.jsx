@@ -9,7 +9,7 @@ const HeroScreen = () => {
 	const heroScreenContentWrapperClassNames = cn([cl.wrapper, 'container'])
 	return (
 		<div className={heroScreenContentWrapperClassNames}>
-			<Selection />
+			{/* <Selection /> */}
 			<HeroScreenSlider />
 		</div>
 	)

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import getRawPhoneFromParsedPhone from '@helpers/getRawPhoneFromParsedPhone.js'
 import parseRawPhone from '@helpers/parseRawPhone.js'
 
+// import fw from '../../../../../../assets/images/clipboard.svg'
 import Button from '@ui/button'
 
 import cl from './help-with-selection.module.scss'
@@ -72,9 +73,10 @@ const HelpWithSelection = ({ onClose }) => {
 					<div className={cl.wrapper}>
 						<button className={cl.btnClose} onClick={onClose} />
 						<div className={cl.contentWrapper}>
+							<img className={cl.clipboard} src="../../../../../../assets/images/clipboard.svg" alt="" />
 							<h2 className={cl.title}>Заявка успешно отправлена!</h2>
 							<div className={cl.contentContainer}>
-								<span className={cl.text}>Мы перезвоним вам в ближайшее время</span>
+								<span className={cl.text}>Мы скоро свяжемся с вами</span>
 							</div>
 						</div>
 					</div>
@@ -86,10 +88,12 @@ const HelpWithSelection = ({ onClose }) => {
 							<div className={cl.contentContainer}>
 								<span className={cl.text}>Вы можете написать нам с вопросом в любой из социальных сетей:</span>
 								<div className={cl.linkWrapper}>
-									<Link className={cn([cl.link, cl.whatsapp])} to="/">
+									<Link className={cn([cl.link])} to="/">
+										<img src="../../../assets/icons/whatsapp.svg" alt="" />
 										Связаться в Whatsapp
 									</Link>
-									<Link className={cn([cl.link, cl.telegram])} to="/">
+									<Link className={cn([cl.link])} to="/">
+										<img src="../../../assets/icons/telegram.svg" alt="" />
 										Связаться в Telegram
 									</Link>
 								</div>

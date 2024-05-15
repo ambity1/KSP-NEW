@@ -19,22 +19,47 @@
   }
 
   .logo {
-    &::before {
-      content: url('@assets/images/logo-second.svg');
+    display: flex;
+    flex-direction: column;
+    row-gap: 23px;
+
+    .first {
+      //width: 100%;
+      max-height: 80px;
+
       @include breakpoints.desktop {
-        content: url('@assets/images/footer-logo-x1000.svg');
+        max-height: 72.14px;
       }
       @include breakpoints.tablet_small {
-        content: url('@assets/images/footer-logo-x360.svg');
+        max-width: 92.76px;
+        max-height: 40px;
       }
+    }
+
+    .second {
+      width: 100%;
+      max-height: 90px;
+
+      @include breakpoints.desktop {
+        max-height: 81.43px;
+      }
+      @include breakpoints.tablet_small {
+        max-width: 82.55px;
+        max-height: 40px;
+      }
+    }
+
+    @include breakpoints.tablet_small {
+      flex-direction: row;
+      gap: 13.63px;
     }
   }
 
   &ContentWrapper {
     display: grid;
     grid-template-areas:
-			'one two three four'
-			'one  . five six';
+			'one two three four';
+			//'one  . five six';
 
     justify-content: space-between;
     row-gap: 1.25em; //20px
@@ -54,31 +79,30 @@
     & > *:nth-child(4) {
       grid-area: four;
     }
+    //
+    //& > *:nth-child(5) {
+    //  grid-area: five;
+    //}
+    //
+    //& > *:nth-child(6) {
+    //  grid-area: six;
+    //}
 
-    & > *:nth-child(5) {
-      grid-area: five;
-    }
-
-    & > *:nth-child(6) {
-      grid-area: six;
-    }
-
-    @include breakpoints.desktop {
+    @include breakpoints.tablet {
       grid-template-areas:
 				'one two three '
-				'four five six';
-    }
-    @include breakpoints.tablet {
+				'one four four';
       column-gap: 6.25em;
     }
+    //@include breakpoints.tablet {
+    //  column-gap: 6.25em;
+    //}
     @include breakpoints.tablet_small {
       grid-template-areas:
 				'one'
 				'two'
 				'three'
-				'four'
-				'five'
-				'six';
+				'four';
     }
   }
 

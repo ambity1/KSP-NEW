@@ -22,61 +22,56 @@ const BurgerSidePanel = ({ isOpen, onClose }) => {
 					{
 						id: 0,
 						href: '/',
-						text: 'Подбор запчастей по VIN'
+						text: 'Поиск автозапчастей'
 					},
 					{
 						id: 1,
-						href: '/',
-						text: 'Подбор запчастей по марке авто'
-					},
-					{
-						id: 2,
-						href: '/',
-						text: 'Помощь с подбором'
-					},
-					{
-						id: 3,
 						href: '/stock',
 						text: 'Акции'
 					},
 					{
-						id: 4,
-						href: '/contacts',
-						text: 'Контакты'
-					}
-				]
-			},
-
-			{
-				id: 1,
-				links: [
-					{
-						id: 0,
-						href: '/information/delivery',
-						text: 'Доставка'
-					},
-					{
-						id: 1,
-						href: '/information/payment',
-						text: 'Оплата'
-					},
-					{
 						id: 2,
-						href: '/information/refund',
-						text: 'Возврат'
-					},
-					{
-						id: 3,
 						href: '/about',
 						text: 'О компании'
 					},
 					{
-						id: 4,
-						href: '/',
-						text: 'Поставщикам'
+						id: 3,
+						href: '/contacts',
+						text: 'Контакты'
 					}
 				]
 			}
+
+			// {
+			// 	id: 1,
+			// 	links: [
+			// 		{
+			// 			id: 0,
+			// 			href: '/information/delivery',
+			// 			text: 'Доставка'
+			// 		},
+			// 		{
+			// 			id: 1,
+			// 			href: '/information/payment',
+			// 			text: 'Оплата'
+			// 		},
+			// 		{
+			// 			id: 2,
+			// 			href: '/information/refund',
+			// 			text: 'Возврат'
+			// 		},
+			// 		{
+			// 			id: 3,
+			// 			href: '/about',
+			// 			text: 'О компании'
+			// 		},
+			// 		{
+			// 			id: 4,
+			// 			href: '/',
+			// 			text: 'Поставщикам'
+			// 		}
+			// 	]
+			// }
 		],
 		[]
 	)
@@ -94,13 +89,13 @@ const BurgerSidePanel = ({ isOpen, onClose }) => {
 				href: '/',
 				className: cl.telegram,
 				text: 'Telegram'
-			},
-			{
-				id: 2,
-				href: '/',
-				className: cl.instagram,
-				text: 'Instagram'
 			}
+			// {
+			// 	id: 2,
+			// 	href: '/',
+			// 	className: cl.instagram,
+			// 	text: 'Instagram'
+			// }
 		],
 		[]
 	)
@@ -109,6 +104,7 @@ const BurgerSidePanel = ({ isOpen, onClose }) => {
 	// 	setIsWasClosed(true)
 	// 	setTimeout(() => onClose(), 500)
 	// }
+
 	const sidePanelWrapperClassNames = cn([cl.sidePanelWrapper, 'container', { [cl.sidePanelClosed]: isWasClosed }])
 
 	return (

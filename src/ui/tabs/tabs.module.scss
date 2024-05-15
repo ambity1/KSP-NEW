@@ -7,7 +7,8 @@
 
   display: flex;
   text-align: center;
-  border-bottom: 2px solid colors.$white;
+  //border-bottom: 2px solid colors.$white;
+  border-bottom: 2px solid colors.$main;
   cursor: pointer;
 
   .tab {
@@ -16,11 +17,11 @@
 
     background-color: transparent;
     color: colors.$white;
-    border-bottom: 1px solid colors.$white;
+    //border-bottom: 1px solid colors.$white;
 
     &.active {
       color: colors.$main;
-      border-bottom: 2px solid colors.$main;
+      //border-bottom: 2px solid colors.$main;
     }
 
     @include fontsStyles.TextLG;

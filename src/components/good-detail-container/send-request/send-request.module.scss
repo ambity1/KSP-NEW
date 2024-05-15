@@ -1,0 +1,179 @@
+@use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
+
+
+.overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100%;
+  background-color: colors.$white;
+  opacity: 0.6;
+  z-index: 100;
+}
+
+.wrapper {
+  position: absolute;
+  z-index: 200;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+
+
+  padding: 10px;
+  background-color: colors.$dark;
+  @include breakpoints.tablet {
+    padding: 10px
+  }
+
+
+  .btnClose {
+    display: flex;
+    align-self: end;
+    background-color: colors.$dark;
+
+    &::before {
+      content: url('@assets/icons/mini-close.svg');
+    }
+  }
+
+  .contentWrapper {
+    padding: 20px 60px 50px 60px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include breakpoints.desktop_extra_small {
+      padding: 20px 60px 60px 60px;
+    }
+    @include breakpoints.tablet {
+      padding: 10px;
+      gap: 20px;
+    }
+
+    .clipboard {
+      width: 64px;
+      height: 64px;
+    }
+
+    .contentContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+
+    .title {
+      text-align: center;
+      @include fontsStyles.DisplayMD;
+      @include breakpoints.tablet {
+        @include fontsStyles.TextLG
+      }
+    }
+
+    .text {
+      text-align: center;
+      @include fontsStyles.TextLG;
+      @include breakpoints.tablet {
+        @include fontsStyles.TextMD
+      }
+    }
+
+    .linkWrapper {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      @include breakpoints.tablet {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .link {
+        padding: 8px 14px;
+        border: 1px solid colors.$gray;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-align: initial;
+
+        @include fontsStyles.TextMD;
+        @include fontsFamilies.FontFamilyInterBold;
+        @include breakpoints.tablet {
+          @include fontsStyles.TextXS;
+          padding: 10px;
+        }
+
+      }
+
+      .whatsapp {
+        &::before {
+          content: url('@assets/icons/whatsapp.svg');
+        }
+      }
+
+      .telegram {
+        &::before {
+          content: url('@assets/icons/telegram.svg');
+        }
+      }
+    }
+  }
+
+  .contactsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .inputWrapper {
+      display: flex;
+      gap: 8px;
+      @include breakpoints.tablet {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .input {
+        flex-grow: 1;
+
+        color: colors.$border;
+        padding: 0.75em 1.25em;
+        background: transparent;
+        border: 1px solid colors.$border;
+        border-radius: 4px;
+        @include fontsStyles.TextMD;
+
+      }
+
+      .btnWrapper {
+        display: contents;
+      }
+
+
+      .button {
+        color: colors.$black;
+        @include breakpoints.tablet {
+          @include fontsStyles.TextXS;
+        }
+      }
+    }
+
+
+    .confidential {
+      text-align: center;
+      @include fontsStyles.TextXS;
+      color: colors.$gray;
+
+      .underline {
+        color: colors.$gray;
+        border-bottom: 1px solid colors.$gray;
+      }
+    }
+  }
+}

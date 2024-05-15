@@ -6,7 +6,7 @@
 .sidePanel {
   //padding-top: 25px;
   //top: 111.8px;
-  top: 111.8px;
+  top: 110.8px;
   left: 0;
   right: 0;
   position: fixed;
@@ -87,6 +87,7 @@
     top: 111.8px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 250px;
     overflow-y: hidden;
 
@@ -94,6 +95,7 @@
       display: flex;
       gap: 50px;
       flex-direction: column;
+      align-items: center;
 
       .navigationItem {
         @include fontsStyles.DisplayLG;
@@ -104,16 +106,16 @@
           border-bottom: 1px solid colors.$main;
         }
 
-        @include breakpoints.desktop {
-          @include fontsStyles.DisplayMD;
-        }
+        //@include breakpoints.desktop {
+        //  @include fontsStyles.DisplayMD;
+        //}
       }
     }
   }
 
   .footerListWrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     .messengerItem {
       display: flex;

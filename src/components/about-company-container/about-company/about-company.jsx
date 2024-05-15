@@ -7,7 +7,7 @@ const AboutCompany = () => {
 
 	return (
 		<div className={aboutCompanyContentWrapperClassNames}>
-			<h1 className={cl.title}>О компании</h1>
+			<h2 className={cl.title}>О компании</h2>
 			<div className={cl.contentWrapper}>
 				<div className={cl.content}>
 					<p>

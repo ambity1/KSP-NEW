@@ -4,103 +4,180 @@
 @use '@assets/styles/vars/colors';
 
 .goodsOfCategoryWrapper {
+  padding-top: 40px;
+  padding-bottom: 140px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
   .title {
-    padding-top: 40px;
-    padding-bottom: 40px;
     width: 60%;
     @include fontsStyles.DisplayLG;
+    @include fontsFamilies.FontFamilyInterBold;
+
+    @include breakpoints.tablet {
+      @include fontsStyles.DisplayMD;
+    }
+
+    @include breakpoints.mobile {
+      @include fontsStyles.TextLG;
+    }
   }
 
   .wrapper {
     display: flex;
-    gap: 30px;
-    padding-bottom: 140px;
+    flex-direction: column;
+    row-gap: 20px;
 
-    .catalogBlock {
-      position: relative;
+    .input {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
+      gap: 10px;
+      max-width: 880px;
+      width: 100%;
 
-      .catalogBtn {
-        display: flex;
-        flex-direction: column;
-
-        .btn {
-          display: flex;
-          text-align: start;
-          justify-content: space-between;
-
-          &::after {
-            content: url('@assets/icons/filters/arrowRight.svg');
-          }
-        }
+      @include breakpoints.desktop_small {
+        max-width: 715px;
       }
 
-      .menu {
-        background-color: colors.$white;
-        opacity: 0;
-        transform: translate(-50%, 0);
-        transition: top .3s ease, transform .3s ease;
-        pointer-events: none;
-
-        &List {
-          //background-color: colors.$white;
-          color: black;
-          //min-width: 400px;
-          position: absolute;
-
-          top: calc(70% + 5px);
-          z-index: 1;
-          display: flex;
-
-          .partsGroup {
-            @include fontsStyles.TextMD;
-            @include fontsFamilies.FontFamilyInterBold;
-            min-width: 400px;
-            border: 1px solid colors.$border;
-            border-radius: 4px 0 0 4px;
-            padding: 30px 0;
-            background-color: colors.$white;
-
-            &Item {
-              color: colors.$black;
-              padding: 8px 30px;
-            }
-
-            &Item:hover {
-              background-color: rgba(colors.$main, 15%);
-            }
-          }
-
-          .partsName {
-            width: 100%;
-            border: 1px solid colors.$border;
-            border-radius: 0 4px 4px 0;
-            padding: 30px 0;
-            min-width: 710px;
-            background-color: colors.$white;
-
-            &Item {
-              color: colors.$black;
-              padding: 8px 30px;
-            }
-          }
-        }
-      }
-
-      .menu:active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
+      @include breakpoints.tablet {
+        max-width: 728px;
       }
     }
 
+    .dropdown {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+
+      @include breakpoints.tablet {
+        justify-content: space-between;
+      }
+
+      .button {
+        display: none;
+        align-items: center;
+        gap: 10px;
+
+        img {
+          width: 22px;
+          height: 22px;
+        }
+
+        @include breakpoints.tablet {
+          display: flex;
+        }
+      }
+
+      .select {
+        min-width: 212px;
+
+        @include breakpoints.mobile {
+          min-width: 156px;
+        }
+      }
+    }
+
+    //.catalogBlock {
+    //  position: relative;
+    //  display: flex;
+    //  flex-direction: column;
+    //  gap: 20px;
+    //
+    //  .catalogBtn {
+    //    display: flex;
+    //    flex-direction: column;
+    //
+    //    .btn {
+    //      display: flex;
+    //      text-align: start;
+    //      justify-content: space-between;
+    //
+    //      &::after {
+    //        content: url('@assets/icons/filters/arrowRight.svg');
+    //      }
+    //    }
+    //  }
+    //
+    //  .menu {
+    //    background-color: colors.$white;
+    //    opacity: 0;
+    //    transform: translate(-50%, 0);
+    //    transition: top .3s ease, transform .3s ease;
+    //    pointer-events: none;
+    //
+    //    &List {
+    //      //background-color: colors.$white;
+    //      color: black;
+    //      //min-width: 400px;
+    //      position: absolute;
+    //
+    //      top: calc(70% + 5px);
+    //      z-index: 1;
+    //      display: flex;
+    //
+    //      .partsGroup {
+    //        @include fontsStyles.TextMD;
+    //        @include fontsFamilies.FontFamilyInterBold;
+    //        min-width: 400px;
+    //        border: 1px solid colors.$border;
+    //        border-radius: 4px 0 0 4px;
+    //        padding: 30px 0;
+    //        background-color: colors.$white;
+    //
+    //        &Item {
+    //          color: colors.$black;
+    //          padding: 8px 30px;
+    //        }
+    //
+    //        &Item:hover {
+    //          background-color: rgba(colors.$main, 15%);
+    //        }
+    //      }
+    //
+    //      .partsName {
+    //        width: 100%;
+    //        border: 1px solid colors.$border;
+    //        border-radius: 0 4px 4px 0;
+    //        padding: 30px 0;
+    //        min-width: 710px;
+    //        background-color: colors.$white;
+    //
+    //        &Item {
+    //          color: colors.$black;
+    //          padding: 8px 30px;
+    //        }
+    //      }
+    //    }
+    //  }
+    //
+    //  .menu:active {
+    //    transform: translateY(0);
+    //    opacity: 1;
+    //    visibility: visible;
+    //  }
+    //}
+
     .contentWrapper {
       display: flex;
-      flex-direction: column;
-      align-items: end;
-      gap: 20px;
+      //flex-direction: column;
+      //align-items: end;
+      gap: 30px;
+
+      @include breakpoints.desktop_base {
+        gap: 20px;
+      }
+
+      .filter {
+        max-width: 360px;
+        width: 100%;
+
+        @include breakpoints.desktop_small {
+          max-width: 245px;
+        }
+
+        @include breakpoints.tablet {
+          display: none;
+        }
+      }
     }
 
     //.dropDownBtn {
@@ -108,9 +185,124 @@
     //}
   }
 
-  .goodsWrapper {
+  .cardsGroup {
     display: flex;
-    gap: 30px;
+    flex-direction: column;
+    row-gap: 30px;
+
+    .goodsWrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      row-gap: 30px;
+
+      @include breakpoints.desktop_small {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        row-gap: 30px;
+      }
+      @include breakpoints.tablet {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        row-gap: 20px;
+      }
+      @include breakpoints.tablet_small {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        row-gap: 16px;
+      }
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      row-gap: 20px;
+
+      .button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+
+.sidebar {
+  overflow: hidden;
+  position: fixed;
+  opacity: 1;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: -400px;
+  z-index: 100;
+  //background-color: colors.$white;
+  transition: transform .3s ease;
+
+  @include breakpoints.tablet_small {
+    left: -320px;
   }
 
+  .bckg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: -100%;
+    bottom: 0;
+    background-color: colors.$dark;
+    opacity: 0.6;
+    z-index: -1;
+    cursor: pointer;
+  }
+
+  .group {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    //width: 100%;
+    width: 400px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    height: 100%;
+    background-color: colors.$white;
+    padding: 20px 0;
+
+    @include breakpoints.tablet_small {
+      width: 320px;
+      padding: 10px 0;
+    }
+
+    .sidebarContent {
+      background-color: colors.$white;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      .btnClose {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        right: 20px;
+        top: 8px;
+
+        @include breakpoints.tablet_small {
+          width: 24px;
+          height: 24px;
+          right: 10px;
+          top: 10px;
+        }
+      }
+    }
+  }
+}
+
+
+.active {
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  overflow: visible;
 }

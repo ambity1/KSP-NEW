@@ -1,6 +1,7 @@
-@use '@assets/styles/mixins/fontsStyles';
-@use '@assets/styles/mixins/breakpoints';
 @use '@assets/styles/vars/colors';
+@use '@assets/styles/mixins/breakpoints';
+@use '@assets/styles/mixins/fontsStyles';
+@use '@assets/styles/mixins/fontsFamilies';
 
 
 .aboutCompanyWrapper {
@@ -53,6 +54,9 @@
     }
 
     .title {
+      @include fontsStyles.DisplayLG;
+      @include fontsFamilies.FontFamilyInterBold;
+
       @include breakpoints.tablet {
         @include fontsStyles.DisplayMD;
       }
