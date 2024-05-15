@@ -57,10 +57,10 @@ const Filters = ({ minPrice, maxPrice, setMinPrice, setMaxPrice, onApply, onRese
 	const handleReset = () => {
 		// Сбросить значения фильтров до базовых значений
 		setLocalMinPrice(0)
-		setLocalMaxPrice(1000000)
+		setLocalMaxPrice(200000)
 		// Отправить запрос с возвращением базовых значений цен
 		setMinPrice(0)
-		setMaxPrice(1000000)
+		setMaxPrice(200000)
 		// Добавляем вызов функции запроса данных после сброса фильтров
 		onReset()
 	}
@@ -73,7 +73,7 @@ const Filters = ({ minPrice, maxPrice, setMinPrice, setMaxPrice, onApply, onRese
 					<Slider
 						label="Цена"
 						min={0}
-						max={10000000}
+						max={300000}
 						step={1}
 						range
 						value={[localMinPrice, localMaxPrice]}

@@ -21,6 +21,8 @@ const GoodsOfCategory = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [search, setSearch] = useState(null)
 	const [page, setPage] = useState(1)
+	const [totalItems, setTotalItems] = useState(178) // Состояние для общего количества элементов
+	const [carPartsPagination, setCarPartsPagination] = useState([]) // Состояние для всех загруженных карточек
 	const { isMobile, isTablet, isTabletSmall, isDesktop } = useMatchMedia()
 	const items = [
 		{
@@ -41,11 +43,14 @@ const GoodsOfCategory = () => {
 	]
 	const [selectedType, setSelectedType] = useState(items[0])
 	const [minPrice, setMinPrice] = useState(0)
-	const [maxPrice, setMaxPrice] = useState(1000000)
+	const [maxPrice, setMaxPrice] = useState(200000)
 
-	const handleApplyFilters = () => {}
+	const handleApplyFilters = () => {
+		setPage(1)
+	}
 
 	const handleResetFilters = () => {
+		setPage(1)
 		// setMinPrice(0)
 		// setMaxPrice(1000000)
 	}
@@ -55,13 +60,34 @@ const GoodsOfCategory = () => {
 		sort: 'price',
 		limit: '12'
 	})
-	const { data: priceFilter = [] } = useGetPriceFilterQuery({
+	const { data: priceFilter = [], meta: pages = {} } = useGetPriceFilterQuery({
 		typeSort: selectedType.type,
 		sort: 'price',
 		limit: '12',
 		from: minPrice.toString(),
-		to: maxPrice.toString()
+		to: maxPrice.toString(),
+		pageNumber: page
 	})
+
+	useEffect(() => {
+		// Проверка, что priceFilter.data и priceFilter.totalItems существуют перед обновлением
+		if (pages.last_page) {
+			setTotalItems(pages.last_page)
+		}
+	}, [pages]) // Запустить useEffect при изменении priceFilter
+
+	const loadMoreData = async () => {
+		const nextPage = page + 1
+		const { data: newCarParts = [] } = await useGetCarPartsQuery({
+			typeSort: selectedType.type,
+			sort: 'price',
+			limit: '12',
+			pageNumber: nextPage
+		})
+		// Объединяем новые карточки с уже загруженными
+		setCarPartsPagination([...carPartsPagination, ...newCarParts])
+		setPage(nextPage)
+	}
 	// console.log(selectedType.type)
 	// console.log(minPrice.toString(), maxPrice.toString())
 	const handleChange = (search) => setSearch(search)
@@ -179,13 +205,6 @@ const GoodsOfCategory = () => {
 				</div>
 			</div>
 
-			{/* <div className={isOpen ? cl.sidePanelWrapper : cn([cl.sidePanelWrapper, cl.sidePanelWrapperClosed])}> */}
-			{/* 	<div className={cl.sidePanelWrapperContent}> */}
-			{/* 		<Filters /> */}
-			{/* 	</div> */}
-			{/* </div> */}
-			{/* <div className={isOpen ? cl.overlay : cn([cl.overlay, cl.overlayClosed])} onClick={setIsOpen(false)} /> */}
-
 			<div className={cn([cl.goodsOfCategoryWrapper, 'container'])}>
 				<h1 className={cl.title}>{search !== null ? `Результаты поиска "${search}"` : `Каталог`}</h1>
 				<div className={cl.wrapper}>
@@ -247,17 +266,17 @@ const GoodsOfCategory = () => {
 						</div>
 						<div className={cl.cardsGroup}>
 							<div className={cl.goodsWrapper}>
-								{/* {isLoadingCarParts ? ( */}
-								{/* 	<p>Загрузка...</p> */}
-								{/* ) : ( */}
-								{/* 	carParts.map((part) => ( */}
-								{/* 		<div key={part.id}> */}
-								{/* 			<Link to={`/good/${part.id}`}> */}
-								{/* 				<GoodCard description={part.name} price={part.price} /> */}
-								{/* 			</Link> */}
-								{/* 		</div> */}
-								{/* 	)) */}
-								{/* )} */}
+								{isLoadingCarParts ? (
+									<p>Загрузка...</p>
+								) : (
+									priceFilter.data.map((part) => (
+										<div key={part.id}>
+											<Link to={`/good/${part.id}`}>
+												<GoodCard description={part.name} price={part.price} />
+											</Link>
+										</div>
+									))
+								)}
 								{/* {carParts.map((part) => ( */}
 								{/* 	<div key={part.id}> */}
 								{/* 		<Link to={`/good/${part.id}`}> */}
@@ -267,11 +286,34 @@ const GoodsOfCategory = () => {
 								{/* ))} */}
 							</div>
 							<div className={cl.pagination}>
-								<Button colorStyle="outlined" className={cl.button}>
+								<Button colorStyle="outlined" className={cl.button} onClick={loadMoreData}>
 									Загрузить еще
 								</Button>
 								<Theme preset={presetKSP}>
-									<Pagination items={15} value={page} onChange={setPage} visibleCount={10} />
+									{(isDesktop || isTablet || isTabletSmall) && (
+										<Pagination
+											items={totalItems} // Передаем общее количество элементов в Pagination
+											value={page}
+											onChange={setPage}
+											visibleCount={10}
+											// items={15}
+											// value={page}
+											// onChange={setPage}
+											// visibleCount={10}
+										/>
+									)}
+									{isMobile && (
+										<Pagination
+											items={totalItems} // Передаем общее количество элементов в Pagination
+											value={page}
+											onChange={setPage}
+											visibleCount={5}
+											// items={15}
+											// value={page}
+											// onChange={setPage}
+											// visibleCount={10}
+										/>
+									)}
 								</Theme>
 							</div>
 						</div>

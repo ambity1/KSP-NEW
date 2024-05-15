@@ -9,7 +9,8 @@ export const carPartsApi = createApi({
 			query: ({ typeSort, sort, limit }) => `/api/products/${typeSort}/${sort}/${limit}`
 		}),
 		getPriceFilter: builder.query({
-			query: ({ typeSort, sort, limit, from, to }) => `/api/products/filter/${typeSort}/${sort}/${limit}/${from}/${to}`
+			query: ({ typeSort, sort, limit, from, to, pageNumber }) =>
+				`/api/products/filter/${typeSort}/${sort}/${limit}/${from}/${to}?page=${pageNumber}`
 		}),
 		getPart: builder.query({
 			query: (id) => `api/product/${id}`

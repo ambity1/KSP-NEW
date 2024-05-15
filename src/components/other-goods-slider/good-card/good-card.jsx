@@ -12,7 +12,7 @@ const GoodCard = (props) => {
 			<div className={cn([cl.description])}>
 				<h3 className={cl.title}>{props.description}</h3>
 				{/* <RateBar rate="4.5" hideScore={false} /> */}
-				<span className={cl.cost}>{props.price}</span>
+				<span className={cl.cost}>{props.price} руб.</span>
 			</div>
 			{/* <span className={cl.delivery}>от 6 дней</span> */}
 		</div>

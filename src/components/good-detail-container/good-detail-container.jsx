@@ -15,8 +15,8 @@ import cl from './good-detail-container.module.scss'
 function GoodDetailContainer() {
 	const { isDesktop } = useMatchMedia()
 
-	// const { id: partId } = useParams()
-	const { data: getPart } = useGetPartQuery(1)
+	const { id } = useParams()
+	const { data: getPart } = useGetPartQuery(id)
 
 	// const partPage = [
 	// 	{
