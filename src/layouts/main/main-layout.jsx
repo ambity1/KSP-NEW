@@ -24,7 +24,7 @@ const MainLayout = ({ children, hideBreadCrumbs }) => {
 	return (
 		<>
 			<Header closeSidePanel={(value) => setIsOpen(value)} sidePanelIsOpen={isOpen} />
-			{!hideBreadCrumbs && <BreadCrumbs />}
+			{/* {!hideBreadCrumbs && <BreadCrumbs />} */}
 			{children}
 
 			<Footer />

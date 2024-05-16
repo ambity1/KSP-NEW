@@ -1,14 +1,16 @@
-import { Provider } from 'react-redux'
+import { ApiProvider } from '@reduxjs/toolkit/query/react'
 
 import '../assets/styles/style.scss'
 import Routes from './routes.jsx'
-import store from './store'
+import { carPartsApi } from './store/modules/car-parts-api.js'
+
+// import store from './store'
 
 function Root() {
 	return (
-		<Provider store={store}>
+		<ApiProvider api={carPartsApi}>
 			<Routes />
-		</Provider>
+		</ApiProvider>
 	)
 }
 

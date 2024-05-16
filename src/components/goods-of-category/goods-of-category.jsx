@@ -13,14 +13,15 @@ import Button from '@ui/button/index.js'
 import Filters from '@components/goods-of-category/filters/index.js'
 import GoodCard from '@components/other-goods-slider/good-card/good-card.jsx'
 
-import { useGetCarPartsQuery, useGetPriceFilterQuery } from '../../store/modules/car-parts-api.js'
+import { carPartsApi, useGetCarPartsQuery } from '../../store/modules/car-parts-api.js'
 import { presetKSP } from '../../uikit/presets/presetKSP.js'
 import cl from './goods-of-category.module.scss'
 
 const GoodsOfCategory = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [search, setSearch] = useState(null)
-	const [page, setPage] = useState(1)
+	// const [page, setPage] = useState(1)
+	const [pageData, setPageData] = useState({})
 	const [carPartsPagination, setCarPartsPagination] = useState([])
 	const { isMobile, isTablet, isTabletSmall, isDesktop } = useMatchMedia()
 	const items = [
@@ -45,11 +46,11 @@ const GoodsOfCategory = () => {
 	const [maxPrice, setMaxPrice] = useState(200000)
 
 	const handleApplyFilters = () => {
-		setPage(1)
+		// setPage(1)
 	}
 
 	const handleResetFilters = () => {
-		setPage(1)
+		// setPage(1)
 		// setMinPrice(0)
 		// setMaxPrice(1000000)
 	}
@@ -59,25 +60,37 @@ const GoodsOfCategory = () => {
 		sort: 'price',
 		limit: '12'
 	})
-	const { data: priceFilter = [] } = useGetPriceFilterQuery({
-		typeSort: selectedType.type,
-		sort: 'price',
-		limit: '12',
-		from: minPrice.toString(),
-		to: maxPrice.toString(),
-		pageNumber: page
-	})
-	// const loadMoreData = async () => {
-	// 	const nextPage = page + 1
-	// 	const { data: newCarParts = [] } = await useGetCarPartsQuery({
-	// 		typeSort: selectedType.type,
-	// 		sort: 'price',
-	// 		limit: '12',
-	// 		pageNumber: nextPage
-	// 	})
-	// 	setCarPartsPagination([...carPartsPagination, ...newCarParts.data])
-	// 	setPage(nextPage)
-	// }
+	const [getParts, { data: Products = [] }] = carPartsApi.endpoints.getProducts.useLazyQuery()
+
+	const loadMoreData = (page = 1, loadMore = false) => {
+		// кнопка загрузить еще
+		// setPage((prevPage) => prevPage + 1)
+		getParts({
+			typeSort: selectedType.type,
+			sort: 'price',
+			limit: '12',
+			from: minPrice.toString(),
+			to: maxPrice.toString(),
+			pageNumber: page
+		})
+			.unwrap()
+			.then((data) => {
+				if (loadMore) {
+					let newProducts = pageData?.data?.length ? [...pageData.data, ...data.data] : [...data.data]
+					let newData = Object.assign({}, data)
+					newData.data = newProducts
+					setPageData(newData)
+				} else {
+					setPageData(data)
+				}
+			})
+		// вернется любой ответ с сервера
+	}
+
+	useEffect(() => {
+		loadMoreData()
+	}, [])
+
 	const handleChange = (search) => setSearch(search)
 
 	// const partsList = [
@@ -199,64 +212,51 @@ const GoodsOfCategory = () => {
 						</div>
 						<div className={cl.cardsGroup}>
 							<div className={cl.goodsWrapper}>
-								{isLoadingCarParts ? (
-									<p>Загрузка...</p>
-								) : (
-									priceFilter.data.map((part) => (
-										<div key={part.id}>
-											<Link to={`/good/${part.id}`}>
-												<GoodCard description={part.name} price={part.price} />
-											</Link>
-										</div>
-									))
-								)}
+								{pageData?.data
+									? pageData?.data.map((part) => (
+									<div key={part.id}>
+										<Link to={`/good/${part.id}`}>
+											<GoodCard description={part.name} price={part.price} />
+										</Link>
+									</div>
+								)) : <div>Загрузка</div>}
 								{/* {carParts.map((part) => ( */}
 								{/* 	<div key={part.id}> */}
-								{/* 		<Link to={`/good/${part.id}`}> */}
+								{/* 		<Link to={`/go od/${part.id}`}> */}
 								{/* 			<GoodCard description={part.name} price={part.price} /> */}
 								{/* 		</Link> */}
 								{/* 	</div> */}
 								{/* ))} */}
 							</div>
+							{pageData?.meta?.last_page && (
 							<div className={cl.pagination}>
-								<Button
-									colorStyle="outlined"
-									className={cl.button}
-									// onClick={loadMoreData}
-								>
-									Загрузить еще
-								</Button>
-								{priceFilter && priceFilter.meta && priceFilter.meta.last_page && (
+								{pageData.meta.current_page !== pageData.meta.last_page &&
+									<Button colorStyle="outlined" className={cl.button} onClick={() => loadMoreData(pageData.meta.current_page + 1, true)}>
+										Загрузить еще
+									</Button>
+								}
 									<Theme preset={presetKSP}>
 										{(isDesktop || isTablet || isTabletSmall) && (
 											<Pagination
-												items={priceFilter.meta.last_page}
+												items={pageData.meta.last_page}
 												// items={priceFilter?.meta?.last_page}
-												value={page}
-												onChange={setPage}
+												value={pageData.meta.current_page}
+												onChange={(value) => loadMoreData(value)}
 												visibleCount={10}
-												// items={15}
-												// value={page}
-												// onChange={setPage}
-												// visibleCount={10}
 											/>
 										)}
 										{isMobile && (
 											<Pagination
-												items={priceFilter.meta.last_page}
+												items={pageData.meta.last_page}
 												// items={priceFilter?.meta?.last_page}
-												value={page}
-												onChange={setPage}
+												value={pageData.meta.current_page}
+												onChange={(value) => loadMoreData(value)}
 												visibleCount={5}
-												// items={15}
-												// value={page}
-												// onChange={setPage}
-												// visibleCount={10}
 											/>
 										)}
 									</Theme>
-								)}
 							</div>
+							)}
 						</div>
 					</div>
 					{/* <div className={cl.drs}> */}

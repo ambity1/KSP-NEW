@@ -38,7 +38,7 @@ const SendRequest = ({ onClose }) => {
 				.split(/[-_()^\s*$]+/)
 				.join('').length === 12
 		) {
-			fetch('https://kspback.ambity.ru/api/handler_request', { method: 'post', body: fd })
+			fetch('http://a0814722.xsph.ru/api/request', { method: 'post', body: fd })
 				.then((resp) => resp.json())
 				.then((res) => {
 					if (res.status === 'ok') {

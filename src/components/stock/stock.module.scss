@@ -19,7 +19,8 @@
 }
 
 .wrapperContent {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   row-gap: 3.125em; // 50px
   padding-bottom: 9.375em; // 150px
 

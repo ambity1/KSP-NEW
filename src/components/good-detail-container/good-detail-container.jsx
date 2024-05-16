@@ -1,4 +1,5 @@
 import useMatchMedia from '@hooks/use-match-media.js'
+import BreadCrumbs from '@layouts/components/bread-сrumbs/bread-crumbs.jsx'
 import cn from 'classnames'
 import { memo, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
@@ -15,8 +16,27 @@ import cl from './good-detail-container.module.scss'
 function GoodDetailContainer() {
 	const { isDesktop } = useMatchMedia()
 
-	const { id } = useParams()
-	const { data: getPart } = useGetPartQuery(id)
+	const { id, name } = useParams()
+	const { data: getPart } = useGetPartQuery(id, name)
+
+	const crumbsList = [
+		{
+			id: 0,
+			href: '/',
+			text: 'Главная'
+		},
+		{
+			id: 1,
+			href: '/goods-of-category',
+			text: 'Каталог'
+		},
+		{
+			id: 2,
+			href: `/good/:id`,
+			text: `${getPart && getPart.name && getPart.name}`
+		}
+	]
+	// console.log(getPart.name)
 
 	// const partPage = [
 	// 	{
@@ -52,13 +72,16 @@ function GoodDetailContainer() {
 	return (
 		<>
 			{getPart && (
-				<GoodDetail
-					id={getPart.id}
-					name={getPart.name}
-					price={getPart.price}
-					articulate={getPart.articulate}
-					description={getPart.description}
-				/>
+				<>
+					{getPart && getPart.name && <BreadCrumbs crumbsList={crumbsList} />}
+					<GoodDetail
+						id={getPart.id}
+						name={getPart.name}
+						price={getPart.price}
+						articulate={getPart.articulate}
+						description={getPart.description}
+					/>
+				</>
 			)}
 			{/* <GoodDetail id={partPage.id} name={partPage.name} price={partPage.price} article={partPage.article} /> */}
 			{/* <div className={tabsContentWrapperClassNames}>{isDesktop && <Tabs tabs={tabs} />}</div> */}

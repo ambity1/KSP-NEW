@@ -1,3 +1,4 @@
+import BreadCrumbs from '@layouts/components/bread-сrumbs/bread-crumbs.jsx'
 import cn from 'classnames'
 
 import Contacts from '@components/contacts'

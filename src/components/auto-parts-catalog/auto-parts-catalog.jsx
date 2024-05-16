@@ -7,36 +7,11 @@ import ButtonLink from '@ui/button/link/index.js'
 import GoodCard from '@components/other-goods-slider/good-card/good-card.jsx'
 
 import chevton from '../../../assets/images/chevron-right.svg'
+import { useGetFourRandomPartsQuery } from '../../store/modules/car-parts-api.js'
 import cl from './auto-parts-catalog.module.scss'
 
 const AutoPartsCatalog = () => {
-	const cards = [
-		{
-			id: 0,
-			image: '../../../../assets/images/good1.jpg',
-			description:
-				'Кронштейн фары противотуманной левой для Hyundai Sonata VI 2010-2014 БУ состояние удовлетворительное',
-			price: '590 руб.'
-		},
-		{
-			id: 1,
-			image: '../../../../assets/images/good1.jpg',
-			description: 'Крепление фары левой Hyundai Sonata VI (YF) 2009 - 2014 2013',
-			price: '1083 руб.'
-		},
-		{
-			id: 2,
-			image: '../../../../assets/images/good1.jpg',
-			description: 'Кронштейн фары противотуманной левой для Hyundai Sonata VI 2010-2014 новая',
-			price: '1487 руб.'
-		},
-		{
-			id: 3,
-			image: '../../../../assets/images/good1.jpg',
-			description: 'Cordiant Winter Drive PW-1',
-			price: '560 руб.'
-		}
-	]
+	const { data: randomParts } = useGetFourRandomPartsQuery()
 
 	const otherGoodsSliderWrapperClassNames = cn([cl.otherGoodsWrapper, 'container'])
 	return (
@@ -51,18 +26,21 @@ const AutoPartsCatalog = () => {
 				</ButtonLink>
 			</div>
 			<div className={cl.otherGoodsSwiper}>
-				{cards.map(({ id, image, description, price }) => (
-					<div key={id} className={cl.wrapper}>
-						<img className={cl.image} src={image} alt="" />
-						<div className={cn([cl.description])}>
-							<h3 className={cl.title}>{description}</h3>
-							<span className={cl.cost}>{price}</span>
-						</div>
-					</div>
-					// <div key={id}>
-					// 	<GoodCard image={image} description={description} price={price} />
-					// </div>
-				))}
+				{randomParts &&
+					randomParts.map((part) => (
+						<Link to={`/good/${part.id}`} className={cl.wrapper}>
+							<div key={part.id}>
+								{/* <img className={cl.image} src={image} alt="" /> */}
+								<div className={cn([cl.description])}>
+									<h3 className={cl.title}>{part.description}</h3>
+									{part && part.price && <span className={cl.cost}>{part.price} руб.</span>}
+								</div>
+							</div>
+						</Link>
+						// <div key={id}>
+						// 	<GoodCard image={image} description={description} price={price} />
+						// </div>
+					))}
 			</div>
 		</div>
 	)

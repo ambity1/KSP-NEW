@@ -39,7 +39,7 @@ const HelpWithSelection = ({ onClose }) => {
 				.split(/[-_()^\s*$]+/)
 				.join('').length === 12
 		) {
-			fetch('https://kspback.ambity.ru/api/handler_request', { method: 'post', body: fd })
+			fetch('http://a0814722.xsph.ru/api/request', { method: 'post', body: fd })
 				.then((resp) => resp.json())
 				.then((res) => {
 					if (res.status === 'ok') {
@@ -122,7 +122,7 @@ const HelpWithSelection = ({ onClose }) => {
 								<span className={cl.confidential}>
 									Нажимая на кнопку, вы соглашаетесь с{' '}
 									<Link to="/privacy-policy" className={cl.underline}>
-										Политикой конфиденциальности
+										Политикой конфиденциальности
 									</Link>
 								</span>
 							</div>
