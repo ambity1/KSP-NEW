@@ -91,11 +91,13 @@
     .wrapper {
       padding: 16px;
       display: flex;
-      flex-direction: column;
+      //flex-direction: column;
+      //align-content: space-between;
       border-radius: 4px;
       gap: 10px;
       background-color: colors.$white;
       width: 100%;
+      min-height: 100px;
 
       .image {
         width: 100%;
@@ -110,6 +112,8 @@
         flex-direction: column;
         row-gap: 18px;
         height: 100%;
+        align-content: space-between;
+        flex-wrap: wrap;
         justify-content: space-between;
 
         .title {

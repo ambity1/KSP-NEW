@@ -115,10 +115,10 @@ const SendRequest = ({ onClose }) => {
 							<div className={cl.contentContainer}>
 								<span className={cl.text}>Или напишите нам в любую из соц. сетей:</span>
 								<div className={cl.linkWrapper}>
-									<Link className={cn([cl.link, cl.whatsapp])} to="/">
+									<Link className={cn([cl.link, cl.whatsapp])} to="https://api.whatsapp.com/send/?phone=77071640024&text&type=phone_number&app_absent=0" target='_blank'>
 										Связаться в Whatsapp
 									</Link>
-									<Link className={cn([cl.link, cl.telegram])} to="/">
+									<Link className={cn([cl.link, cl.telegram])} to="#">
 										Связаться в Telegram
 									</Link>
 								</div>

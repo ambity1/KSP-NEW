@@ -19,6 +19,7 @@
   @include fontsFamilies.FontFamilyInterBold;
   padding-bottom: 0.9375em; // 15px
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 1.25em; // 20px
 
@@ -38,9 +39,9 @@
 }
 
 .cards {
-  &::after {
-    content: url('@assets/icons/cards.svg');
-  }
+  //&::after {
+  //  content: url('@assets/icons/cards.svg');
+  //}
 }
 
 .contentBlock {

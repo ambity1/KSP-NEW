@@ -26,7 +26,7 @@ const BurgerSidePanel = ({ isOpen, onClose }) => {
 					},
 					{
 						id: 1,
-						href: '/promotions',
+						href: '/stock',
 						text: 'Акции'
 					},
 					{
@@ -79,16 +79,16 @@ const BurgerSidePanel = ({ isOpen, onClose }) => {
 		() => [
 			{
 				id: 0,
-				href: '/',
+				href: 'https://api.whatsapp.com/send/?phone=77071640024&text&type=phone_number&app_absent=0',
 				className: cl.whatsapp,
 				text: 'Whatsapp'
-			},
-			{
-				id: 1,
-				href: '/',
-				className: cl.telegram,
-				text: 'Telegram'
 			}
+			// {
+			// 	id: 1,
+			// 	href: '/',
+			// 	className: cl.telegram,
+			// 	text: 'Telegram'
+			// }
 			// {
 			// 	id: 2,
 			// 	href: '/',
@@ -138,7 +138,7 @@ const BurgerSidePanel = ({ isOpen, onClose }) => {
 					<ul className={cl.footerListWrapper}>
 						{contactsList.map(({ id, className, href, text }) => (
 							<li key={id}>
-								<Link className={cn([cl.messengerItem, className])} to={href}>
+								<Link className={cn([cl.messengerItem, className])} to={href} target='_blank'>
 									{text}
 								</Link>
 							</li>

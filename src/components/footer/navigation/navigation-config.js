@@ -71,14 +71,18 @@ export const navigationsList = [
 				href: 'tel:+7 (915) 123-45-67',
 				text: '+7 (707) 164-00-24'
 			},
+			// {
+			// 	id: 1,
+			// 	href: 'mail:koreanparts-kz@yandex.kz',
+			// 	text: 'koreanparts-kz@yandex.kz'
+			// },
 			{
 				id: 1,
-				href: 'mail:koreanparts-kz@yandex.kz',
-				text: 'koreanparts-kz@yandex.kz'
+				text: 'ТД «Car City» (9 бутик)'
 			},
 			{
 				id: 2,
-				text: 'Казахстан, г. Астана, ул. Первая, д. 15'
+				text: 'Рынок «Kol Auto» (24 и 59 бутик)'
 			}
 		]
 	}

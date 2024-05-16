@@ -16,6 +16,7 @@ import GoodCard from '@components/other-goods-slider/good-card/good-card.jsx'
 import { carPartsApi, useGetCarPartsQuery, useGetMinMaxQuery } from "../../store/modules/car-parts-api.js";
 import { presetKSP } from '../../uikit/presets/presetKSP.js'
 import cl from './goods-of-category.module.scss'
+import useDebounce from "@hooks/use-debounce.js";
 
 const GoodsOfCategory = () => {
 	const [isOpen, setIsOpen] = useState(false)
@@ -45,6 +46,8 @@ const GoodsOfCategory = () => {
 	const [minPriceSaved, setMinPriceSaved] = useState(0)
 	const [maxPriceSaved, setMaxPriceSaved] = useState(200000)
 
+	const debouncedSearch = useDebounce(search, 300)
+
 	useEffect(() => {
 		loadMoreData(minPriceSaved, maxPriceSaved, 1, false)
 	}, [selectedType, search])
@@ -62,7 +65,7 @@ const GoodsOfCategory = () => {
 
 	function loadMoreData (minPrice = false, maxPrice = false, page = 1, loadMore = false) {
 		let formData = new FormData();
-		search?.length > 2 && formData.append("name", search);
+		search?.length > 2 && formData.append("name", debouncedSearch);
 		formData.append("typeSort", selectedType.type);
 		formData.append("sort", "price");
 		formData.append("limit", "12");
@@ -94,15 +97,10 @@ const GoodsOfCategory = () => {
 	useEffect(() => {
 		loadMoreData()
 	}, [])
-	const handleSearch = ({ value }) => {
-		setSearch(value);
-	};
 
-	useEffect(() => {
-		if (search?.length > 2) {
-			loadMoreData(minPriceSaved, maxPriceSaved, 1, false);
-		}
-	}, [search]);
+	const handleSearch = () => {
+		setSearch(search)
+	};
 
 	// const partsList = [
 	// 	{
@@ -175,9 +173,9 @@ const GoodsOfCategory = () => {
 								type="text"
 								placeholder="Поиск по наименованию, номеру запчасти или артиклю"
 							/>
-							<Button sizeStyle="sizeM" className={cl.button} type="button" onClick={() => loadMoreData(minPriceSaved, maxPriceSaved, 1, false)}>
-								Найти
-							</Button>
+							{/* <Button sizeStyle="sizeM" className={cl.button} type="button" onClick={handleSearch}> */}
+							{/* 	Найти */}
+							{/* </Button> */}
 						</div>
 					)}
 					{(isTabletSmall || isMobile) && (
@@ -186,50 +184,54 @@ const GoodsOfCategory = () => {
 							<TextField
 								leftSide={IconSearchStroked}
 								size="m"
-								onChange={setSearch()}
+								onChange={setSearch}
 								value={search}
 								type="text"
 								placeholder="Поиск по наименованию, номеру запчасти или артиклю"
 							/>
 						</div>
 					)}
-					<div className={cl.dropdown}>
-						<Button sizeStyle="sizeS" colorStyle="outlined" className={cl.button} onClick={() => setIsOpen(true)}>
-							<img src="../../../../assets/images/settings.svg" alt="" />
-							Фильтр
-						</Button>
+					{pageData?.data && pageData.data.length > 0 && (
+								<div className={cl.dropdown}>
+									<Button sizeStyle="sizeS" colorStyle="outlined" className={cl.button} onClick={() => setIsOpen(true)}>
+										<img src="../../../../assets/images/settings.svg" alt="" />
+										Фильтр
+									</Button>
 
-						<div className={cl.select}>
-							<Select
-								placeholder="Выберите значение"
-								view="clear"
-								items={items}
-								value={selectedType}
-								onChange={setSelectedType}
-							/>
-						</div>
-						{/* <DropDown /> */}
-					</div>
+									<div className={cl.select}>
+										<Select
+											placeholder="Выберите значение"
+											view="clear"
+											items={items}
+											value={selectedType}
+											onChange={setSelectedType}
+										/>
+									</div>
+									{/* <DropDown /> */}
+								</div>
+							)}
 					<div className={cl.contentWrapper}>
-						<div className={cl.filter}>
-							<Filters
-								minPrice={minMax?.min}
-								maxPrice={minMax?.max}
-								// onApply={handleApplyFilters}
-								// onReset={handleResetFilters}
-								loadMoreData={loadMoreData}
-							/>
-						</div>
+						{pageData?.data && pageData.data.length > 0 ? (
+							<div className={cl.filter}>
+								<Filters
+									minPrice={minMax?.min}
+									maxPrice={minMax?.max}
+									// onApply={handleApplyFilters}
+									// onReset={handleResetFilters}
+									loadMoreData={loadMoreData}
+								/>
+							</div>
+						) : (<div>К сожалению, такой товар не найден</div>)}
 						<div className={cl.cardsGroup}>
 							<div className={cl.goodsWrapper}>
 								{pageData?.data
-									? pageData.data.map((part, index) => (
+									&& pageData.data.map((part, index) => (
 									<div key={index}>
 										<Link to={`/good/${part.id}`}>
 											<GoodCard description={part.name} price={part.price} />
 										</Link>
 									</div>
-								)) : <div>Загрузка</div>}
+								))}
 								{/* {carParts.map((part) => ( */}
 								{/* 	<div key={part.id}> */}
 								{/* 		<Link to={`/go od/${part.id}`}> */}
@@ -238,34 +240,37 @@ const GoodsOfCategory = () => {
 								{/* 	</div> */}
 								{/* ))} */}
 							</div>
-							{pageData?.meta?.last_page && (
-							<div className={cl.pagination}>
-								{pageData.meta.current_page !== pageData.meta.last_page &&
-									<Button colorStyle="outlined" className={cl.button} onClick={() => loadMoreData(minPriceSaved, maxPriceSaved,pageData.meta.current_page + 1, true)}>
-										Загрузить еще
-									</Button>
-								}
-									<Theme preset={presetKSP}>
-										{(isDesktop || isTablet || isTabletSmall) && (
-											<Pagination
-												items={pageData.meta.last_page}
-												// items={priceFilter?.meta?.last_page}
-												value={pageData.meta.current_page}
-												onChange={(value) => loadMoreData(minPriceSaved, maxPriceSaved, value)}
-												visibleCount={10}
-											/>
-										)}
-										{isMobile && (
-											<Pagination
-												items={pageData.meta.last_page}
-												// items={priceFilter?.meta?.last_page}
-												value={pageData.meta.current_page}
-												onChange={(value) => loadMoreData(minPriceSaved, maxPriceSaved, value)}
-												visibleCount={5}
-											/>
-										)}
-									</Theme>
-							</div>
+							{pageData?.data && pageData.data.length > 0 && (
+								<>
+									{pageData?.meta?.last_page && (
+										<div className={cl.pagination}>
+											{pageData.meta.current_page !== pageData.meta.last_page &&
+												<Button colorStyle="outlined" className={cl.button} onClick={() => loadMoreData(minPriceSaved, maxPriceSaved,pageData.meta.current_page + 1, true)}>
+													Загрузить еще
+												</Button>
+											}
+											<Theme preset={presetKSP}>
+												{(isDesktop || isTablet || isTabletSmall) && (
+													<Pagination
+														items={pageData.meta.last_page}
+														// items={priceFilter?.meta?.last_page}
+														value={pageData.meta.current_page}
+														onChange={(value) => loadMoreData(minPriceSaved, maxPriceSaved, value)}
+														visibleCount={10}
+													/>
+												)}
+												{isMobile && (
+													<Pagination
+														items={pageData.meta.last_page}
+														// items={priceFilter?.meta?.last_page}
+														value={pageData.meta.current_page}
+														onChange={(value) => loadMoreData(minPriceSaved, maxPriceSaved, value)}
+														visibleCount={5}
+													/>
+												)}
+											</Theme>
+										</div>
+									)}</>
 							)}
 						</div>
 					</div>

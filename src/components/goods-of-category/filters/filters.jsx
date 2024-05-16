@@ -16,7 +16,6 @@ const Filters = ({ minPrice, maxPrice, onReset, loadMoreData}) => {
 		setLocalPrice([minPrice, maxPrice])
 		onReset()
 	}
-
 	return (
 		<div className={cl.filtersWrapper}>
 			<div className={cl.contentWrapper}>
@@ -93,11 +92,14 @@ const Filters = ({ minPrice, maxPrice, onReset, loadMoreData}) => {
 				<div className={cl.buttonLink}>
 					<Button onClick={() => loadMoreData(localPrice[0], localPrice[1], 1, false)}>Применить</Button>
 				</div>
-				<div className={cl.buttonLink}>
-					<Button className={cl.btn} onClick={handleReset}>
-						Сбросить
-					</Button>
-				</div>
+				{localPrice[0] === minPrice && localPrice[1] === maxPrice ?
+					(
+						<div></div>
+					) : (<div className={cl.buttonLink} onClick={handleReset}>
+						<Button className={cl.btn} onClick={() => loadMoreData(minPrice, maxPrice, 1, false)}>
+							Сбросить
+						</Button>
+					</div>)}
 			</div>
 		</div>
 	)

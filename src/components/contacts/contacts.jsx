@@ -32,16 +32,16 @@ const Contacts = ({
 		() => [
 			{
 				id: 0,
-				href: '/',
+				href: 'https://api.whatsapp.com/send/?phone=77071640024&text&type=phone_number&app_absent=0',
 				text: 'Whatsapp',
 				icon: whatsapp
-			},
-			{
-				id: 1,
-				href: '/',
-				text: 'Telegram',
-				icon: telegram
 			}
+			// {
+			// 	id: 1,
+			// 	href: '/',
+			// 	text: 'Telegram',
+			// 	icon: telegram
+			// }
 			// {
 			// 	id: 2,
 			// 	href: 'https://www.instagram.com/korean_parts_024?igsh=Mzg2ajQxbDlsMDY=',
@@ -68,7 +68,7 @@ const Contacts = ({
 				</li>
 				{messengersList.map(({ id, href, text, icon }) => (
 					<li key={id}>
-						<Link className={cl.messengerItem} to={href}>
+						<Link className={cl.messengerItem} to={href} target='_blank'>
 							<img src={icon} alt="" className={cl.icons} />
 							{text}
 						</Link>

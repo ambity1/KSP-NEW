@@ -88,7 +88,7 @@ const HelpWithSelection = ({ onClose }) => {
 							<div className={cl.contentContainer}>
 								<span className={cl.text}>Вы можете написать нам с вопросом в любой из социальных сетей:</span>
 								<div className={cl.linkWrapper}>
-									<Link className={cn([cl.link])} to="/">
+									<Link className={cn([cl.link])} to="https://api.whatsapp.com/send/?phone=77071640024&text&type=phone_number&app_absent=0" target='_blank'>
 										<img src="../../../assets/icons/whatsapp.svg" alt="" />
 										Связаться в Whatsapp
 									</Link>

@@ -102,20 +102,12 @@ const InputSearch = () => {
 					placeholder="Наименование, номер запчасти или артикль"
 				/>
 			)}
-			{/* <AutoComplete */}
-			{/* 	type="text" */}
-			{/* 	size="m" */}
-			{/* 	form="default" */}
-			{/* 	items={items} */}
-			{/* 	getItemKey={(item) => item} */}
-			{/* 	getItemLabel={(item) => item} */}
-			{/* 	value={value} */}
-			{/* 	onChange={({ value }) => setValue(value)} */}
-			{/* /> */}
 			{isDesktop && (
-				<Button sizeStyle="sizeM" className={cl.button} type="button">
-					Найти
-				</Button>
+				<Link to='/goods-of-category'>
+					<Button sizeStyle="sizeM" className={cl.button} type="button">
+						Найти
+					</Button>
+				</Link>
 			)}
 		</form>
 	)

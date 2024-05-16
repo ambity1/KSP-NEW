@@ -4,18 +4,18 @@ import { memo, useMemo } from 'react'
 import placemarkSrc from '../../../assets/icons/placemark.svg'
 import cl from './map.module.scss'
 
-const mapState = { center: [50.289271, 57.144063], zoom: 16.5 }
+const mapState = { center: [50.287878, 57.144228], zoom: 15.5 }
 
 const Map = () => {
 	const placemarkList = useMemo(
 		() => [
 			{
 				id: 0,
-				geometry: [50.288776, 57.143228]
+				geometry: [50.287216, 57.143623]
 			},
 			{
 				id: 1,
-				geometry: [50.289271, 57.144063]
+				geometry: [50.288776, 57.143228]
 			}
 		],
 		[]
