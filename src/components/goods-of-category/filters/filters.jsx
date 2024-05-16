@@ -5,60 +5,15 @@ import Button from '@ui/button/index.js'
 
 import cl from './filters.module.scss'
 
-const Filters = ({ minPrice, maxPrice, setMinPrice, setMaxPrice, onApply, onReset }) => {
-	const [localMinPrice, setLocalMinPrice] = useState(minPrice)
-	const [localMaxPrice, setLocalMaxPrice] = useState(maxPrice)
-
-	// const [minDayCount, setMinDayCount] = useState('')
-	// const [maxDayCount, setMaxDayCount] = useState('')
-
-	// const minDayCountHandler = (event) => {
-	// 	setMinDayCount(event.target.value)
-	// }
-	// const maxDayCountHandler = (event) => {
-	// 	setMaxDayCount(event.target.value)
-	// }
-	//
-	// const dayCountHandler = ({ value: [minValue, maxValue] }) => {
-	// 	setMinDayCount(minValue > maxValue ? maxValue : minValue)
-	// 	setMaxDayCount(minValue > maxValue ? minValue : maxValue)
-	// }
+const Filters = ({ minPrice, maxPrice, onReset, loadMoreData}) => {
+	const [localPrice, setLocalPrice] = useState([0, 100000])
 
 	useEffect(() => {
-		setLocalMinPrice(minPrice)
-		setLocalMaxPrice(maxPrice)
+		setLocalPrice([minPrice, maxPrice])
 	}, [minPrice, maxPrice])
 
-	const handleSliderChange = (newPrice) => {
-		setLocalMinPrice(newPrice[0])
-		setLocalMaxPrice(newPrice[1])
-	}
-
-	const handleMinPriceChange = (event) => {
-		const newMinPrice = parseInt(event.target.value)
-		if (!isNaN(newMinPrice)) {
-			setLocalMinPrice(newMinPrice)
-		}
-	}
-
-	const handleMaxPriceChange = (event) => {
-		const newMaxPrice = parseInt(event.target.value)
-		if (!isNaN(newMaxPrice)) {
-			setLocalMaxPrice(newMaxPrice)
-		}
-	}
-
-	const handleApply = () => {
-		setMinPrice(localMinPrice)
-		setMaxPrice(localMaxPrice)
-		onApply()
-	}
-
 	const handleReset = () => {
-		setLocalMinPrice(0)
-		setLocalMaxPrice(200000)
-		setMinPrice(0)
-		setMaxPrice(200000)
+		setLocalPrice([minPrice, maxPrice])
 		onReset()
 	}
 
@@ -69,33 +24,27 @@ const Filters = ({ minPrice, maxPrice, setMinPrice, setMaxPrice, onApply, onRese
 				<div className={cl.content}>
 					<Slider
 						label="Цена"
-						min={0}
-						max={300000}
+						min={minPrice}
+						max={maxPrice}
 						step={1}
 						range
-						value={[localMinPrice, localMaxPrice]}
-						onChange={handleSliderChange}
-						// value={[minPrice, maxPrice]}
-						// onChange={(value) => handleSliderChange(value)}
+						value={localPrice}
+						onChange={setLocalPrice}
 					/>
 					<div className={cl.counterWrapper}>
 						<input
 							className={cl.counter}
 							type="number"
 							placeholder="0"
-							value={localMinPrice}
-							onChange={handleMinPriceChange}
-							// value={minPrice}
-							// onChange={handleMinPriceChange}
+							value={localPrice[0]}
+							onChange={(value) => setLocalPrice([value, localPrice[1]])}
 						/>
 						<input
 							className={cl.counter}
 							type="number"
 							placeholder="100"
-							value={localMaxPrice}
-							onChange={handleMaxPriceChange}
-							// value={maxPrice}
-							// onChange={handleMaxPriceChange}
+							value={localPrice[1]}
+							onChange={(value) => setLocalPrice([localPrice[0], value])}
 						/>
 					</div>
 				</div>
@@ -142,7 +91,7 @@ const Filters = ({ minPrice, maxPrice, setMinPrice, setMaxPrice, onApply, onRese
 			</div>
 			<div>
 				<div className={cl.buttonLink}>
-					<Button onClick={handleApply}>Применить</Button>
+					<Button onClick={() => loadMoreData(localPrice[0], localPrice[1], 1, false)}>Применить</Button>
 				</div>
 				<div className={cl.buttonLink}>
 					<Button className={cl.btn} onClick={handleReset}>

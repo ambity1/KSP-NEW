@@ -5,12 +5,12 @@ export const navigationsList = [
 		links: [
 			{
 				id: 0,
-				href: '/',
+				href: '/goods-of-category',
 				text: 'Каталог'
 			},
 			{
 				id: 1,
-				href: '/',
+				href: '/goods-of-category',
 				text: 'Поиск автозапчастей'
 			}
 			// {
@@ -37,29 +37,29 @@ export const navigationsList = [
 		links: [
 			{
 				id: 0,
-				href: '/',
+				href: '/stock',
 				text: 'Акции'
 			},
 			{
 				id: 1,
-				href: '/information/delivery',
+				href: '/about',
 				text: 'О компании'
+			},
+			{
+				id: 3,
+				href: '/information/payment',
+				text: 'Оплата'
+			},
+			{
+				id: 4,
+				href: '/information/delivery',
+				text: 'Доставка'
+			},
+			{
+				id: 2,
+				href: '/information/refund',
+				text: 'Возврат'
 			}
-			// {
-			// 	id: 2,
-			// 	href: '/information/refund',
-			// 	text: 'Возврат'
-			// },
-			// {
-			// 	id: 3,
-			// 	href: '/information/payment',
-			// 	text: 'Оплата'
-			// },
-			// {
-			// 	id: 4,
-			// 	href: '/',
-			// 	text: 'Гарантия'
-			// }
 		]
 	},
 	{

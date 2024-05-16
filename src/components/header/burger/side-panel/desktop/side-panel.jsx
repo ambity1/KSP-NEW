@@ -21,12 +21,12 @@ const BurgerSidePanel = ({ isOpen, onClose }) => {
 				links: [
 					{
 						id: 0,
-						href: '/',
+						href: '/goods-of-category',
 						text: 'Поиск автозапчастей'
 					},
 					{
 						id: 1,
-						href: '/stock',
+						href: '/promotions',
 						text: 'Акции'
 					},
 					{
@@ -40,38 +40,37 @@ const BurgerSidePanel = ({ isOpen, onClose }) => {
 						text: 'Контакты'
 					}
 				]
+			},
+			{
+				id: 1,
+				links: [
+					{
+						id: 0,
+						href: '/information/payment',
+						text: 'Оплата'
+					},
+					{
+						id: 1,
+						href: '/information/delivery',
+						text: 'Доставка'
+					},
+					{
+						id: 2,
+						href: '/information/refund',
+						text: 'Возврат'
+					}
+					// {
+					// 	id: 3,
+					// 	href: '/about',
+					// 	text: 'О компании'
+					// },
+					// {
+					// 	id: 4,
+					// 	href: '/',
+					// 	text: 'Поставщикам'
+					// }
+				]
 			}
-
-			// {
-			// 	id: 1,
-			// 	links: [
-			// 		{
-			// 			id: 0,
-			// 			href: '/information/delivery',
-			// 			text: 'Доставка'
-			// 		},
-			// 		{
-			// 			id: 1,
-			// 			href: '/information/payment',
-			// 			text: 'Оплата'
-			// 		},
-			// 		{
-			// 			id: 2,
-			// 			href: '/information/refund',
-			// 			text: 'Возврат'
-			// 		},
-			// 		{
-			// 			id: 3,
-			// 			href: '/about',
-			// 			text: 'О компании'
-			// 		},
-			// 		{
-			// 			id: 4,
-			// 			href: '/',
-			// 			text: 'Поставщикам'
-			// 		}
-			// 	]
-			// }
 		],
 		[]
 	)

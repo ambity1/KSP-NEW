@@ -18,6 +18,9 @@ const BurgerSidePanelTablet = ({ isOpen, onClose }) => {
 					<Link to="/stock">Акции</Link>
 					<Link to="/about">О компании</Link>
 					<Link to="/contacts">Контакты</Link>
+					<Link to="/information/payment">Оплата</Link>
+					<Link to="/information/delivery">Доставка</Link>
+					<Link to="/information/refund">Возврат</Link>
 				</div>
 				<Contacts
 					wrapperClassName={cl.wrapper}

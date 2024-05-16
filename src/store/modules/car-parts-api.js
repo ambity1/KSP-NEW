@@ -9,14 +9,21 @@ export const carPartsApi = createApi({
 			query: ({ typeSort, sort, limit }) => `/api/products/${typeSort}/${sort}/${limit}`
 		}),
 		getProducts: builder.query({
-			query: ({ typeSort, sort, limit, from, to, pageNumber }) =>
-				`/api/products/filter/${typeSort}/${sort}/${limit}/${from}/${to}?page=${pageNumber}` //
+			query: ({ formData, page }) => ({
+				url: `/api/products/filter?page=${page}`,
+				method: 'POST',
+				body: formData
+			})
+
 		}),
 		getPart: builder.query({
 			query: (id) => `api/product/${id}`
 		}),
 		getFourRandomParts: builder.query({
 			query: () => `/api/products/random`
+		}),
+		getMinMax: builder.query({
+			query: () => `/api/minmax`
 		})
 		// getSearch: builder.query({
 		// 	query: ({ name }) => `/api/product/find/${name}`
@@ -29,5 +36,6 @@ export const {
 	useGetProductsQuery,
 	useGetPartQuery,
 	useGetFourRandomPartsQuery,
-	useGetSearchQuery
+	useGetSearchQuery,
+	useGetMinMaxQuery
 } = carPartsApi

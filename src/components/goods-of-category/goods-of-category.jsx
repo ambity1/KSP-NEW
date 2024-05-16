@@ -13,13 +13,13 @@ import Button from '@ui/button/index.js'
 import Filters from '@components/goods-of-category/filters/index.js'
 import GoodCard from '@components/other-goods-slider/good-card/good-card.jsx'
 
-import { carPartsApi, useGetCarPartsQuery } from '../../store/modules/car-parts-api.js'
+import { carPartsApi, useGetCarPartsQuery, useGetMinMaxQuery } from "../../store/modules/car-parts-api.js";
 import { presetKSP } from '../../uikit/presets/presetKSP.js'
 import cl from './goods-of-category.module.scss'
 
 const GoodsOfCategory = () => {
 	const [isOpen, setIsOpen] = useState(false)
-	const [search, setSearch] = useState(null)
+	const [search, setSearch] = useState(null);
 	// const [page, setPage] = useState(1)
 	const [pageData, setPageData] = useState({})
 	const [carPartsPagination, setCarPartsPagination] = useState([])
@@ -42,36 +42,40 @@ const GoodsOfCategory = () => {
 		}
 	]
 	const [selectedType, setSelectedType] = useState(items[0])
-	const [minPrice, setMinPrice] = useState(0)
-	const [maxPrice, setMaxPrice] = useState(200000)
+	const [minPriceSaved, setMinPriceSaved] = useState(0)
+	const [maxPriceSaved, setMaxPriceSaved] = useState(200000)
 
-	const handleApplyFilters = () => {
-		// setPage(1)
-	}
+	useEffect(() => {
+		loadMoreData(minPriceSaved, maxPriceSaved, 1, false)
+	}, [selectedType, search])
 
-	const handleResetFilters = () => {
-		// setPage(1)
-		// setMinPrice(0)
-		// setMaxPrice(1000000)
-	}
 
-	const { isLoading: isLoadingCarParts } = useGetCarPartsQuery({
-		typeSort: selectedType.type,
-		sort: 'price',
-		limit: '12'
-	})
+	// const { isLoading: isLoadingCarParts } = useGetCarPartsQuery({
+	// 	typeSort: selectedType.type,
+	// 	sort: 'price',
+	// 	limit: '12',
+	// })
+
+	const { data: minMax = {}} = useGetMinMaxQuery()
+
 	const [getParts, { data: Products = [] }] = carPartsApi.endpoints.getProducts.useLazyQuery()
 
-	const loadMoreData = (page = 1, loadMore = false) => {
-		// кнопка загрузить еще
-		// setPage((prevPage) => prevPage + 1)
+	function loadMoreData (minPrice = false, maxPrice = false, page = 1, loadMore = false) {
+		let formData = new FormData();
+		search?.length > 2 && formData.append("name", search);
+		formData.append("typeSort", selectedType.type);
+		formData.append("sort", "price");
+		formData.append("limit", "12");
+		if (minPrice) {formData.append("from", minPrice); setMinPriceSaved(minPrice)}
+		if (maxPrice) {formData.append("to", maxPrice); setMaxPriceSaved(maxPrice)}
 		getParts({
-			typeSort: selectedType.type,
-			sort: 'price',
-			limit: '12',
-			from: minPrice.toString(),
-			to: maxPrice.toString(),
-			pageNumber: page
+			// typeSort: selectedType.type,
+			// sort: 'price',
+			// limit: '12',
+			// from: minPrice.toString(),
+			// to: maxPrice.toString(),
+			page: page,
+			formData: formData
 		})
 			.unwrap()
 			.then((data) => {
@@ -90,8 +94,15 @@ const GoodsOfCategory = () => {
 	useEffect(() => {
 		loadMoreData()
 	}, [])
+	const handleSearch = ({ value }) => {
+		setSearch(value);
+	};
 
-	const handleChange = (search) => setSearch(search)
+	useEffect(() => {
+		if (search?.length > 2) {
+			loadMoreData(minPriceSaved, maxPriceSaved, 1, false);
+		}
+	}, [search]);
 
 	// const partsList = [
 	// 	{
@@ -127,6 +138,7 @@ const GoodsOfCategory = () => {
 		}
 	}, [])
 
+
 	return (
 		<>
 			<div className={cn([`${cl.sidebar} ${isOpen ? '' : cl.active}`])}>
@@ -140,31 +152,30 @@ const GoodsOfCategory = () => {
 							onClick={() => setIsOpen(false)}
 						/>
 						<Filters
-							minPrice={minPrice}
-							maxPrice={maxPrice}
-							setMinPrice={setMinPrice}
-							setMaxPrice={setMaxPrice}
-							onApply={handleApplyFilters}
-							onReset={handleResetFilters}
+							minPrice={minMax?.min}
+							maxPrice={minMax?.max}
+							// onApply={handleApplyFilters}
+							// onReset={handleResetFilters}
+							loadMoreData={loadMoreData}
 						/>
 					</div>
 				</div>
 			</div>
 
 			<div className={cn([cl.goodsOfCategoryWrapper, 'container'])}>
-				<h1 className={cl.title}>{search !== null ? `Результаты поиска "${search}"` : `Каталог`}</h1>
+				<h1 className={cl.title}>{search ? `Результаты поиска "${search}"` : `Каталог`}</h1>
 				<div className={cl.wrapper}>
 					{(isDesktop || isTablet) && (
 						<div className={cl.input}>
 							{/* <InputSearchCatalog /> */}
 							<TextField
 								size="l"
-								onChange={handleChange}
+								onChange={setSearch}
 								value={search}
 								type="text"
 								placeholder="Поиск по наименованию, номеру запчасти или артиклю"
 							/>
-							<Button sizeStyle="sizeM" className={cl.button} type="button">
+							<Button sizeStyle="sizeM" className={cl.button} type="button" onClick={() => loadMoreData(minPriceSaved, maxPriceSaved, 1, false)}>
 								Найти
 							</Button>
 						</div>
@@ -175,7 +186,7 @@ const GoodsOfCategory = () => {
 							<TextField
 								leftSide={IconSearchStroked}
 								size="m"
-								onChange={handleChange}
+								onChange={setSearch()}
 								value={search}
 								type="text"
 								placeholder="Поиск по наименованию, номеру запчасти или артиклю"
@@ -202,19 +213,18 @@ const GoodsOfCategory = () => {
 					<div className={cl.contentWrapper}>
 						<div className={cl.filter}>
 							<Filters
-								minPrice={minPrice}
-								maxPrice={maxPrice}
-								setMinPrice={setMinPrice}
-								setMaxPrice={setMaxPrice}
-								onApply={handleApplyFilters}
-								onReset={handleResetFilters}
+								minPrice={minMax?.min}
+								maxPrice={minMax?.max}
+								// onApply={handleApplyFilters}
+								// onReset={handleResetFilters}
+								loadMoreData={loadMoreData}
 							/>
 						</div>
 						<div className={cl.cardsGroup}>
 							<div className={cl.goodsWrapper}>
 								{pageData?.data
-									? pageData?.data.map((part) => (
-									<div key={part.id}>
+									? pageData.data.map((part, index) => (
+									<div key={index}>
 										<Link to={`/good/${part.id}`}>
 											<GoodCard description={part.name} price={part.price} />
 										</Link>
@@ -231,7 +241,7 @@ const GoodsOfCategory = () => {
 							{pageData?.meta?.last_page && (
 							<div className={cl.pagination}>
 								{pageData.meta.current_page !== pageData.meta.last_page &&
-									<Button colorStyle="outlined" className={cl.button} onClick={() => loadMoreData(pageData.meta.current_page + 1, true)}>
+									<Button colorStyle="outlined" className={cl.button} onClick={() => loadMoreData(minPriceSaved, maxPriceSaved,pageData.meta.current_page + 1, true)}>
 										Загрузить еще
 									</Button>
 								}
@@ -241,7 +251,7 @@ const GoodsOfCategory = () => {
 												items={pageData.meta.last_page}
 												// items={priceFilter?.meta?.last_page}
 												value={pageData.meta.current_page}
-												onChange={(value) => loadMoreData(value)}
+												onChange={(value) => loadMoreData(minPriceSaved, maxPriceSaved, value)}
 												visibleCount={10}
 											/>
 										)}
@@ -250,7 +260,7 @@ const GoodsOfCategory = () => {
 												items={pageData.meta.last_page}
 												// items={priceFilter?.meta?.last_page}
 												value={pageData.meta.current_page}
-												onChange={(value) => loadMoreData(value)}
+												onChange={(value) => loadMoreData(minPriceSaved, maxPriceSaved, value)}
 												visibleCount={5}
 											/>
 										)}

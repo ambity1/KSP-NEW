@@ -41,13 +41,13 @@ const Contacts = ({
 				href: '/',
 				text: 'Telegram',
 				icon: telegram
-			},
-			{
-				id: 2,
-				href: 'https://www.instagram.com/korean_parts_024?igsh=Mzg2ajQxbDlsMDY=',
-				text: 'Instagram',
-				icon: instagram
 			}
+			// {
+			// 	id: 2,
+			// 	href: 'https://www.instagram.com/korean_parts_024?igsh=Mzg2ajQxbDlsMDY=',
+			// 	text: 'Instagram',
+			// 	icon: instagram
+			// }
 		],
 		[]
 	)
