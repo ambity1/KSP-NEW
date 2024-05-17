@@ -15,7 +15,7 @@ const Stock = () => {
 			<h1 className={cl.wrapperHeader}>Акции</h1>
 			<div className={cl.wrapperContent}>
 				<div className={cl.contentBlock}>
-					<img src="../../../../../../assets/images/car.jpg" alt="" className={cl.contentImage}/>
+					<img src="/assets/images/car.jpg" alt="" className={cl.contentImage}/>
 					{/* <div className={cl.contentImage}><img src="../../../../../../assets/images/car.jpg" alt="" /></div> */}
 					<div className={cl.contentCard}>
 						<h4 className={cl.contentTitle}>Акция на автозапчасти для Hyundai</h4>
@@ -27,7 +27,7 @@ const Stock = () => {
 				</div>
 
 				<div className={cl.contentBlock}>
-					<img src="../../../../../../assets/images/car.jpg" alt="" className={cl.contentImage}/>
+					<img src="/assets/images/car.jpg" alt="" className={cl.contentImage}/>
 					{/* <div className={cl.contentImage}><img src="../../../../../../assets/images/car.jpg" alt="" /></div> */}
 					<div className={cl.contentCard}>
 						<h4 className={cl.contentTitle}>Акция на автозапчасти для Hyundai</h4>

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Card = ({ title, button }) => {
 	return (
 		<div className={cl.cardWrapper}>
-			<img className={cl.img} src="../../../../../../assets/images/car.jpg" alt="" />
+			<img className={cl.img} src="../../../../../../assets/images/banner2.jpg" alt="" />
 			<div className={cl.contentWrapper}>
 				<span className={cl.logo} />
 				<h1 className={cl.title}>{title}</h1>

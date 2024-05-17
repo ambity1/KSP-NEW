@@ -19,7 +19,7 @@ const AutoPartsCatalog = () => {
 			<div className={cl.head}>
 				<Link to="/goods-of-category" className={cl.title}>
 					<h2>Каталог автозапчастей</h2>
-					<img className={cl.icon} src="../../../assets/images/chevron-right.svg" alt="" />
+					<img className={cl.icon} src="/assets/images/chevron-right.svg" alt="" />
 				</Link>
 				<ButtonLink sizeStyle="sizeL" colorStyle="outlined" className={cl.button} href="/goods-of-category">
 					Смотреть все товары

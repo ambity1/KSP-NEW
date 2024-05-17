@@ -3,6 +3,7 @@
 @use '@assets/styles/mixins/fontsFamilies';
 
 .list {
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   gap: 0.625em;
@@ -20,6 +21,7 @@
   }
 
   .item {
+
     @include fontsStyles.TextMD;
     @include breakpoints.desktop {
       @include fontsStyles.TextXS;

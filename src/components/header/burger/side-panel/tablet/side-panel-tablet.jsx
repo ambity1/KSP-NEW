@@ -10,7 +10,7 @@ const BurgerSidePanelTablet = ({ isOpen, onClose }) => {
 		<div className={cn([`${cl.sidePanelWrapper} ${isOpen ? '' : cl.active}`])}>
 			<div className={`${isOpen ? cl.overlay : ''}`} onClick={onClose} />
 			<div className={cl.sidePanelWrapperContent}>
-				<img src="../../../../../../assets/icons/closebtn.svg" alt="" className={cl.btnClose} onClick={onClose} />
+				<img src="/assets/icons/closebtn.svg" alt="" className={cl.btnClose} onClick={onClose} />
 				<div className={cl.linksWrapper}>
 					<Link to="/" className={cl.linksWrapperYellow}>
 						Поиск автозапчастей

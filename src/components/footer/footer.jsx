@@ -16,8 +16,8 @@ const Footer = () => {
 			<div className={cl.footer}>
 				<div className={footerContentWrapperClassNames}>
 					<Link className={cl.logo} to="/">
-						<img className={cl.first} src="../../../assets/images/footer-logo-1.png" alt="" />
-						<img className={cl.second} src="../../../assets/images/footer-logo-2.png" alt="" />
+						<img className={cl.first} src="/assets/images/footer-logo-1.png" alt="" />
+						<img className={cl.second} src="/assets/images/footer-logo-2.png" alt="" />
 					</Link>
 					<Navigation />
 				</div>

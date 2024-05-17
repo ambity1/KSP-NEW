@@ -8,7 +8,7 @@ const Payment = () => {
 		<div className={cl.content}>
 			<div className={cl.contentBlock}>
 				<h3 className={cn([cl.cards, cl.contentTitle])}>Банковской картой
-					<img src='../../../../assets/icons/cards.svg' alt="" />
+					<img src='/assets/icons/cards.svg' alt="" />
 				</h3>
 				<p className={cl.contentText}>
 					Оплачивайте банковской картой на сайте. Оплата происходит через зашифрованный протокол на сайтах Сбeра и

@@ -6,7 +6,7 @@ import { Theme } from '@consta/uikit/Theme'
 import useMatchMedia from '@hooks/use-match-media.js'
 import cn from 'classnames'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from "react-router-dom";
 
 import Button from '@ui/button/index.js'
 
@@ -19,8 +19,19 @@ import cl from './goods-of-category.module.scss'
 import useDebounce from "@hooks/use-debounce.js";
 
 const GoodsOfCategory = () => {
+	const location = useLocation();
+	// console.log(useLocation());
+	console.log(location);
+	const [search, setSearch] = useState(location.state?.search ?? null);
+	console.log(search);
+
+	useEffect(() => {
+		setSearch(location.state?.search)
+	}, [location.state?.search])
+
+	// console.log(search);
 	const [isOpen, setIsOpen] = useState(false)
-	const [search, setSearch] = useState(null);
+	// const [search, setSearch] = useState(null);
 	// const [page, setPage] = useState(1)
 	const [pageData, setPageData] = useState({})
 	const [carPartsPagination, setCarPartsPagination] = useState([])
@@ -43,14 +54,15 @@ const GoodsOfCategory = () => {
 		}
 	]
 	const [selectedType, setSelectedType] = useState(items[0])
-	const [minPriceSaved, setMinPriceSaved] = useState(0)
-	const [maxPriceSaved, setMaxPriceSaved] = useState(200000)
+	// const [minPriceSaved, setMinPriceSaved] = useState(0)
+	// const [maxPriceSaved, setMaxPriceSaved] = useState(10000)
 
 	const debouncedSearch = useDebounce(search, 300)
 
 	useEffect(() => {
 		loadMoreData(minPriceSaved, maxPriceSaved, 1, false)
 	}, [selectedType, search])
+
 
 
 	// const { isLoading: isLoadingCarParts } = useGetCarPartsQuery({
@@ -61,11 +73,15 @@ const GoodsOfCategory = () => {
 
 	const { data: minMax = {}} = useGetMinMaxQuery()
 
+	const [minPriceSaved, setMinPriceSaved] = useState(minMax?.min)
+	const [maxPriceSaved, setMaxPriceSaved] = useState(minMax?.max)
+
 	const [getParts, { data: Products = [] }] = carPartsApi.endpoints.getProducts.useLazyQuery()
 
 	function loadMoreData (minPrice = false, maxPrice = false, page = 1, loadMore = false) {
+		console.log(minPrice, maxPrice);
 		let formData = new FormData();
-		search?.length > 2 && formData.append("name", debouncedSearch);
+		search?.length > 2 && formData.append("name", search);
 		formData.append("typeSort", selectedType.type);
 		formData.append("sort", "price");
 		formData.append("limit", "12");

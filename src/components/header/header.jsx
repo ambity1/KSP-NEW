@@ -8,7 +8,7 @@ import Button from '@ui/button/index.js'
 
 import HelpWithSelection from '@components/main/hero-screen/selection/help-with-selection/index.js'
 
-import phone from '../../../assets/icons/phone.svg'
+import phone from '/assets/icons/phone.svg'
 import Burger from './burger'
 import CartButton from './cart-button'
 import cl from './header.module.scss'
@@ -34,7 +34,7 @@ const Header = ({ closeSidePanel, sidePanelIsOpen }) => {
 		<header className={cl.header}>
 			<div className={headerContentWrapperClassNames}>
 				<Link to="/">
-					<img className={cl.logo} src="../../../assets/images/logo.svg" alt="" />
+					<img className={cl.logo} src="/assets/images/logo.svg" alt="" />
 				</Link>
 				<InputSearch />
 				<Link className={cl.phone} to="tel:+7 (707) 164-00-24">
@@ -54,7 +54,7 @@ const Header = ({ closeSidePanel, sidePanelIsOpen }) => {
 				{/* <Burger /> */}
 				{/* <div> */}
 				{/* <button className={cl.burger} onClick={() => closeSidePanel(!sidePanelIsOpen)} /> */}
-				<img src="../../../assets/icons/burger.svg" alt="" onClick={() => closeSidePanel(!sidePanelIsOpen)} />
+				<img src="/assets/icons/burger.svg" alt="" onClick={() => closeSidePanel(!sidePanelIsOpen)} />
 				{/* </div> */}
 			</div>
 		</header>

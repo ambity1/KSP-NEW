@@ -72,7 +72,7 @@ const SendRequest = ({ onClose }) => {
 					<div className={cl.wrapper}>
 						<button className={cl.btnClose} onClick={onClose} />
 						<div className={cl.contentWrapper}>
-							<img className={cl.clipboard} src="../../../../../../assets/images/clipboard.svg" alt="" />
+							<img className={cl.clipboard} src="/assets/images/clipboard.svg" alt="" />
 							<h2 className={cl.title}>Заявка успешно отправлена!</h2>
 							<div className={cl.contentContainer}>
 								<span className={cl.text}>Мы скоро свяжемся с вами</span>

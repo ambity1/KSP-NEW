@@ -2,6 +2,7 @@
 @use '@assets/styles/mixins/breakpoints';
 @use '@assets/styles/mixins/fontsStyles';
 @use '@assets/styles/mixins/fontsFamilies';
+@use '@assets/styles/mixins/helpers';
 
 .wrapper {
   position: relative;
@@ -55,4 +56,140 @@
       content: url('@assets/icons/slider-arrow-right.svg');
     }
   }
+}
+
+.cardWrapper {
+  position: relative;
+  width: 100%;
+  min-height: 620px;
+  //height: 589.8px;
+  //height: 100%;
+
+  @include breakpoints.desktop_small {
+    min-height: 520px;
+  }
+
+  @include breakpoints.tablet {
+    min-height: 450px;
+  }
+
+  @include breakpoints.mobile {
+    min-height: 350px;
+  }
+
+  .img {
+    @include helpers.contain;
+    //object-fit: cover;
+    z-index: -1;
+    border-radius: 4px;
+  }
+
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 33px;
+    max-width: 65%;
+    padding: 60px 68px;
+    @include breakpoints.desktop_large {
+      max-width: 90%;
+    }
+    @include breakpoints.desktop {
+      max-width: 100%;
+    }
+    @include breakpoints.tablet {
+      max-width: 85%;
+    }
+    @include breakpoints.tablet_small {
+      padding: 30px;
+    }
+    @include breakpoints.mobile_middle {
+      max-width: 90%;
+    }
+
+  }
+
+  .logo {
+    &::before {
+      content: url("@assets/images/slider-logo.svg");
+    }
+
+    @include breakpoints.desktop_large {
+      &::before {
+        content: url("@assets/images/slider-logo-x1000.svg");
+      }
+    }
+    @include breakpoints.mobile_middle {
+      &::before {
+        content: url("@assets/images/slider-logo-x320.svg");
+      }
+    }
+  }
+
+  .title {
+    max-width: 600px;
+    @include fontsStyles.DisplayLG;
+    @include fontsFamilies.FontFamilyInterBold;
+    @include breakpoints.desktop_large {
+      @include fontsStyles.DisplayL;
+    }
+    @include breakpoints.tablet_small {
+      @include fontsStyles.DisplayMD;
+    }
+    @include breakpoints.mobile_middle {
+      @include fontsStyles.TextLG;
+    }
+  }
+
+  .titleBlack {
+    color: black;
+    max-width: 600px;
+    @include fontsStyles.DisplayLG;
+    @include fontsFamilies.FontFamilyInterBold;
+    @include breakpoints.desktop_large {
+      @include fontsStyles.DisplayL;
+    }
+    @include breakpoints.tablet_small {
+      @include fontsStyles.DisplayMD;
+    }
+    @include breakpoints.mobile_middle {
+      @include fontsStyles.TextLG;
+    }
+  }
+
+  .btnLink {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @include breakpoints.mobile_middle {
+      @include fontsStyles.TextXS;
+      gap: 2px;
+    }
+
+    &::after {
+      width: 24px;
+      height: 24px;
+      content: url("@assets/icons/button-arrow.svg");
+    }
+  }
+
+  .btnLinkBlack {
+    color: black;
+    border-color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @include breakpoints.mobile_middle {
+      @include fontsStyles.TextXS;
+      gap: 2px;
+    }
+
+    &::after {
+      width: 24px;
+      height: 24px;
+      content: url("@assets/icons/arrow-right.svg");
+    }
+  }
+
+
 }
