@@ -5,7 +5,7 @@ import { TextField } from '@consta/uikit/TextField'
 import { Theme } from '@consta/uikit/Theme'
 import useMatchMedia from '@hooks/use-match-media.js'
 import cn from 'classnames'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import Button from '@ui/button/index.js'
@@ -16,18 +16,18 @@ import GoodCard from '@components/other-goods-slider/good-card/good-card.jsx'
 import { carPartsApi, useGetCarPartsQuery, useGetMinMaxQuery } from "../../store/modules/car-parts-api.js";
 import { presetKSP } from '../../uikit/presets/presetKSP.js'
 import cl from './goods-of-category.module.scss'
-import useDebounce from "@hooks/use-debounce.js";
+import { debounce } from "@hooks/use-debounce.js";
 
 const GoodsOfCategory = () => {
 	const location = useLocation();
 	// console.log(useLocation());
-	console.log(location);
-	const [search, setSearch] = useState(location.state?.search ?? null);
-	console.log(search);
+	// console.log(location.state?.word);
+	const [search, setSearch] = useState(location.state?.word ?? null);
+	// console.log(search);
 
 	useEffect(() => {
-		setSearch(location.state?.search)
-	}, [location.state?.search])
+		setSearch(location.state?.word)
+	}, [location.state?.word])
 
 	// console.log(search);
 	const [isOpen, setIsOpen] = useState(false)
@@ -57,11 +57,18 @@ const GoodsOfCategory = () => {
 	// const [minPriceSaved, setMinPriceSaved] = useState(0)
 	// const [maxPriceSaved, setMaxPriceSaved] = useState(10000)
 
-	const debouncedSearch = useDebounce(search, 300)
-
 	useEffect(() => {
 		loadMoreData(minPriceSaved, maxPriceSaved, 1, false)
-	}, [selectedType, search])
+	}, [selectedType])
+
+	const getDebounce = useRef()
+	// const obertka = () => {
+	// 	loadMoreData()
+	// }
+
+	useEffect(() => {
+		debounce(loadMoreData, 1000, getDebounce)
+	}, [search])
 
 
 

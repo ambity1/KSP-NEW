@@ -22,9 +22,9 @@ const InputSearch = () => {
 
 	const handleChange = ( value ) => setSearch(value);
 
-	const handleSearch = (search) => {
-		navigate('/goods-of-category', { state: {word: search} });
-		setSearch(null)
+	const handleSearch = () => {
+		navigate('/goods-of-category', { state: { word: search } });
+		setSearch('');
 	};
 
 	console.log(search);
@@ -52,6 +52,13 @@ const InputSearch = () => {
 		}
 	}, [])
 
+	const handleKeyPress = (e) => {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			handleSearch();
+		}
+	};
+
 	if (isMobile || isTabletSmall) {
 		// PLACEHOLDER
 		return (
@@ -77,7 +84,7 @@ const InputSearch = () => {
 							type="textarea"
 							// rows={3}
 							placeholder="Наименование, номер запчасти или VIN"
-							onKeyPress={(e) => e === 13 && handleSearch}
+							onKeyPress={handleKeyPress}
 						/>
 					</div>
 				</div>
@@ -93,7 +100,7 @@ const InputSearch = () => {
 	}
 	// const items = ['Первый', 'Второй', 'Третий', 'Четвертый', 'Пятый']
 	return (
-		<form className={cl.wrapper}>
+		<div className={cl.wrapper}>
 			{/* <form> */}
 			{/* <input className={cl.input} type="text" placeholder="Название, номер запчасти или артикль" /> */}
 			{isDesktop && (
@@ -114,7 +121,7 @@ const InputSearch = () => {
 					value={search}
 					type="text"
 					placeholder="Наименование, номер запчасти или артикль"
-					onKeyPress={(e) => e === 13 && handleSearch}
+					onKeyPress={handleKeyPress}
 				/>
 			)}
 			{isDesktop && (
@@ -124,7 +131,7 @@ const InputSearch = () => {
 					</Button>
 				</Link>
 			)}
-		</form>
+		</div>
 	)
 }
 
