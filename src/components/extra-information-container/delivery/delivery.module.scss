@@ -55,6 +55,13 @@
   border: 0.0625em solid colors.$gray; // 1px
   border-radius: 0.25em; // 4px
 
+  ul {
+
+    li {
+      list-style-type: circle;
+    }
+  }
+
   @include breakpoints.mobile {
     padding: 1.25em; // 20px
   }

@@ -9,17 +9,17 @@ const CarBands = () => {
 		() => [
 			{
 				id: 0,
-				href: '/',
+				href: '/goods-of-category',
 				imgPath: '/assets/icons/kia-logo.svg'
 			},
 			{
 				id: 1,
-				href: '/',
+				href: '/goods-of-category',
 				imgPath: '/assets/icons/hyundai-logo.svg'
 			},
 			{
 				id: 2,
-				href: '/',
+				href: '/goods-of-category',
 				imgPath: '/assets/icons/chevrolet-logo.svg'
 			}
 		],

@@ -86,16 +86,16 @@ const HelpWithSelection = ({ onClose }) => {
 						<div className={cl.contentWrapper}>
 							<h2 className={cl.title}>Помощь с подбором</h2>
 							<div className={cl.contentContainer}>
-								<span className={cl.text}>Вы можете написать нам с вопросом в любой из социальных сетей:</span>
+								<span className={cl.text}>Вы можете написать нам с вопросом в соц. сеть:</span>
 								<div className={cl.linkWrapper}>
 									<Link className={cn([cl.link])} to="https://api.whatsapp.com/send/?phone=77071640024&text&type=phone_number&app_absent=0" target='_blank'>
 										<img src="/assets/icons/whatsapp.svg" alt="" />
 										Связаться в Whatsapp
 									</Link>
-									<Link className={cn([cl.link])} to="/">
-										<img src="/assets/icons/telegram.svg" alt="" />
-										Связаться в Telegram
-									</Link>
+									{/* <Link className={cn([cl.link])} to="/"> */}
+									{/* 	<img src="/assets/icons/telegram.svg" alt="" /> */}
+									{/* 	Связаться в Telegram */}
+									{/* </Link> */}
 								</div>
 							</div>
 							<div className={cl.contactsWrapper}>

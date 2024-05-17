@@ -122,7 +122,7 @@ const GoodsOfCategory = () => {
 	}, [])
 
 	const handleSearch = () => {
-		setSearch(search)
+		setSearch(null)
 	};
 
 	// const partsList = [
@@ -167,7 +167,7 @@ const GoodsOfCategory = () => {
 				<div className={cl.group}>
 					<div className={cl.sidebarContent}>
 						<img
-							src="../../../../../../assets/icons/closeblack.svg"
+							src="/assets/icons/closeblack.svg"
 							alt=""
 							className={cl.btnClose}
 							onClick={() => setIsOpen(false)}
@@ -244,7 +244,14 @@ const GoodsOfCategory = () => {
 									loadMoreData={loadMoreData}
 								/>
 							</div>
-						) : (<div>К сожалению, такой товар не найден</div>)}
+						) : (
+							<div>
+								<br/>
+								<div>К сожалению, такой товар не найден</div>
+								<br/>
+								<Button sizeStyle={"sizeM"} colorStyle={'outlined'} onClick={handleSearch}>Сбросить все</Button>
+							</div>
+						)}
 						<div className={cl.cardsGroup}>
 							<div className={cl.goodsWrapper}>
 								{pageData?.data

@@ -8,7 +8,6 @@ import Button from '@ui/button'
 import SendRequest from '@components/good-detail-container/send-request/send-request.jsx'
 
 // import HelpWithSelection from '@components/main/hero-screen/selection/help-with-selection/index.js'
-import goodImageSrc from '../../../../assets/images/goodCard.jpg'
 import cl from './good-detail.module.scss'
 
 const GoodDetail = (props) => {

@@ -66,12 +66,12 @@ const InputSearch = () => {
 				<div className={cn([`${cl.sidePanelInput} ${isOpen ? '' : cl.active}`])}>
 					<div className={`${isOpen ? cl.overlay : ''}`} onClick={() => setIsOpen(false)} />
 					<div className={cl.sidePanelInputContent}>
-						{/* <img */}
-						{/* 	src="../../../../../../assets/icons/closebtn.svg" */}
-						{/* 	alt="" */}
-						{/* 	className={cl.btnClose} */}
-						{/* 	onClick={() => setIsOpen(false)} */}
-						{/* /> */}
+						<img
+							src="/assets/icons/closebtn.svg"
+							alt=""
+							className={cl.btnClose}
+							onClick={() => setIsOpen(false)}
+						/>
 						{/* <div className={cl.wrapper}> */}
 						{/* 	<input className={cl.input} type="text" placeholder="Наименование, номер запчасти или VIN" /> */}
 						{/* </div> */}

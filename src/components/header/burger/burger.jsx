@@ -20,7 +20,7 @@ const Burger = () => {
 
 	return (
 		<div>
-			<img src="../../../assets/icons/burger.svg" alt="" onClick={togglePanel} />
+			<img src="/assets/icons/burger.svg" alt="" onClick={togglePanel} />
 			{/* <button className={cl.burger} onClick={togglePanel} /> */}
 		</div>
 	)

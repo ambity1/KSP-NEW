@@ -85,7 +85,7 @@ const SendRequest = ({ onClose }) => {
 						<div className={cl.contentWrapper}>
 							<h2 className={cl.title}>Оставить заявку</h2>
 							<div className={cl.contactsWrapper}>
-								<span className={cl.text}>Или напишите нам в любую из соц. сетей:</span>
+								<span className={cl.text}>Оставьте нам свои контакты и мы вам перезвоним</span>
 								<form className={cl.inputWrapper} onSubmit={submitForm}>
 									{/* <input className={cl.input} type="number" placeholder="Телефон" /> */}
 									<input
@@ -113,14 +113,14 @@ const SendRequest = ({ onClose }) => {
 								</span>
 							</div>
 							<div className={cl.contentContainer}>
-								<span className={cl.text}>Или напишите нам в любую из соц. сетей:</span>
+								<span className={cl.text}>Или напишите нам в соц. сеть:</span>
 								<div className={cl.linkWrapper}>
 									<Link className={cn([cl.link, cl.whatsapp])} to="https://api.whatsapp.com/send/?phone=77071640024&text&type=phone_number&app_absent=0" target='_blank'>
 										Связаться в Whatsapp
 									</Link>
-									<Link className={cn([cl.link, cl.telegram])} to="#">
-										Связаться в Telegram
-									</Link>
+									{/* <Link className={cn([cl.link, cl.telegram])} to="#"> */}
+									{/* 	Связаться в Telegram */}
+									{/* </Link> */}
 								</div>
 							</div>
 						</div>

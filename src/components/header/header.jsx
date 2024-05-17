@@ -54,7 +54,7 @@ const Header = ({ closeSidePanel, sidePanelIsOpen }) => {
 				{/* <Burger /> */}
 				{/* <div> */}
 				{/* <button className={cl.burger} onClick={() => closeSidePanel(!sidePanelIsOpen)} /> */}
-				<img src="/assets/icons/burger.svg" alt="" onClick={() => closeSidePanel(!sidePanelIsOpen)} />
+				<img style={{cursor: "pointer"}} src="/assets/icons/burger.svg" alt="" onClick={() => closeSidePanel(!sidePanelIsOpen)} />
 				{/* </div> */}
 			</div>
 		</header>

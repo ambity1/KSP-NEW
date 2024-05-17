@@ -23,11 +23,11 @@ const Footer = () => {
 				</div>
 				<div className={cl.copyright}>
 					<div className={copyrightContentWrapperClassNames}>
-						<Link className={cl.copyrightLink} to="/privacy-policy">
+						<Link className={cl.copyrightLink} to="/privacy-policy" target="_blank">
 							Политика конфиденциальности
 						</Link>
-						<Link className={cl.copyrightLink} to="https://ambity.ru">
-							Разработка сайта - Амбити
+						<Link className={cl.copyrightLink} to="https://ambity.ru" target='_blank'>
+							Разработка сайта - <span style={{textDecoration: "underline"}}>Амбити</span>
 						</Link>
 					</div>
 				</div>
