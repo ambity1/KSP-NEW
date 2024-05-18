@@ -37,7 +37,7 @@ const Header = ({ closeSidePanel, sidePanelIsOpen }) => {
 					<img className={cl.logo} src="/assets/images/logo.svg" alt="" />
 				</Link>
 				<InputSearch />
-				<Link className={cl.phone} to="tel:+7 (707) 164-00-24">
+				<Link className={cl.phone} to="tel:+77071640024">
 					<img src={phone} alt="" />
 					<span>+7 (707) 164-00-24</span>
 				</Link>

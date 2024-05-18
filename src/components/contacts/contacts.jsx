@@ -18,12 +18,12 @@ const Contacts = ({
 			{
 				id: 0,
 				text: 'Актобе, просп. Санкибай Батыра, 171Г',
-				phone: '+7 (707) 164-00-24'
+				phone: '+77071640024'
 			},
 			{
 				id: 1,
 				text: 'Актобе, просп. Санкибай Батыра, 32',
-				phone: '+7 (707) 164-00-24'
+				phone: '+77071640024'
 			}
 		],
 		[]
@@ -58,7 +58,7 @@ const Contacts = ({
 				{addressesList.map(({ id, text, phone }) => (
 					<li key={id} className={cn([cl.addressItem, addressItemClassName])}>
 						<span className={cl.address}>{text}</span>
-						<Link to={`tel:${phone}`}>{phone}</Link>
+						<Link to={`tel:${phone}`}>+7 (707) 164-00-24</Link>
 					</li>
 				))}
 			</ul>

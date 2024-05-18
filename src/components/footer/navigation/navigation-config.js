@@ -68,7 +68,7 @@ export const navigationsList = [
 		links: [
 			{
 				id: 0,
-				href: 'tel:+7 (915) 123-45-67',
+				href: 'tel:+77071640024',
 				text: '+7 (707) 164-00-24'
 			},
 			// {
