@@ -125,8 +125,8 @@ const InputSearch = () => {
 				/>
 			)}
 			{isDesktop && (
-				<Link to='/goods-of-category' state={{search: search}}>
-					<Button sizeStyle="sizeM" className={cl.button} type="button" onClick={handleSearch}>
+				<Link to='/goods-of-category' state={{ word: search }}>
+					<Button sizeStyle="sizeM" className={cl.button} type="button">
 						Найти
 					</Button>
 				</Link>

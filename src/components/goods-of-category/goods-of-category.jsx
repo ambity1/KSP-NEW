@@ -29,6 +29,8 @@ const GoodsOfCategory = () => {
 		setSearch(location.state?.word)
 	}, [location.state?.word])
 
+	// console.log(location.state?.word);
+
 	// console.log(search);
 	const [isOpen, setIsOpen] = useState(false)
 	// const [search, setSearch] = useState(null);
@@ -123,6 +125,9 @@ const GoodsOfCategory = () => {
 
 	const handleSearch = () => {
 		setSearch(null)
+		setMinPriceSaved(minMax?.min)
+		setMaxPriceSaved(minMax?.max)
+		setSelectedType(items[0])
 	};
 
 	// const partsList = [
