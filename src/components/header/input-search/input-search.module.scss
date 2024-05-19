@@ -140,8 +140,8 @@
 
 .modalButton {
   cursor: pointer;
-  margin-left: auto;
+  //margin-left: auto;
   @include breakpoints.mobile_small {
-    margin-left: 0;
+    //margin-left: 0;
   }
 }

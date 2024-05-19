@@ -36,26 +36,28 @@ const Header = ({ closeSidePanel, sidePanelIsOpen }) => {
 				<Link to="/">
 					<img className={cl.logo} src="/assets/images/logo.svg" alt="" />
 				</Link>
-				<InputSearch />
-				<Link className={cl.phone} to="tel:+77071640024">
-					<img src={phone} alt="" />
-					<span>+7 (707) 164-00-24</span>
-				</Link>
-				<div>
-					<Button sizeStyle="sizeM" colorStyle="outlined" className={cl.help} onClick={togglePanel}>
-						Помощь с подбором
-					</Button>
-					<Button sizeStyle="sizeS" colorStyle="outlined" className={cl.helpSmall} onClick={togglePanel}>
-						Помощь с подбором
-					</Button>
-					{isOpen ? <HelpWithSelection onClose={closePanel} /> : ''}
+				<div className={cl.second}>
+					<InputSearch />
+					<Link className={cl.phone} to="tel:+77071640024">
+						<img src={phone} alt="" />
+						<span>+7 (707) 164-00-24</span>
+					</Link>
+					<div>
+						<Button sizeStyle="sizeM" colorStyle="outlined" className={cl.help} onClick={togglePanel}>
+							Помощь с подбором
+						</Button>
+						<Button sizeStyle="sizeS" colorStyle="outlined" className={cl.helpSmall} onClick={togglePanel}>
+							Помощь с подбором
+						</Button>
+						{isOpen ? <HelpWithSelection onClose={closePanel} /> : ''}
+					</div>
+					{/* <CartButton /> */}
+					{/* <Burger /> */}
+					{/* <div> */}
+					{/* <button className={cl.burger} onClick={() => closeSidePanel(!sidePanelIsOpen)} /> */}
+					<img style={{cursor: "pointer"}} src="/assets/icons/burger.svg" alt="" onClick={() => closeSidePanel(!sidePanelIsOpen)} />
+					{/* </div> */}
 				</div>
-				{/* <CartButton /> */}
-				{/* <Burger /> */}
-				{/* <div> */}
-				{/* <button className={cl.burger} onClick={() => closeSidePanel(!sidePanelIsOpen)} /> */}
-				<img style={{cursor: "pointer"}} src="/assets/icons/burger.svg" alt="" onClick={() => closeSidePanel(!sidePanelIsOpen)} />
-				{/* </div> */}
 			</div>
 		</header>
 	)
